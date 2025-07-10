@@ -1667,7 +1667,7 @@
                 <h2 class="text-2xl font-bold premium-text mb-6">+ Create Something Amazing</h2>
                 
                 <div class="space-y-4 mb-6">
-                    <button class="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="createVideo()">
+                    <button class="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showCreateVideoModal(); hideCreateModal()">
                         <span class="text-2xl text-white">■</span>
                         <div class="text-left">
                             <p class="font-bold">Create Video</p>
@@ -1683,7 +1683,7 @@
                         </div>
                     </button>
                     
-                    <button class="w-full bg-gradient-to-r from-gray-600 to-gray-800 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showServicesModal()">
+                    <button class="w-full bg-gradient-to-r from-gray-600 to-gray-800 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showAddServiceModal(); hideCreateModal()">
                         <span class="text-2xl">▲</span>
                         <div class="text-left">
                             <p class="font-bold">Offer Services</p>
@@ -1691,7 +1691,7 @@
                         </div>
                     </button>
                     
-                    <button class="w-full bg-gradient-to-r from-gray-700 to-gray-900 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="goLive()">
+                    <button class="w-full bg-gradient-to-r from-gray-700 to-gray-900 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showGoLiveModal(); hideCreateModal()">
                         <span class="text-2xl text-white">●</span>
                         <div class="text-left">
                             <p class="font-bold">Go Live</p>
@@ -1703,6 +1703,143 @@
                 <button class="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold" onclick="hideCreateModal()">
                     Cancel
                 </button>
+            </div>
+        </div>
+
+        <!-- Create Video Modal -->
+        <div id="createVideoModal" class="boost-overlay" style="display: none;">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold premium-text mb-6">■ Create Video</h2>
+                
+                <div class="space-y-4 mb-6 text-left">
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Video Title</label>
+                        <input type="text" id="videoTitle" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-600" placeholder="Enter video title">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Description</label>
+                        <textarea id="videoDescription" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-600 h-20" placeholder="Describe your art process..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Choose Video Source</label>
+                        <div class="space-y-3">
+                            <button class="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white py-3 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="startCamera()">
+                                <span class="text-xl">📹</span>
+                                <span>Record with Camera</span>
+                            </button>
+                            
+                            <button class="w-full bg-gradient-to-r from-gray-600 to-gray-700 text-white py-3 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="uploadVideo()">
+                                <span class="text-xl">📁</span>
+                                <span>Upload Video File</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="videoPreview" class="hidden">
+                        <label class="block text-sm font-semibold text-white mb-2">Video Preview</label>
+                        <div class="w-full h-40 bg-gray-800 rounded-lg border-2 border-dashed border-gray-600 flex items-center justify-center">
+                            <div class="text-center">
+                                <span class="text-4xl mb-2 block">📹</span>
+                                <p class="text-gray-400 text-sm">Video preview will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Tags</label>
+                        <input type="text" id="videoTags" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-600" placeholder="art, painting, tutorial (comma separated)">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Privacy</label>
+                        <select id="videoPrivacy" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-600">
+                            <option value="public">● Public - Everyone can see</option>
+                            <option value="followers">▲ Followers Only</option>
+                            <option value="private">■ Private - Only you</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <button class="w-full instagram-gradient text-white py-3 rounded-lg font-bold" onclick="publishVideo()">
+                        🚀 Publish Video
+                    </button>
+                    <button class="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold" onclick="hideCreateVideoModal()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Go Live Modal -->
+        <div id="goLiveModal" class="boost-overlay" style="display: none;">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold premium-text mb-6">● Go Live</h2>
+                
+                <div class="space-y-4 mb-6 text-left">
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Stream Title</label>
+                        <input type="text" id="streamTitle" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-600" placeholder="Enter stream title">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Stream Description</label>
+                        <textarea id="streamDescription" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-600 h-20" placeholder="Tell viewers what you'll be creating..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-white mb-2">Stream Category</label>
+                        <select id="streamCategory" class="w-full bg-gray-800 text-white rounded-lg p-3 border border-gray-600">
+                            <option value="painting">🎨 Painting</option>
+                            <option value="drawing">✏️ Drawing</option>
+                            <option value="sculpture">🗿 Sculpture</option>
+                            <option value="digital">💻 Digital Art</option>
+                            <option value="tutorial">📚 Tutorial</option>
+                            <option value="discussion">💬 Art Discussion</option>
+                        </select>
+                    </div>
+                    
+                    <div id="cameraPreview">
+                        <label class="block text-sm font-semibold text-white mb-2">Camera Preview</label>
+                        <div class="w-full h-40 bg-gray-900 rounded-lg border border-gray-600 flex items-center justify-center relative">
+                            <div class="text-center">
+                                <span class="text-4xl mb-2 block">📸</span>
+                                <p class="text-gray-400 text-sm">Camera preview</p>
+                            </div>
+                            <div class="absolute top-2 right-2 flex space-x-2">
+                                <button class="bg-gray-700 text-white p-2 rounded-full" onclick="switchCamera()">🔄</button>
+                                <button class="bg-gray-700 text-white p-2 rounded-full" onclick="toggleMicrophone()">🎤</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-900 bg-opacity-50 border border-yellow-600 rounded-lg p-3">
+                        <div class="flex items-start space-x-2">
+                            <span class="text-yellow-400 text-sm">⚠️</span>
+                            <div class="text-xs text-yellow-200">
+                                <p class="font-semibold mb-1">Live Streaming Guidelines:</p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>Keep content appropriate and art-focused</li>
+                                    <li>Ensure good lighting and audio quality</li>
+                                    <li>Interact with your viewers</li>
+                                    <li>Have your art materials ready</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <button class="w-full bg-red-600 hover:bg-red-500 text-white py-3 rounded-lg font-bold flex items-center justify-center space-x-2" onclick="startLiveStream()">
+                        <span class="w-3 h-3 bg-white rounded-full animate-pulse"></span>
+                        <span>🔴 Start Live Stream</span>
+                    </button>
+                    <button class="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold" onclick="hideGoLiveModal()">
+                        Cancel
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -1787,17 +1924,119 @@
         }
         
         function createVideo() {
-            alert("Video creation feature will be available soon!");
+            showCreateVideoModal();
             hideCreateModal();
         }
         
         function showServicesModal() {
-            alert("Service creation modal will be available soon!");
+            showAddServiceModal();
         }
         
         function goLive() {
-            alert("Live streaming feature will be available soon!");
+            showGoLiveModal();
             hideCreateModal();
+        }
+        
+        // Create Video Modal Functions
+        function showCreateVideoModal() {
+            document.getElementById('createVideoModal').style.display = 'block';
+        }
+        
+        function hideCreateVideoModal() {
+            document.getElementById('createVideoModal').style.display = 'none';
+        }
+        
+        function startCamera() {
+            alert("📹 Camera access requested!\n\nIn a real app, this would:\n• Request camera permissions\n• Start video recording\n• Show live preview\n• Allow video effects");
+            document.getElementById('videoPreview').classList.remove('hidden');
+        }
+        
+        function uploadVideo() {
+            // Simulate file picker
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'video/*';
+            input.onchange = function(e) {
+                if (e.target.files.length > 0) {
+                    const file = e.target.files[0];
+                    alert(`📁 Video uploaded: ${file.name}\n\nSize: ${(file.size / 1024 / 1024).toFixed(2)} MB`);
+                    document.getElementById('videoPreview').classList.remove('hidden');
+                }
+            };
+            input.click();
+        }
+        
+        function publishVideo() {
+            const title = document.getElementById('videoTitle').value;
+            const description = document.getElementById('videoDescription').value;
+            const tags = document.getElementById('videoTags').value;
+            const privacy = document.getElementById('videoPrivacy').value;
+            
+            if (!title.trim()) {
+                alert("Please enter a video title");
+                return;
+            }
+            
+            alert(`🚀 Video Published Successfully!\n\nTitle: ${title}\nPrivacy: ${privacy}\nTags: ${tags || 'None'}\n\nYour video is now live on your profile!`);
+            
+            // Reset form
+            document.getElementById('videoTitle').value = '';
+            document.getElementById('videoDescription').value = '';
+            document.getElementById('videoTags').value = '';
+            document.getElementById('videoPreview').classList.add('hidden');
+            
+            hideCreateVideoModal();
+        }
+        
+        // Go Live Modal Functions
+        function showGoLiveModal() {
+            document.getElementById('goLiveModal').style.display = 'block';
+        }
+        
+        function hideGoLiveModal() {
+            document.getElementById('goLiveModal').style.display = 'none';
+        }
+        
+        function switchCamera() {
+            alert("🔄 Camera switched!\n\nIn a real app, this would switch between front/rear cameras");
+        }
+        
+        function toggleMicrophone() {
+            const btn = event.target;
+            if (btn.textContent === '🎤') {
+                btn.textContent = '🔇';
+                alert("🔇 Microphone muted");
+            } else {
+                btn.textContent = '🎤';
+                alert("🎤 Microphone unmuted");
+            }
+        }
+        
+        function startLiveStream() {
+            const title = document.getElementById('streamTitle').value;
+            const description = document.getElementById('streamDescription').value;
+            const category = document.getElementById('streamCategory').value;
+            
+            if (!title.trim()) {
+                alert("Please enter a stream title");
+                return;
+            }
+            
+            // Simulate stream starting
+            alert(`🔴 Going Live!\n\nTitle: ${title}\nCategory: ${category}\n\nYour live stream is starting...\nViewers will be able to join shortly!`);
+            
+            // In a real app, this would:
+            // - Start the camera/screen capture
+            // - Connect to streaming server
+            // - Display live viewer count
+            // - Enable chat functionality
+            
+            hideGoLiveModal();
+            
+            // Simulate live stream notification
+            setTimeout(() => {
+                alert("🎉 You're now LIVE!\n\n👥 3 viewers joined\n💬 Chat is active\n\nKeep creating amazing art!");
+            }, 2000);
         }
         
         function hideChatModal() {
@@ -1819,8 +2058,38 @@
             if (modal) modal.style.display = 'none';
         }
         
-        function showAddServiceModal() {
+        function showAddServiceModal(serviceType = '') {
             const modal = document.getElementById('addServiceModal');
+            const title = document.getElementById('serviceModalTitle');
+            
+            // Hide all specific sections first
+            document.getElementById('classSpecific').classList.add('hidden');
+            document.getElementById('ebookSpecific').classList.add('hidden');
+            document.getElementById('materialsSpecific').classList.add('hidden');
+            
+            // Show appropriate section based on service type
+            switch(serviceType) {
+                case 'class':
+                    title.textContent = '▲ Add Art Class';
+                    document.getElementById('classSpecific').classList.remove('hidden');
+                    break;
+                case 'ebook':
+                    title.textContent = '□ Add eBook';
+                    document.getElementById('ebookSpecific').classList.remove('hidden');
+                    break;
+                case 'materials':
+                    title.textContent = '■ Add Art Materials';
+                    document.getElementById('materialsSpecific').classList.remove('hidden');
+                    break;
+                case 'course':
+                    title.textContent = '● Add Full Course';
+                    document.getElementById('classSpecific').classList.remove('hidden');
+                    break;
+                default:
+                    title.textContent = '▲ Add Service';
+                    break;
+            }
+            
             if (modal) modal.style.display = 'block';
         }
         
@@ -1830,7 +2099,48 @@
         }
         
         function confirmAddService() {
-            alert("Service created successfully!");
+            // Get form values
+            const serviceForm = document.getElementById('serviceForm');
+            const titleInput = serviceForm.querySelector('input[placeholder="Enter service title"]');
+            const priceInput = serviceForm.querySelector('input[placeholder="0.00"]');
+            const descriptionTextarea = serviceForm.querySelector('textarea');
+            
+            const title = titleInput?.value.trim();
+            const price = priceInput?.value.trim();
+            const description = descriptionTextarea?.value.trim();
+            
+            // Validate required fields
+            if (!title) {
+                alert("Please enter a service title");
+                titleInput?.focus();
+                return;
+            }
+            
+            if (!price || parseFloat(price) <= 0) {
+                alert("Please enter a valid price");
+                priceInput?.focus();
+                return;
+            }
+            
+            if (!description) {
+                alert("Please enter a service description");
+                descriptionTextarea?.focus();
+                return;
+            }
+            
+            // Success message
+            alert(`🎉 Service Created Successfully!\n\nTitle: ${title}\nPrice: ₱${price}\nDescription: ${description.substring(0, 50)}${description.length > 50 ? '...' : ''}\n\nYour service is now live and available for booking!`);
+            
+            // Reset form
+            if (titleInput) titleInput.value = '';
+            if (priceInput) priceInput.value = '';
+            if (descriptionTextarea) descriptionTextarea.value = '';
+            
+            // Hide specific sections
+            document.getElementById('classSpecific').classList.add('hidden');
+            document.getElementById('ebookSpecific').classList.add('hidden');
+            document.getElementById('materialsSpecific').classList.add('hidden');
+            
             hideAddServiceModal();
         }
         
