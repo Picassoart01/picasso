@@ -1714,8 +1714,18 @@
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             
             // Show selected section
-            document.getElementById(section + 'Section').classList.add('active');
-            event.currentTarget.classList.add('active');
+            const sectionElement = document.getElementById(section + 'Section');
+            if (sectionElement) {
+                sectionElement.classList.add('active');
+            }
+            
+            // Find and activate the corresponding nav item
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(`'${section}'`)) {
+                    item.classList.add('active');
+                }
+            });
         }
         
         function showBoostOverlay() {
@@ -1903,168 +1913,122 @@
             document.getElementById('paymentMethodsModal').style.display = 'none';
         }
         
-        function confirmAddArtwork() {<script>
-  // === GLOBAL MODAL MANAGEMENT ===
+        function confirmAddArtwork() {
+            alert("Artwork listed successfully!");
+            hideAddArtworkModal();
+        }
+        
+        function showPaymentMethods() {
+            document.getElementById('paymentMethodsModal').style.display = 'block';
+        }
+        
+        function hidePaymentMethodsModal() {
+            document.getElementById('paymentMethodsModal').style.display = 'none';
+        }
+        
+        function openChat(username) {
+            alert(`Opening chat with ${username}`);
+        }
 
-  // Show modal by ID
-  function showModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (!modal) return;
-    
-    modal.style.display = 'flex';
-    modal.classList.add('fade-in');
-    modal.classList.remove('fade-out');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
-  }
+        function joinWaitlist() {
+            alert("You'll be notified when available.");
+        }
 
-  // Hide modal by ID
-  function hideModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (!modal) return;
+        function showCreateModal() {
+            document.getElementById('createModal').style.display = 'block';
+        }
+        
+        function hideCreateModal() {
+            document.getElementById('createModal').style.display = 'none';
+        }
 
-    modal.classList.remove('fade-in');
-    modal.classList.add('fade-out');
-    setTimeout(() => {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 200); // matches animation duration
-  }
+        function showSearchModal() {
+            document.getElementById('searchModal').style.display = 'block';
+        }
+        
+        function hideSearchModal() {
+            document.getElementById('searchModal').style.display = 'none';
+        }
 
-  // Close modals when clicking outside content
-  document.addEventListener('click', function (e) {
-    const modals = document.querySelectorAll('.boost-overlay');
-    modals.forEach(modal => {
-      if (modal.style.display === 'flex' && !modal.contains(e.target) && e.target === modal) {
-        modal.classList.remove('fade-in');
-        modal.classList.add('fade-out');
-        setTimeout(() => {
-          modal.style.display = 'none';
-          document.body.style.overflow = '';
-        }, 200);
-      }
-    });
-  });
+        function markAllRead() {
+            alert("All notifications marked as read.");
+        }
 
-  // === BOOST MODAL ===
-  function showBoostOverlay() {
-    showModal('boostOverlay');
-  }
+        function showBoostSection() {
+            const boost = document.getElementById('boostInProfile');
+            boost?.classList.remove('hidden');
+            boost?.scrollIntoView({ behavior: 'smooth' });
+        }
 
-  function hideBoostOverlay() {
-    hideModal('boostOverlay');
-  }
+        function showSettings() {
+            alert("Settings page opening...");
+        }
 
-  function confirmBoost(type, price) {
-    alert(`You selected the ${type} Boost for ${price}.`);
-    hideBoostOverlay();
-  }
+        function showChatSupport() {
+            alert("Live support chat not implemented yet.");
+        }
 
-  // === ARTWORK MODAL ===
-  function showAddArtworkModal() {
-    showModal('addArtworkModal');
-  }
+                 // === FEED TAB SWITCHING ===
+        function switchFeedTab(tab) {
+            document.querySelectorAll('#homeSection button').forEach(btn => {
+                btn.classList.remove('text-white', 'font-bold', 'border-b-2', 'border-white', 'pb-1');
+                btn.classList.add('text-gray-400');
+            });
 
-  function hideAddArtworkModal() {
-    hideModal('addArtworkModal');
-  }
+            const selectedBtn = document.getElementById(tab + 'Tab');
+            if (selectedBtn) {
+                selectedBtn.classList.remove('text-gray-400');
+                selectedBtn.classList.add('text-white', 'font-bold', 'border-b-2', 'border-white', 'pb-1');
+            }
+        }
+        
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize shop tabs
+            const shopTabs = ['marketplace', 'myShop', 'services', 'wallet', 'chat'];
+            shopTabs.forEach(tab => {
+                const btn = document.getElementById(tab + 'Tab');
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        shopTabs.forEach(t => {
+                            const tabBtn = document.getElementById(t + 'Tab');
+                            const tabContent = document.getElementById(t + 'Content');
+                            if (tabBtn && tabContent) {
+                                tabBtn.classList.remove('instagram-gradient');
+                                tabBtn.classList.add('bg-gray-700', 'text-gray-300');
+                                tabContent.classList.add('hidden');
+                            }
+                        });
+                        btn.classList.remove('bg-gray-700', 'text-gray-300');
+                        btn.classList.add('instagram-gradient');
+                        const content = document.getElementById(tab + 'Content');
+                        if (content) {
+                            content.classList.remove('hidden');
+                        }
+                    });
+                }
+            });
 
-  function confirmAddArtwork() {
-    alert("Artwork listed successfully!");
-    hideAddArtworkModal();
-  }
+            // Initialize profile video tabs
+            const myVideosTab = document.getElementById('myVideosTab');
+            const likedVideosTab = document.getElementById('likedVideosTab');
+            const myVideosGrid = document.getElementById('myVideosGrid');
+            const likedVideosGrid = document.getElementById('likedVideosGrid');
+            
+            if (myVideosTab && likedVideosTab && myVideosGrid && likedVideosGrid) {
+                myVideosTab.addEventListener('click', () => {
+                    myVideosGrid.classList.remove('hidden');
+                    likedVideosGrid.classList.add('hidden');
+                    myVideosTab.classList.add('instagram-gradient');
+                    likedVideosTab.classList.remove('instagram-gradient');
+                });
 
-  // === PAYMENT MODAL ===
-  function showPaymentMethods() {
-    showModal('paymentMethodsModal');
-  }
-
-  // === OTHER NAVIGATION ===
-  function openChat(username) {
-    alert(`Opening chat with ${username}`);
-  }
-
-  function joinWaitlist() {
-    alert("You'll be notified when available.");
-  }
-
-  function showCreateModal() {
-    alert("Create modal not implemented yet.");
-  }
-
-  function showSearchModal() {
-    alert("Search coming soon!");
-  }
-
-  function markAllRead() {
-    alert("All notifications marked as read.");
-  }
-
-  function showBoostSection() {
-    const boost = document.getElementById('boostInProfile');
-    boost?.classList.remove('hidden');
-    boost?.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  function showSettings() {
-    alert("Settings page opening...");
-  }
-
-  function showChatSupport() {
-    alert("Live support chat not implemented yet.");
-  }
-
-  // === SECTION SWITCHING ===
-  function switchSection(sectionId) {
-    const sections = ['home', 'shop', 'notifications', 'profile'];
-    sections.forEach(id => {
-      document.getElementById(id + 'Section')?.classList.remove('active');
-    });
-    document.getElementById(sectionId + 'Section')?.classList.add('active');
-
-    document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-  }
-
-  // === FEED TAB SWITCHING ===
-  function switchFeedTab(tab) {
-    document.querySelectorAll('#homeSection button').forEach(btn => {
-      btn.classList.remove('text-white', 'font-bold', 'border-b-2', 'border-white', 'pb-1');
-      btn.classList.add('text-gray-400');
-    });
-
-    const selectedBtn = document.getElementById(tab + 'Tab');
-    selectedBtn.classList.remove('text-gray-400');
-    selectedBtn.classList.add('text-white', 'font-bold', 'border-b-2', 'border-white', 'pb-1');
-  }
-
-  // === SHOP TABS ===
-  const shopTabs = ['marketplace', 'myShop', 'services', 'wallet', 'chat'];
-  shopTabs.forEach(tab => {
-    const btn = document.getElementById(tab + 'Tab');
-    btn?.addEventListener('click', () => {
-      shopTabs.forEach(t => {
-        document.getElementById(t + 'Tab').classList.remove('instagram-gradient');
-        document.getElementById(t + 'Tab').classList.add('bg-gray-700', 'text-gray-300');
-        document.getElementById(t + 'Content').classList.add('hidden');
-      });
-      btn.classList.remove('bg-gray-700', 'text-gray-300');
-      btn.classList.add('instagram-gradient');
-      document.getElementById(tab + 'Content').classList.remove('hidden');
-    });
-  });
-
-  // === PROFILE VIDEO TABS ===
-  document.getElementById('myVideosTab')?.addEventListener('click', () => {
-    document.getElementById('myVideosGrid').classList.remove('hidden');
-    document.getElementById('likedVideosGrid').classList.add('hidden');
-    document.getElementById('myVideosTab').classList.add('instagram-gradient');
-    document.getElementById('likedVideosTab').classList.remove('instagram-gradient');
-  });
-
-  document.getElementById('likedVideosTab')?.addEventListener('click', () => {
-    document.getElementById('likedVideosGrid').classList.remove('hidden');
-    document.getElementById('myVideosGrid').classList.add('hidden');
-    document.getElementById('likedVideosTab').classList.add('instagram-gradient');
-    document.getElementById('myVideosTab').classList.remove('instagram-gradient');
-  });
-</script>
+                likedVideosTab.addEventListener('click', () => {
+                    likedVideosGrid.classList.remove('hidden');
+                    myVideosGrid.classList.add('hidden');
+                    likedVideosTab.classList.add('instagram-gradient');
+                    myVideosTab.classList.remove('instagram-gradient');
+                });
+            }
+        });
+    </script>
