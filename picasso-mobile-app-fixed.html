@@ -15,7 +15,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #2a2a2a 100%);
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -23,9 +23,9 @@
         .phone-container {
             width: 375px;
             height: 812px;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
             border-radius: 40px;
-            border: 8px solid #333333;
+            border: 8px solid #2a2a3e;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
@@ -33,7 +33,7 @@
         
         .status-bar {
             height: 44px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.3);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,8 +43,8 @@
         }
         
         .app-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             padding: 15px 20px;
         }
         
@@ -61,8 +61,8 @@
         }
         
         .video-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 1px solid rgba(128, 128, 128, 0.2);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 16px;
             margin: 10px;
             overflow: hidden;
@@ -70,7 +70,7 @@
         }
         
         .boost-btn {
-            background: linear-gradient(135deg, #333333 0%, #555555 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
             animation: pulse 2s infinite;
         }
         
@@ -85,8 +85,8 @@
             left: 50%;
             transform: translateX(-50%);
             width: 375px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border-top: 1px solid rgba(128, 128, 128, 0.3);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
             padding: 10px 0 25px 0;
         }
         
@@ -100,7 +100,7 @@
         }
         
         .nav-item.active {
-            background: rgba(128, 128, 128, 0.2);
+            background: rgba(212, 175, 55, 0.2);
         }
         
         .engagement-btn {
@@ -156,8 +156,8 @@
             left: 50%;
             transform: translateX(-50%);
             width: 335px;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 2px solid rgba(128, 128, 128, 0.5);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid rgba(212, 175, 55, 0.5);
             border-radius: 16px;
             padding: 16px;
             z-index: 1001;
@@ -184,16 +184,16 @@
         <!-- Status Bar -->
         <div class="status-bar text-white">
             <span>9:41</span>
-            <span>••• 100%</span>
+            <span>📶 📶 📶 🔋</span>
         </div>
         
         <!-- App Header -->
         <div class="app-header">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center space-x-3">
-                    <!-- Custom Logo -->
-                    <div class="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAAVXmVYSWZNTQAqAAAACAAFAQAABAAAAAEAAAAAAQEABAAAAAEAAAAAArwAAQAACngAAABKh2kABAAAAAEAAArCARIABAAAAAEAAAAAAAAAADw/eHBhY2tldCBiZWdpbj0iPyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/Pgo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSBUZXN0LlNOQVBTSE9UIj4KICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICB4bWxuczpBdHRyaWI9Imh0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8iPgogICAgICA8QXR0cmliOkFkcz4KICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgIDxyZGY6bGkKICAgICAgICAgICAgQXR0cmliOkZiSWQ9IjUyNTI2NTkxNDE3OTU4MCIKICAgICAgICAgICAgQXR0cmliOkNyZWF0ZWQ9IjIwMjUtMDctMTAiCiAgICAgICAgICAgIEF0dHJpYjpUb3VjaFR5cGU9IjIiCiAgICAgICAgICAgIEF0dHJpYjpFeHRJZD0iNzc4NmUxYWItYzEzNC00YjM2LWE0ODUtMWFlMTNjZTBiYTRhIi8+CiAgICAgICAgPC9yZGY6U2VxPgogICAgICA8L0F0dHJpYjpBZHM+CiAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC=" alt="Picasso Logo" class="w-full h-full object-cover">
+                    <!-- Simple P Logo -->
+                    <div class="w-10 h-10 instagram-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">P</span>
                     </div>
                     <div>
                         <h1 class="text-lg font-bold premium-text">Picasso</h1>
@@ -204,9 +204,9 @@
                 <div class="flex items-center space-x-3">
                     <div class="text-right">
                         <p class="text-xs text-gray-400">Credits</p>
-                        <p class="text-sm font-bold text-gray-300">₱2,450</p>
+                        <p class="text-sm font-bold text-yellow-400">₱2,450</p>
                     </div>
-                    <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full border border-gray-400"></div>
+                    <div class="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full border border-yellow-400"></div>
                 </div>
             </div>
         </div>
@@ -227,7 +227,7 @@
                         For You
                     </button>
                     <button id="liveTab" class="text-gray-400 font-semibold text-sm flex items-center space-x-1" onclick="switchFeedTab('live')">
-                        <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
                         <span>LIVE</span>
                     </button>
                     
@@ -244,9 +244,9 @@
                     <div class="video-card">
                         <div class="relative">
                             <!-- Video Thumbnail -->
-                            <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative">
+                            <div class="h-64 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative">
                                 <div class="text-center">
-                                    <div class="text-6xl mb-2 text-white">●</div>
+                                    <div class="text-6xl mb-2">🌅</div>
                                     <p class="text-white font-semibold">Sunset Dreams Process</p>
                                     <p class="text-sm text-gray-200">Oil on Canvas • 60 sec</p>
                                 </div>
@@ -259,30 +259,30 @@
                                 </div>
                                 
                                 <!-- Boost Badge -->
-                                <div class="absolute top-3 right-3 bg-white text-black px-2 py-1 rounded-full text-xs font-bold">
-                                    BOOSTED
+                                <div class="absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold animate-pulse">
+                                    🚀 BOOSTED
                                 </div>
                             </div>
                             
                             <!-- Engagement Sidebar -->
                             <div class="absolute right-3 bottom-20 space-y-2">
                                 <div class="engagement-btn">
-                                    <span class="text-xl text-white">♡</span>
+                                    <span class="text-xl">❤️</span>
                                 </div>
                                 <p class="text-xs text-center text-white">3.2K</p>
                                 
                                 <div class="engagement-btn">
-                                    <span class="text-xl text-white">○</span>
+                                    <span class="text-xl">💬</span>
                                 </div>
                                 <p class="text-xs text-center text-white">247</p>
                                 
                                 <div class="engagement-btn">
-                                    <span class="text-xl text-white">↗</span>
+                                    <span class="text-xl">📤</span>
                                 </div>
                                 <p class="text-xs text-center text-white">89</p>
                                 
                                 <button class="boost-btn text-white px-3 py-1 rounded-full text-xs font-bold" onclick="showBoostOverlay()">
-                                    ▲ BOOST
+                                    🚀 BOOST
                                 </button>
                             </div>
                         </div>
@@ -295,17 +295,17 @@
                                     <p class="font-semibold text-white">@artista_maya</p>
                                     <p class="text-xs text-gray-400">Premium Artist</p>
                                 </div>
-                                <button class="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold ml-auto">
+                                <button class="instagram-gradient text-white px-3 py-1 rounded-full text-xs font-bold ml-auto">
                                     Follow
                                 </button>
                             </div>
-                            <p class="text-sm text-gray-300 mb-2">Creating magic with oil paints + This sunset piece took 3 hours to complete! Available for ₱14,950</p>
+                            <p class="text-sm text-gray-300 mb-2">Creating magic with oil paints ✨ This sunset piece took 3 hours to complete! Available for ₱14,950</p>
                             <div class="flex items-center justify-between">
                                 <div class="flex space-x-4 text-xs text-gray-400">
-                                    <span>○ 12.5K views</span>
-                                    <span>○ 2 hours ago</span>
+                                    <span>👁️ 12.5K views</span>
+                                    <span>⏱️ 2 hours ago</span>
                                 </div>
-                                <button class="bg-gray-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
+                                <button class="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
                                     🛒 Buy ₱14,950
                                 </button>
                             </div>
@@ -315,9 +315,9 @@
                     <!-- Video 2 -->
                     <div class="video-card">
                         <div class="relative">
-                            <div class="h-64 bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center relative">
+                            <div class="h-64 bg-gradient-to-br from-blue-600 to-teal-600 flex items-center justify-center relative">
                                 <div class="text-center">
-                                    <div class="text-6xl mb-2 text-white">■</div>
+                                    <div class="text-6xl mb-2">🌊</div>
                                     <p class="text-white font-semibold">Ocean Waves Tutorial</p>
                                     <p class="text-sm text-gray-200">Watercolor • 45 sec</p>
                                 </div>
@@ -331,22 +331,22 @@
                             
                             <div class="absolute right-3 bottom-20 space-y-2">
                                 <div class="engagement-btn">
-                                    <span class="text-xl text-white">♡</span>
+                                    <span class="text-xl">❤️</span>
                                 </div>
                                 <p class="text-xs text-center text-white">1.8K</p>
                                 
                                 <div class="engagement-btn">
-                                    <span class="text-xl text-white">○</span>
+                                    <span class="text-xl">💬</span>
                                 </div>
                                 <p class="text-xs text-center text-white">156</p>
                                 
                                 <div class="engagement-btn">
-                                    <span class="text-xl text-white">↗</span>
+                                    <span class="text-xl">📤</span>
                                 </div>
                                 <p class="text-xs text-center text-white">43</p>
                                 
                                 <button class="bg-gray-600 text-white px-3 py-1 rounded-full text-xs font-bold" onclick="showBoostOverlay()">
-                                    ▲ BOOST
+                                    🚀 BOOST
                                 </button>
                             </div>
                         </div>
@@ -358,17 +358,17 @@
                                     <p class="font-semibold text-white">@ocean_artist</p>
                                     <p class="text-xs text-gray-400">Rising Artist</p>
                                 </div>
-                                <button class="bg-gray-600 hover:bg-gray-500 text-white px-3 py-1 rounded-full text-xs font-bold ml-auto">
+                                <button class="instagram-gradient text-white px-3 py-1 rounded-full text-xs font-bold ml-auto">
                                     Follow
                                 </button>
                             </div>
-                            <p class="text-sm text-gray-300 mb-2">Watercolor waves technique ■ Perfect for beginners! Print available for ₱4,450</p>
+                            <p class="text-sm text-gray-300 mb-2">Watercolor waves technique 🌊 Perfect for beginners! Print available for ₱4,450</p>
                             <div class="flex items-center justify-between">
                                 <div class="flex space-x-4 text-xs text-gray-400">
-                                    <span>○ 8.2K views</span>
-                                    <span>○ 5 hours ago</span>
+                                    <span>👁️ 8.2K views</span>
+                                    <span>⏱️ 5 hours ago</span>
                                 </div>
-                                <button class="bg-gray-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
+                                <button class="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
                                     🛒 Buy ₱4,450
                                 </button>
                             </div>
@@ -383,20 +383,20 @@
                 
                 <!-- Shop Tabs -->
                 <div class="flex space-x-1 mb-4">
-                    <button id="marketplaceTab" class="flex-1 py-2 px-2 rounded-lg bg-gray-600 text-white font-semibold text-xs">
-                        ● Browse
+                    <button id="marketplaceTab" class="flex-1 py-2 px-2 rounded-lg instagram-gradient text-white font-semibold text-xs">
+                        🌍 Browse
                     </button>
                     <button id="myShopTab" class="flex-1 py-2 px-2 rounded-lg bg-gray-700 text-gray-300 font-semibold text-xs">
-                        ■ My Shop
+                        🏪 My Shop
                     </button>
                     <button id="servicesTab" class="flex-1 py-2 px-2 rounded-lg bg-gray-700 text-gray-300 font-semibold text-xs">
-                        ▲ Services
+                        🎓 Services
                     </button>
                     <button id="walletTab" class="flex-1 py-2 px-2 rounded-lg bg-gray-700 text-gray-300 font-semibold text-xs">
-                        □ Wallet
+                        💳 Wallet
                     </button>
                     <button id="chatTab" class="flex-1 py-2 px-2 rounded-lg bg-gray-700 text-gray-300 font-semibold text-xs">
-                        ○ Chat
+                        💬 Chat
                     </button>
                 </div>
                 
@@ -404,19 +404,19 @@
                 <div id="marketplaceContent">
                     <div class="grid grid-cols-2 gap-3">
                         <div class="bg-gray-800 rounded-lg overflow-hidden">
-                            <div class="h-32 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center relative">
-                                <span class="text-4xl text-white">●</span>
-                                <div class="absolute top-2 right-2 bg-white text-black px-1 py-0.5 rounded text-xs">
-                                    HOT
+                            <div class="h-32 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative">
+                                <span class="text-4xl">🌅</span>
+                                <div class="absolute top-2 right-2 bg-red-500 text-white px-1 py-0.5 rounded text-xs">
+                                    🔥 Hot
                                 </div>
                             </div>
                             <div class="p-3">
                                 <h3 class="font-semibold text-white text-sm">Sunset Dreams</h3>
                                 <p class="text-xs text-gray-400">@artista_maya</p>
                                 <div class="flex items-center justify-between mt-1">
-                                    <p class="text-sm font-bold text-gray-300">₱14,950</p>
+                                    <p class="text-sm font-bold text-pink-400">₱14,950</p>
                                     <div class="flex items-center space-x-1">
-                                        <span class="text-xs text-white">★</span>
+                                        <span class="text-xs text-yellow-400">⭐</span>
                                         <span class="text-xs text-gray-400">4.9</span>
                                     </div>
                                 </div>
@@ -424,16 +424,16 @@
                         </div>
                         
                         <div class="bg-gray-800 rounded-lg overflow-hidden">
-                            <div class="h-32 bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-                                <span class="text-4xl text-white">■</span>
+                            <div class="h-32 bg-gradient-to-br from-blue-600 to-teal-600 flex items-center justify-center">
+                                <span class="text-4xl">🌊</span>
                             </div>
                             <div class="p-3">
                                 <h3 class="font-semibold text-white text-sm">Ocean Waves</h3>
                                 <p class="text-xs text-gray-400">@ocean_artist</p>
                                 <div class="flex items-center justify-between mt-1">
-                                    <p class="text-sm font-bold text-gray-300">₱4,450</p>
+                                    <p class="text-sm font-bold text-pink-400">₱4,450</p>
                                     <div class="flex items-center space-x-1">
-                                        <span class="text-xs text-white">★</span>
+                                        <span class="text-xs text-yellow-400">⭐</span>
                                         <span class="text-xs text-gray-400">4.7</span>
                                     </div>
                                 </div>
@@ -441,16 +441,16 @@
                         </div>
                         
                         <div class="bg-gray-800 rounded-lg overflow-hidden">
-                            <div class="h-32 bg-gradient-to-br from-gray-600 to-gray-700 flex items-center justify-center">
-                                <span class="text-4xl text-white">◆</span>
+                            <div class="h-32 bg-gradient-to-br from-green-600 to-yellow-600 flex items-center justify-center">
+                                <span class="text-4xl">🌺</span>
                             </div>
                             <div class="p-3">
                                 <h3 class="font-semibold text-white text-sm">Floral Abstract</h3>
                                 <p class="text-xs text-gray-400">@flower_artist</p>
                                 <div class="flex items-center justify-between mt-1">
-                                    <p class="text-sm font-bold text-gray-300">₱7,800</p>
+                                    <p class="text-sm font-bold text-pink-400">₱7,800</p>
                                     <div class="flex items-center space-x-1">
-                                        <span class="text-xs text-white">★</span>
+                                        <span class="text-xs text-yellow-400">⭐</span>
                                         <span class="text-xs text-gray-400">4.8</span>
                                     </div>
                                 </div>
@@ -458,16 +458,16 @@
                         </div>
                         
                         <div class="bg-gray-800 rounded-lg overflow-hidden">
-                            <div class="h-32 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                                <span class="text-4xl text-white">▲</span>
+                            <div class="h-32 bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
+                                <span class="text-4xl">🎨</span>
                             </div>
                             <div class="p-3">
                                 <h3 class="font-semibold text-white text-sm">Modern Art</h3>
                                 <p class="text-xs text-gray-400">@modern_creator</p>
                                 <div class="flex items-center justify-between mt-1">
-                                    <p class="text-sm font-bold text-gray-300">₱12,300</p>
+                                    <p class="text-sm font-bold text-pink-400">₱12,300</p>
                                     <div class="flex items-center space-x-1">
-                                        <span class="text-xs text-white">★</span>
+                                        <span class="text-xs text-yellow-400">⭐</span>
                                         <span class="text-xs text-gray-400">4.6</span>
                                     </div>
                                 </div>
@@ -479,56 +479,56 @@
                 <!-- My Shop Content -->
                 <div id="myShopContent" class="hidden">
                     <!-- Country Status Banner -->
-                    <div class="bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg p-3 mb-4">
+                    <div class="bg-gradient-to-r from-green-600 to-blue-600 rounded-lg p-3 mb-4">
                         <div class="flex items-center justify-between">
                             <div>
-                                <h3 class="font-semibold text-white">● Philippines</h3>
+                                <h3 class="font-semibold text-white">🇵🇭 Philippines</h3>
                                 <p class="text-xs text-gray-200">Full selling features available</p>
                             </div>
-                            <span class="bg-white text-black px-2 py-1 rounded-full text-xs font-bold">LIVE</span>
+                            <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">LIVE</span>
                         </div>
                     </div>
                     
                     <!-- Coming Soon Countries -->
                     <div class="bg-gray-800 rounded-lg p-3 mb-4">
-                        <h3 class="font-semibold text-white mb-2">● Coming Soon</h3>
+                        <h3 class="font-semibold text-white mb-2">🌍 Coming Soon</h3>
                         <div class="grid grid-cols-2 gap-2 text-xs">
                             <div class="flex items-center space-x-1">
-                                <span>○</span>
+                                <span>🇺🇸</span>
                                 <span class="text-gray-300">USA - Q2 2024</span>
                             </div>
                             <div class="flex items-center space-x-1">
-                                <span>□</span>
+                                <span>🇬🇧</span>
                                 <span class="text-gray-300">UK - Q2 2024</span>
                             </div>
                             <div class="flex items-center space-x-1">
-                                <span>▲</span>
+                                <span>🇨🇦</span>
                                 <span class="text-gray-300">Canada - Q3 2024</span>
                             </div>
                             <div class="flex items-center space-x-1">
-                                <span>◆</span>
+                                <span>🇦🇺</span>
                                 <span class="text-gray-300">Australia - Q3 2024</span>
                             </div>
                         </div>
-                        <button class="w-full bg-gray-600 text-white py-2 rounded-lg text-sm font-semibold mt-2" onclick="joinWaitlist()">
-                            ○ Get Notified When Available
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold mt-2" onclick="joinWaitlist()">
+                            🔔 Get Notified When Available
                         </button>
                     </div>
                     
                     <div class="text-center mb-4">
                         <div class="bg-gray-800 rounded-lg p-4 mb-4">
-                            <h3 class="font-semibold text-white mb-2">■ Shop Stats</h3>
+                            <h3 class="font-semibold text-white mb-2">📊 Shop Stats</h3>
                             <div class="grid grid-cols-3 gap-4">
                                 <div class="text-center">
-                                    <p class="text-lg font-bold text-gray-300">8</p>
+                                    <p class="text-lg font-bold text-pink-400">8</p>
                                     <p class="text-xs text-gray-400">Listed</p>
                                 </div>
                                 <div class="text-center">
-                                    <p class="text-lg font-bold text-gray-400">23</p>
+                                    <p class="text-lg font-bold text-green-400">23</p>
                                     <p class="text-xs text-gray-400">Sold</p>
                                 </div>
                                 <div class="text-center">
-                                    <p class="text-lg font-bold text-gray-400">₱142K</p>
+                                    <p class="text-lg font-bold text-blue-400">₱142K</p>
                                     <p class="text-xs text-gray-400">Revenue</p>
                                 </div>
                             </div>
@@ -542,7 +542,7 @@
                     <div class="grid grid-cols-2 gap-3">
                         <div class="bg-gray-800 rounded-lg overflow-hidden">
                             <div class="h-32 bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center relative">
-                                <span class="text-4xl text-white">●</span>
+                                <span class="text-4xl">🌅</span>
                                 <div class="absolute top-2 right-2 bg-green-500 text-white px-1 py-0.5 rounded text-xs">
                                     Active
                                 </div>
@@ -551,16 +551,16 @@
                                 <h3 class="font-semibold text-white text-sm">Sunset Dreams</h3>
                                 <p class="text-xs text-gray-400">Listed 2 days ago</p>
                                 <div class="flex items-center justify-between mt-1">
-                                    <p class="text-sm font-bold text-gray-300">₱14,950</p>
-                                    <span class="text-xs text-gray-400">5 views</span>
+                                    <p class="text-sm font-bold text-pink-400">₱14,950</p>
+                                    <span class="text-xs text-green-400">5 views</span>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="bg-gray-800 rounded-lg overflow-hidden">
                             <div class="h-32 bg-gradient-to-br from-blue-600 to-teal-600 flex items-center justify-center relative">
-                                <span class="text-4xl text-white">■</span>
-                                <div class="absolute top-2 right-2 bg-gray-500 text-white px-1 py-0.5 rounded text-xs">
+                                <span class="text-4xl">🌊</span>
+                                <div class="absolute top-2 right-2 bg-red-500 text-white px-1 py-0.5 rounded text-xs">
                                     Sold
                                 </div>
                             </div>
@@ -569,7 +569,7 @@
                                 <p class="text-xs text-gray-400">Sold 1 week ago</p>
                                 <div class="flex items-center justify-between mt-1">
                                     <p class="text-sm font-bold text-gray-400">₱4,450</p>
-                                    <span class="text-xs text-gray-400">Sold</span>
+                                    <span class="text-xs text-green-400">Sold</span>
                                 </div>
                             </div>
                         </div>
@@ -580,29 +580,29 @@
                 <div id="servicesContent" class="hidden">
                     <!-- Service Categories -->
                     <div class="grid grid-cols-2 gap-3 mb-4">
-                        <button class="bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold text-sm" onclick="showAddServiceModal('class')">
-                            ▲ Add Live Class
+                        <button class="bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold text-sm" onclick="showAddServiceModal('class')">
+                            🎓 Add Live Class
                         </button>
-                        <button class="bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold text-sm" onclick="showAddServiceModal('ebook')">
-                            □ Add eBook
+                        <button class="bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold text-sm" onclick="showAddServiceModal('ebook')">
+                            📚 Add eBook
                         </button>
-                        <button class="bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold text-sm" onclick="showAddServiceModal('materials')">
-                            ▲ Art Materials
+                        <button class="bg-green-600 text-white py-3 px-4 rounded-lg font-semibold text-sm" onclick="showAddServiceModal('materials')">
+                            🎨 Art Materials
                         </button>
                         <button class="bg-orange-600 text-white py-3 px-4 rounded-lg font-semibold text-sm" onclick="showAddServiceModal('course')">
-                            □ Course Bundle
+                            📖 Course Bundle
                         </button>
                     </div>
                     
                     <!-- My Services -->
-                    <h3 class="font-semibold text-white mb-3">□ My Services</h3>
+                    <h3 class="font-semibold text-white mb-3">📋 My Services</h3>
                     <div class="space-y-3">
                         <!-- Live Class -->
                         <div class="bg-gray-800 rounded-lg p-4">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center">
-                                        <span class="text-white text-xl">▲</span>
+                                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+                                        <span class="text-white text-xl">🎓</span>
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-white">Oil Painting Masterclass</h4>
@@ -610,13 +610,13 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-sm font-bold text-gray-400">₱1,299</p>
-                                    <span class="bg-gray-500 text-white px-2 py-1 rounded-full text-xs">● LIVE</span>
+                                    <p class="text-sm font-bold text-green-400">₱1,299</p>
+                                    <span class="bg-red-500 text-white px-2 py-1 rounded-full text-xs">🔴 LIVE</span>
                                 </div>
                             </div>
                             <p class="text-sm text-gray-300 mb-2">Learn professional oil painting techniques from scratch</p>
                             <div class="flex items-center justify-between text-xs text-gray-400">
-                                <span>○○ 24 enrolled</span>
+                                <span>👥 24 enrolled</span>
                                 <span>⏰ Next: Today 7PM</span>
                             </div>
                         </div>
@@ -625,8 +625,8 @@
                         <div class="bg-gray-800 rounded-lg p-4">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center">
-                                        <span class="text-white text-xl">□</span>
+                                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                                        <span class="text-white text-xl">📚</span>
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-white">Color Theory Guide</h4>
@@ -634,14 +634,14 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-sm font-bold text-gray-400">₱299</p>
+                                    <p class="text-sm font-bold text-green-400">₱299</p>
                                     <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">Active</span>
                                 </div>
                             </div>
                             <p class="text-sm text-gray-300 mb-2">Complete guide to understanding and using colors in art</p>
                             <div class="flex items-center justify-between text-xs text-gray-400">
-                                <span>↓ 156 downloads</span>
-                                <span>★ 4.8 rating</span>
+                                <span>📥 156 downloads</span>
+                                <span>⭐ 4.8 rating</span>
                             </div>
                         </div>
                         
@@ -649,8 +649,8 @@
                         <div class="bg-gray-800 rounded-lg p-4">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center">
-                                        <span class="text-white text-xl">▲</span>
+                                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+                                        <span class="text-white text-xl">🎨</span>
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-white">Premium Brush Set</h4>
@@ -658,13 +658,13 @@
                                     </div>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-sm font-bold text-gray-400">₱2,450</p>
+                                    <p class="text-sm font-bold text-green-400">₱2,450</p>
                                     <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs">In Stock</span>
                                 </div>
                             </div>
                             <p class="text-sm text-gray-300 mb-2">Professional quality brushes for oil and acrylic painting</p>
                             <div class="flex items-center justify-between text-xs text-gray-400">
-                                <span>□ 12 sold this month</span>
+                                <span>📦 12 sold this month</span>
                                 <span>🚚 Free shipping</span>
                             </div>
                         </div>
@@ -684,15 +684,15 @@
                         <div class="bg-gray-800 rounded-lg p-4">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 bg-gray-600 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <span class="text-gray-400">□</span>
+                                    <div class="w-10 h-10 bg-blue-600 bg-opacity-20 rounded-lg flex items-center justify-center">
+                                        <span class="text-blue-400">📱</span>
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-white">GCash</h4>
                                         <p class="text-sm text-gray-400">****1234</p>
                                     </div>
                                 </div>
-                                <span class="bg-gray-600 bg-opacity-20 text-gray-400 px-2 py-1 rounded text-xs">Primary</span>
+                                <span class="bg-green-600 bg-opacity-20 text-green-400 px-2 py-1 rounded text-xs">Primary</span>
                             </div>
                         </div>
                         
@@ -701,34 +701,34 @@
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-3">
                                     <div class="w-10 h-10 bg-blue-500 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <span class="text-blue-500">□</span>
+                                        <span class="text-blue-500">💳</span>
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-white">PayPal</h4>
                                         <p class="text-sm text-gray-400">user@email.com</p>
                                     </div>
                                 </div>
-                                <span class="bg-gray-600 bg-opacity-20 text-gray-400 px-2 py-1 rounded text-xs">Global</span>
+                                <span class="bg-blue-600 bg-opacity-20 text-blue-400 px-2 py-1 rounded text-xs">Global</span>
                             </div>
                         </div>
                         
                         <div class="bg-gray-800 rounded-lg p-4">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center space-x-3">
-                                    <div class="w-10 h-10 bg-gray-600 bg-opacity-20 rounded-lg flex items-center justify-center">
-                                        <span class="text-gray-400">T</span>
+                                    <div class="w-10 h-10 bg-green-600 bg-opacity-20 rounded-lg flex items-center justify-center">
+                                        <span class="text-green-400">₮</span>
                                     </div>
                                     <div>
                                         <h4 class="font-semibold text-white">USDT (TRC20)</h4>
                                         <p class="text-sm text-gray-400">TQn9Y...7Qnh</p>
                                     </div>
                                 </div>
-                                <span class="bg-gray-600 bg-opacity-20 text-gray-400 px-2 py-1 rounded text-xs">Crypto</span>
+                                <span class="bg-green-600 bg-opacity-20 text-green-400 px-2 py-1 rounded text-xs">Crypto</span>
                             </div>
                         </div>
                         
                         <button class="w-full instagram-gradient text-white py-3 rounded-lg font-bold">
-                            □ Withdraw Funds
+                            💰 Withdraw Funds
                         </button>
                         
                         <button class="w-full bg-gray-700 text-white py-3 rounded-lg font-semibold" onclick="showPaymentMethods()">
@@ -760,8 +760,8 @@
                             <div class="bg-gray-700 rounded-lg p-3 mb-2">
                                 <p class="text-sm text-white">"Hi! I'm interested in your oil painting masterclass. What materials do I need to prepare?"</p>
                             </div>
-                            <button class="w-full bg-gray-600 text-white py-2 rounded-lg text-sm font-semibold" onclick="openChat('@art_lover_23')">
-                                ○ Reply
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold" onclick="openChat('@art_lover_23')">
+                                💬 Reply
                             </button>
                         </div>
                         
@@ -784,8 +784,8 @@
                             <div class="bg-gray-700 rounded-lg p-3 mb-2">
                                 <p class="text-sm text-white">"Just purchased your Color Theory Guide! When will I receive the download link?"</p>
                             </div>
-                            <button class="w-full bg-gray-600 text-white py-2 rounded-lg text-sm font-semibold" onclick="openChat('@maya_artist')">
-                                ○ Reply
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold" onclick="openChat('@maya_artist')">
+                                💬 Reply
                             </button>
                         </div>
                         
@@ -808,8 +808,8 @@
                             <div class="bg-gray-700 rounded-lg p-3 mb-2">
                                 <p class="text-sm text-white">"Do you ship the premium brush set to Canada? What's the shipping cost?"</p>
                             </div>
-                            <button class="w-full bg-gray-600 text-white py-2 rounded-lg text-sm font-semibold" onclick="openChat('@john_painter')">
-                                ○ Reply
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-semibold" onclick="openChat('@john_painter')">
+                                💬 Reply
                             </button>
                         </div>
                     </div>
@@ -818,7 +818,7 @@
             
             <!-- Notifications Section -->
             <div id="notificationsSection" class="section p-4">
-                <h2 class="text-xl font-bold premium-text mb-4">○ Notifications</h2>
+                <h2 class="text-xl font-bold premium-text mb-4">🔔 Notifications</h2>
                 
                 <!-- Notification Categories -->
                 <div class="flex space-x-2 mb-4 overflow-x-auto">
@@ -826,16 +826,16 @@
                         All
                     </button>
                     <button id="salesNotifTab" class="px-4 py-2 rounded-full bg-gray-700 text-gray-300 font-semibold text-sm whitespace-nowrap">
-                        □ Sales
+                        💰 Sales
                     </button>
                     <button id="likesNotifTab" class="px-4 py-2 rounded-full bg-gray-700 text-gray-300 font-semibold text-sm whitespace-nowrap">
-                        ♡ Likes
+                        ❤️ Likes
                     </button>
                     <button id="commentsNotifTab" class="px-4 py-2 rounded-full bg-gray-700 text-gray-300 font-semibold text-sm whitespace-nowrap">
-                        ○ Comments
+                        💬 Comments
                     </button>
                     <button id="followsNotifTab" class="px-4 py-2 rounded-full bg-gray-700 text-gray-300 font-semibold text-sm whitespace-nowrap">
-                        ○○ Follows
+                        👥 Follows
                     </button>
                 </div>
                 
@@ -845,8 +845,8 @@
                     <div class="bg-gray-800 rounded-lg p-4 border-l-4 border-green-500">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-lg">□</span>
+                                <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-lg">💰</span>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white">Artwork Sold!</h4>
@@ -856,7 +856,7 @@
                             <div class="w-3 h-3 bg-green-500 rounded-full"></div>
                         </div>
                         <p class="text-sm text-gray-300 mb-2">@art_collector_99 purchased your "Sunset Dreams" for ₱14,950</p>
-                        <button class="bg-gray-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
+                        <button class="bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
                             View Order
                         </button>
                     </div>
@@ -866,7 +866,7 @@
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center space-x-3">
                                 <div class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-lg">♡</span>
+                                    <span class="text-white text-lg">❤️</span>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white">New Likes</h4>
@@ -882,8 +882,8 @@
                     <div class="bg-gray-800 rounded-lg p-4 border-l-4 border-blue-500">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-lg">○</span>
+                                <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-lg">💬</span>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white">New Comment</h4>
@@ -893,7 +893,7 @@
                             <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
                         </div>
                         <p class="text-sm text-gray-300 mb-2">@ocean_artist: "Amazing technique! How long did this take?"</p>
-                        <button class="bg-gray-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
+                        <button class="bg-blue-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
                             Reply
                         </button>
                     </div>
@@ -902,8 +902,8 @@
                     <div class="bg-gray-800 rounded-lg p-4 border-l-4 border-purple-500">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-lg">○○</span>
+                                <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white text-lg">👥</span>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white">New Followers</h4>
@@ -912,7 +912,7 @@
                             </div>
                         </div>
                         <p class="text-sm text-gray-300 mb-2">@art_student_23 and 12 others started following you</p>
-                        <button class="bg-gray-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
+                        <button class="bg-purple-600 text-white px-3 py-1 rounded-lg text-xs font-semibold">
                             View Profile
                         </button>
                     </div>
@@ -922,7 +922,7 @@
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center space-x-3">
                                 <div class="w-10 h-10 bg-yellow-600 rounded-full flex items-center justify-center">
-                                    <span class="text-white text-lg">▲</span>
+                                    <span class="text-white text-lg">🎓</span>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white">Class Enrollment</h4>
@@ -1006,46 +1006,46 @@
                 <div class="mb-6">
                     <div class="flex space-x-4 mb-4">
                         <button id="myVideosTab" class="flex-1 py-2 px-4 rounded-lg instagram-gradient text-white font-semibold">
-                            ■ My Videos
+                            📹 My Videos
                         </button>
                         <button id="likedVideosTab" class="flex-1 py-2 px-4 rounded-lg bg-gray-700 text-gray-300 font-semibold">
-                            ♡ Liked
+                            ❤️ Liked
                         </button>
                     </div>
                     
                     <div id="myVideosGrid" class="grid grid-cols-3 gap-1">
                         <div class="aspect-square bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl text-white">●</span>
+                            <span class="text-2xl">🌅</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 3.2K
                             </div>
                         </div>
                         <div class="aspect-square bg-gradient-to-br from-blue-600 to-teal-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl text-white">■</span>
+                            <span class="text-2xl">🌊</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 1.8K
                             </div>
                         </div>
                         <div class="aspect-square bg-gradient-to-br from-green-600 to-yellow-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl">◆</span>
+                            <span class="text-2xl">🌺</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 892
                             </div>
                         </div>
                         <div class="aspect-square bg-gradient-to-br from-red-600 to-orange-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl text-white">▲</span>
+                            <span class="text-2xl">🎨</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 2.1K
                             </div>
                         </div>
                         <div class="aspect-square bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl">□️</span>
+                            <span class="text-2xl">🖼️</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 1.5K
                             </div>
                         </div>
                         <div class="aspect-square bg-gradient-to-br from-pink-600 to-rose-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl">+</span>
+                            <span class="text-2xl">✨</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 967
                             </div>
@@ -1054,13 +1054,13 @@
                     
                     <div id="likedVideosGrid" class="hidden grid grid-cols-3 gap-1">
                         <div class="aspect-square bg-gradient-to-br from-yellow-600 to-red-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl">○</span>
+                            <span class="text-2xl">🎭</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 5.2K
                             </div>
                         </div>
                         <div class="aspect-square bg-gradient-to-br from-cyan-600 to-blue-600 rounded-lg flex items-center justify-center relative">
-                            <span class="text-2xl">■️</span>
+                            <span class="text-2xl">🏛️</span>
                             <div class="absolute bottom-1 right-1 text-xs text-white bg-black bg-opacity-50 px-1 rounded">
                                 3.8K
                             </div>
@@ -1070,7 +1070,7 @@
                 
                 <div class="space-y-3">
                     <button class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold">
-                        ■ Analytics
+                        📊 Analytics
                     </button>
                     <button class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold" onclick="showBoostSection()">
                         🚀 Boost Your Art
@@ -1078,8 +1078,8 @@
                     <button class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold" onclick="showSettings()">
                         ⚙️ Settings
                     </button>
-                    <button class="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold" onclick="showChatSupport()">
-                        ○ Chat Support
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold" onclick="showChatSupport()">
+                        💬 Chat Support
                     </button>
                 </div>
                 
@@ -1092,11 +1092,11 @@
                         <div class="bg-gray-800 rounded-lg p-4 border border-gray-600">
                             <div class="flex items-center justify-between mb-3">
                                 <div>
-                                    <h4 class="font-bold text-white">★ Basic Boost</h4>
+                                    <h4 class="font-bold text-white">🌟 Basic Boost</h4>
                                     <p class="text-sm text-gray-400">24 hours • +500-1K views</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-xl font-bold text-gray-300">₱49</p>
+                                    <p class="text-xl font-bold text-yellow-400">₱49</p>
                                     <button class="instagram-gradient text-white px-3 py-1 rounded-lg text-sm font-bold mt-1">
                                         Boost
                                     </button>
@@ -1111,11 +1111,11 @@
                             </div>
                             <div class="flex items-center justify-between mb-3">
                                 <div>
-                                    <h4 class="font-bold text-white">◆ Premium Boost</h4>
+                                    <h4 class="font-bold text-white">💎 Premium Boost</h4>
                                     <p class="text-sm text-gray-400">3 days • +2K-5K views</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-xl font-bold text-gray-300">₱149</p>
+                                    <p class="text-xl font-bold text-yellow-400">₱149</p>
                                     <button class="instagram-gradient text-white px-3 py-1 rounded-lg text-sm font-bold mt-1">
                                         Boost
                                     </button>
@@ -1127,11 +1127,11 @@
                         <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg p-4">
                             <div class="flex items-center justify-between mb-3">
                                 <div>
-                                    <h4 class="font-bold text-white">● Luxury Boost</h4>
+                                    <h4 class="font-bold text-white">👑 Luxury Boost</h4>
                                     <p class="text-sm text-gray-200">7 days • +10K-20K views</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-xl font-bold text-gray-300">₱399</p>
+                                    <p class="text-xl font-bold text-yellow-400">₱399</p>
                                     <button class="instagram-gradient text-white px-3 py-1 rounded-lg text-sm font-bold mt-1">
                                         Boost
                                     </button>
@@ -1142,17 +1142,17 @@
                     
                     <!-- Buy Credits -->
                     <div class="mt-6">
-                        <h4 class="text-lg font-bold text-white mb-3">□ Buy Credits</h4>
+                        <h4 class="text-lg font-bold text-white mb-3">💳 Buy Credits</h4>
                         <div class="grid grid-cols-2 gap-3">
                             <div class="bg-gray-800 rounded-lg p-3 text-center">
-                                <p class="text-lg font-bold text-gray-300">₱99</p>
+                                <p class="text-lg font-bold text-yellow-400">₱99</p>
                                 <p class="text-xs text-gray-400">₱120 credits</p>
-                                <p class="text-xs text-gray-400">+21% bonus</p>
+                                <p class="text-xs text-green-400">+21% bonus</p>
                             </div>
                             <div class="bg-gray-800 rounded-lg p-3 text-center border border-yellow-400">
-                                <p class="text-lg font-bold text-gray-300">₱299</p>
+                                <p class="text-lg font-bold text-yellow-400">₱299</p>
                                 <p class="text-xs text-gray-400">₱390 credits</p>
-                                <p class="text-xs text-gray-400">+30% bonus</p>
+                                <p class="text-xs text-green-400">+30% bonus</p>
                             </div>
                         </div>
                     </div>
@@ -1207,7 +1207,7 @@
                 
                 <div class="space-y-4 mb-6">
                     <div class="bg-gray-800 rounded-lg p-4 border border-gray-600">
-                        <h3 class="font-bold text-white mb-2">★ Basic Boost - ₱49</h3>
+                        <h3 class="font-bold text-white mb-2">🌟 Basic Boost - ₱49</h3>
                         <p class="text-sm text-gray-400 mb-3">24 hours • +500-1K views • +50-100 likes</p>
                         <button class="w-full instagram-gradient text-white py-2 rounded-lg font-bold" onclick="confirmBoost('Basic', '₱49')">
                             Select Basic
@@ -1215,7 +1215,7 @@
                     </div>
                     
                     <div class="bg-gray-800 rounded-lg p-4 border-2 border-yellow-400">
-                        <h3 class="font-bold text-white mb-2">◆ Premium Boost - ₱149</h3>
+                        <h3 class="font-bold text-white mb-2">💎 Premium Boost - ₱149</h3>
                         <p class="text-sm text-gray-400 mb-3">3 days • +2K-5K views • +200-500 likes</p>
                         <button class="w-full instagram-gradient text-white py-2 rounded-lg font-bold" onclick="confirmBoost('Premium', '₱149')">
                             Select Premium
@@ -1223,7 +1223,7 @@
                     </div>
                     
                     <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg p-4">
-                        <h3 class="font-bold text-white mb-2">● Luxury Boost - ₱399</h3>
+                        <h3 class="font-bold text-white mb-2">👑 Luxury Boost - ₱399</h3>
                         <p class="text-sm text-gray-200 mb-3">7 days • +10K-20K views • +1K-2K likes</p>
                         <button class="w-full instagram-gradient text-white py-2 rounded-lg font-bold" onclick="confirmBoost('Luxury', '₱399')">
                             Select Luxury
@@ -1240,7 +1240,7 @@
         <!-- Add Artwork Modal -->
         <div id="addArtworkModal" class="boost-overlay" style="display: none;">
             <div class="text-center">
-                <h2 class="text-2xl font-bold premium-text mb-6">▲ Add New Artwork</h2>
+                <h2 class="text-2xl font-bold premium-text mb-6">🎨 Add New Artwork</h2>
                 
                 <div class="space-y-4 mb-6 text-left">
                     <div>
@@ -1268,7 +1268,7 @@
                                 <option>$ USD</option>
                                 <option>€ EUR</option>
                                 <option>£ GBP</option>
-                                <option>T USDT</option>
+                                <option>₮ USDT</option>
                             </select>
                             <input type="number" class="flex-1 bg-gray-800 text-white rounded-lg p-3 border border-gray-600" placeholder="0.00">
                         </div>
@@ -1277,7 +1277,7 @@
                     <div>
                         <label class="block text-sm font-semibold text-white mb-2">Upload Image</label>
                         <div class="border-2 border-dashed border-gray-600 rounded-lg p-6 text-center">
-                            <div class="text-4xl mb-2">□</div>
+                            <div class="text-4xl mb-2">📸</div>
                             <p class="text-gray-400 text-sm">Tap to upload artwork image</p>
                             <p class="text-gray-500 text-xs mt-1">JPG, PNG up to 10MB</p>
                         </div>
@@ -1293,19 +1293,19 @@
                         <div class="grid grid-cols-2 gap-2">
                             <label class="flex items-center space-x-2">
                                 <input type="checkbox" class="rounded" checked>
-                                <span class="text-sm text-white">□ PayPal</span>
+                                <span class="text-sm text-white">💳 PayPal</span>
                             </label>
                             <label class="flex items-center space-x-2">
                                 <input type="checkbox" class="rounded" checked>
-                                <span class="text-sm text-white">T USDT</span>
+                                <span class="text-sm text-white">₮ USDT</span>
                             </label>
                             <label class="flex items-center space-x-2">
                                 <input type="checkbox" class="rounded" checked>
-                                <span class="text-sm text-white">□ GCash</span>
+                                <span class="text-sm text-white">📱 GCash</span>
                             </label>
                             <label class="flex items-center space-x-2">
                                 <input type="checkbox" class="rounded">
-                                <span class="text-sm text-white">■ Bank</span>
+                                <span class="text-sm text-white">🏦 Bank</span>
                             </label>
                         </div>
                     </div>
@@ -1325,27 +1325,27 @@
         <!-- Payment Methods Modal -->
         <div id="paymentMethodsModal" class="boost-overlay" style="display: none;">
             <div class="text-center">
-                <h2 class="text-2xl font-bold premium-text mb-6">□ Add Payment Method</h2>
+                <h2 class="text-2xl font-bold premium-text mb-6">💳 Add Payment Method</h2>
                 
                 <div class="space-y-4 mb-6">
-                    <button class="w-full bg-gray-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3">
-                        <span class="text-2xl text-white">□</span>
+                    <button class="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3">
+                        <span class="text-2xl">💳</span>
                         <div class="text-left">
                             <p class="font-bold">PayPal</p>
                             <p class="text-sm text-blue-200">Global payments</p>
                         </div>
                     </button>
                     
-                    <button class="w-full bg-gray-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3">
-                        <span class="text-2xl">T</span>
+                    <button class="w-full bg-green-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3">
+                        <span class="text-2xl">₮</span>
                         <div class="text-left">
                             <p class="font-bold">USDT (TRC20)</p>
                             <p class="text-sm text-green-200">Cryptocurrency</p>
                         </div>
                     </button>
                     
-                    <button class="w-full bg-gray-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3">
-                        <span class="text-2xl text-white">■</span>
+                    <button class="w-full bg-purple-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3">
+                        <span class="text-2xl">🏦</span>
                         <div class="text-left">
                             <p class="font-bold">Bank Transfer</p>
                             <p class="text-sm text-purple-200">Direct deposit</p>
@@ -1353,7 +1353,7 @@
                     </button>
                     
                     <button class="w-full bg-blue-500 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3">
-                        <span class="text-2xl text-white">□</span>
+                        <span class="text-2xl">📱</span>
                         <div class="text-left">
                             <p class="font-bold">GCash / PayMaya</p>
                             <p class="text-sm text-blue-200">Philippines only</p>
@@ -1370,7 +1370,7 @@
         <!-- Add Service Modal -->
         <div id="addServiceModal" class="boost-overlay" style="display: none;">
             <div class="text-center">
-                <h2 class="text-2xl font-bold premium-text mb-6" id="serviceModalTitle">▲ Add Service</h2>
+                <h2 class="text-2xl font-bold premium-text mb-6" id="serviceModalTitle">🎓 Add Service</h2>
                 
                 <div class="space-y-4 mb-6 text-left" id="serviceForm">
                     <div>
@@ -1385,7 +1385,7 @@
                                 <option>₱ PHP</option>
                                 <option>$ USD</option>
                                 <option>€ EUR</option>
-                                <option>T USDT</option>
+                                <option>₮ USDT</option>
                             </select>
                             <input type="number" class="flex-1 bg-gray-800 text-white rounded-lg p-3 border border-gray-600" placeholder="0.00">
                         </div>
@@ -1406,7 +1406,7 @@
                     <div id="ebookSpecific" class="hidden">
                         <label class="block text-sm font-semibold text-white mb-2">Upload PDF</label>
                         <div class="border-2 border-dashed border-gray-600 rounded-lg p-6 text-center">
-                            <div class="text-4xl mb-2">□</div>
+                            <div class="text-4xl mb-2">📚</div>
                             <p class="text-gray-400 text-sm">Upload your eBook (PDF)</p>
                         </div>
                     </div>
@@ -1416,7 +1416,7 @@
                         <div class="space-y-2">
                             <label class="flex items-center space-x-2">
                                 <input type="checkbox" class="rounded" checked>
-                                <span class="text-sm text-white">● Worldwide Shipping</span>
+                                <span class="text-sm text-white">🌍 Worldwide Shipping</span>
                             </label>
                             <label class="flex items-center space-x-2">
                                 <input type="checkbox" class="rounded">
@@ -1447,7 +1447,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-white" id="chatUserName">@art_lover_23</h3>
-                            <p class="text-xs text-gray-400">● Online</p>
+                            <p class="text-xs text-green-400">● Online</p>
                         </div>
                     </div>
                     <button class="text-gray-400" onclick="hideChatModal()">✕</button>
@@ -1464,7 +1464,7 @@
                 
                 <div class="flex space-x-2">
                     <input type="text" id="chatInput" class="flex-1 bg-gray-800 text-white rounded-lg p-3 border border-gray-600" placeholder="Type your message...">
-                    <button class="bg-gray-600 text-white px-4 py-3 rounded-lg font-semibold" onclick="sendMessage()">
+                    <button class="bg-blue-600 text-white px-4 py-3 rounded-lg font-semibold" onclick="sendMessage()">
                         Send
                     </button>
                 </div>
@@ -1481,7 +1481,7 @@
                         </div>
                         <div>
                             <h3 class="font-semibold text-white">Picasso Support</h3>
-                            <p class="text-xs text-gray-400">● Available 24/7</p>
+                            <p class="text-xs text-green-400">● Available 24/7</p>
                         </div>
                     </div>
                     <button class="text-gray-400" onclick="hideChatSupportModal()">✕</button>
@@ -1489,8 +1489,8 @@
                 
                 <div class="flex-1 bg-gray-800 rounded-lg p-4 mb-4 overflow-y-auto">
                     <div class="space-y-3">
-                        <div class="bg-gray-600 rounded-lg p-3 max-w-xs">
-                            <p class="text-sm text-white">● Hi! I'm here to help you with any questions about Picasso. How can I assist you today?</p>
+                        <div class="bg-purple-600 rounded-lg p-3 max-w-xs">
+                            <p class="text-sm text-white">👋 Hi! I'm here to help you with any questions about Picasso. How can I assist you today?</p>
                             <p class="text-xs text-purple-200 mt-1">Support Team</p>
                         </div>
                         
@@ -1499,7 +1499,7 @@
                             <p class="text-xs text-gray-400 mt-1">You</p>
                         </div>
                         
-                        <div class="bg-gray-600 rounded-lg p-3 max-w-xs">
+                        <div class="bg-purple-600 rounded-lg p-3 max-w-xs">
                             <p class="text-sm text-white">I'd be happy to help you set up your payment methods! You can add PayPal, USDT, GCash, or bank transfer. Which one would you like to set up first?</p>
                             <p class="text-xs text-purple-200 mt-1">Support Team</p>
                         </div>
@@ -1508,7 +1508,7 @@
                 
                 <div class="flex space-x-2">
                     <input type="text" class="flex-1 bg-gray-800 text-white rounded-lg p-3 border border-gray-600" placeholder="Ask anything...">
-                    <button class="bg-gray-600 text-white px-4 py-3 rounded-lg font-semibold">
+                    <button class="bg-purple-600 text-white px-4 py-3 rounded-lg font-semibold">
                         Send
                     </button>
                 </div>
@@ -1519,7 +1519,7 @@
         <div id="searchModal" class="boost-overlay" style="display: none;">
             <div class="h-full flex flex-col">
                 <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-xl font-bold premium-text">○ Search</h2>
+                    <h2 class="text-xl font-bold premium-text">🔍 Search</h2>
                     <button class="text-gray-400" onclick="hideSearchModal()">✕</button>
                 </div>
                 
@@ -1527,7 +1527,7 @@
                 <div class="relative mb-4">
                     <input type="text" id="searchModalInput" class="w-full bg-gray-800 text-white rounded-full py-3 px-4 pl-12 border border-gray-600 focus:border-pink-400 focus:outline-none" placeholder="Search artists, artwork, services..." oninput="handleModalSearch()" autofocus>
                     <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
-                        <span class="text-gray-400 text-lg">○</span>
+                        <span class="text-gray-400 text-lg">🔍</span>
                     </div>
                 </div>
                 
@@ -1536,7 +1536,7 @@
                     <div id="searchModalSuggestions">
                         <!-- Popular Artists -->
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-gray-400 mb-3">▲ POPULAR ARTISTS</h4>
+                            <h4 class="text-sm font-semibold text-gray-400 mb-3">🎨 POPULAR ARTISTS</h4>
                             <div class="space-y-3">
                                 <div class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 cursor-pointer" onclick="selectModalSearch('@artista_maya')">
                                     <div class="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center">
@@ -1570,11 +1570,11 @@
                         
                         <!-- Popular Artwork -->
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-gray-400 mb-3">□️ TRENDING ARTWORK</h4>
+                            <h4 class="text-sm font-semibold text-gray-400 mb-3">🖼️ TRENDING ARTWORK</h4>
                             <div class="space-y-3">
                                 <div class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 cursor-pointer" onclick="selectModalSearch('Sunset Dreams')">
                                     <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded flex items-center justify-center">
-                                        <span class="text-xl">●</span>
+                                        <span class="text-xl">🌅</span>
                                     </div>
                                     <div>
                                         <p class="font-semibold text-white">Sunset Dreams</p>
@@ -1583,7 +1583,7 @@
                                 </div>
                                 <div class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 cursor-pointer" onclick="selectModalSearch('Ocean Waves')">
                                     <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-teal-600 rounded flex items-center justify-center">
-                                        <span class="text-xl">■</span>
+                                        <span class="text-xl">🌊</span>
                                     </div>
                                     <div>
                                         <p class="font-semibold text-white">Ocean Waves</p>
@@ -1595,11 +1595,11 @@
                         
                         <!-- Services -->
                         <div>
-                            <h4 class="text-sm font-semibold text-gray-400 mb-3">▲ POPULAR SERVICES</h4>
+                            <h4 class="text-sm font-semibold text-gray-400 mb-3">🎓 POPULAR SERVICES</h4>
                             <div class="space-y-3">
                                 <div class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 cursor-pointer" onclick="selectModalSearch('Oil Painting Classes')">
-                                    <div class="w-10 h-10 bg-gray-600 rounded flex items-center justify-center">
-                                        <span class="text-white">▲</span>
+                                    <div class="w-10 h-10 bg-purple-600 rounded flex items-center justify-center">
+                                        <span class="text-white">🎓</span>
                                     </div>
                                     <div>
                                         <p class="font-semibold text-white">Oil Painting Classes</p>
@@ -1607,8 +1607,8 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-700 cursor-pointer" onclick="selectModalSearch('Art eBooks')">
-                                    <div class="w-10 h-10 bg-gray-600 rounded flex items-center justify-center">
-                                        <span class="text-white">□</span>
+                                    <div class="w-10 h-10 bg-blue-600 rounded flex items-center justify-center">
+                                        <span class="text-white">📚</span>
                                     </div>
                                     <div>
                                         <p class="font-semibold text-white">Art eBooks</p>
@@ -1628,31 +1628,31 @@
                 <div class="w-16 h-16 instagram-gradient rounded-full mx-auto mb-3 flex items-center justify-center">
                     <span class="text-white font-bold text-2xl">P</span>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2">□ Install Picasso App</h3>
+                <h3 class="text-lg font-bold text-white mb-2">📱 Install Picasso App</h3>
                 <p class="text-sm text-gray-300 mb-4">Get the full experience with offline access, push notifications, and faster loading!</p>
                 
                 <div class="pwa-features mb-4">
                     <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-gray-400">✓</span>
+                        <span class="text-green-400">✓</span>
                         <span class="text-xs text-gray-300">Works offline</span>
                     </div>
                     <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-gray-400">✓</span>
+                        <span class="text-green-400">✓</span>
                         <span class="text-xs text-gray-300">Push notifications</span>
                     </div>
                     <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-gray-400">✓</span>
+                        <span class="text-green-400">✓</span>
                         <span class="text-xs text-gray-300">Faster loading</span>
                     </div>
                     <div class="flex items-center space-x-2">
-                        <span class="text-gray-400">✓</span>
+                        <span class="text-green-400">✓</span>
                         <span class="text-xs text-gray-300">Full screen experience</span>
                     </div>
                 </div>
                 
                 <div class="flex space-x-2">
-                    <button id="installBtn" class="flex-1 bg-gray-600 hover:bg-gray-500 text-white py-2 px-4 rounded-lg font-semibold text-sm">
-                        □ Install App
+                    <button id="installBtn" class="flex-1 instagram-gradient text-white py-2 px-4 rounded-lg font-semibold text-sm">
+                        📱 Install App
                     </button>
                     <button id="dismissInstall" class="flex-1 bg-gray-600 text-white py-2 px-4 rounded-lg font-semibold text-sm">
                         Later
@@ -1664,35 +1664,35 @@
         <!-- Create Modal -->
         <div id="createModal" class="boost-overlay" style="display: none;">
             <div class="text-center">
-                <h2 class="text-2xl font-bold premium-text mb-6">+ Create Something Amazing</h2>
+                <h2 class="text-2xl font-bold premium-text mb-6">✨ Create Something Amazing</h2>
                 
                 <div class="space-y-4 mb-6">
-                    <button class="w-full bg-gradient-to-r from-gray-700 to-gray-800 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="createVideo()">
-                        <span class="text-2xl text-white">■</span>
+                    <button class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="createVideo()">
+                        <span class="text-2xl">🎥</span>
                         <div class="text-left">
                             <p class="font-bold">Create Video</p>
                             <p class="text-sm text-purple-200">Share your art process</p>
                         </div>
                     </button>
                     
-                    <button class="w-full bg-gradient-to-r from-gray-600 to-gray-700 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showAddArtworkModal(); hideCreateModal()">
-                        <span class="text-2xl text-white">▲</span>
+                    <button class="w-full bg-gradient-to-r from-blue-600 to-teal-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showAddArtworkModal(); hideCreateModal()">
+                        <span class="text-2xl">🎨</span>
                         <div class="text-left">
                             <p class="font-bold">Sell Artwork</p>
                             <p class="text-sm text-blue-200">List your art for sale</p>
                         </div>
                     </button>
                     
-                    <button class="w-full bg-gradient-to-r from-gray-600 to-gray-800 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showServicesModal()">
-                        <span class="text-2xl">▲</span>
+                    <button class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="showServicesModal()">
+                        <span class="text-2xl">🎓</span>
                         <div class="text-left">
                             <p class="font-bold">Offer Services</p>
                             <p class="text-sm text-green-200">Classes, eBooks, materials</p>
                         </div>
                     </button>
                     
-                    <button class="w-full bg-gradient-to-r from-gray-700 to-gray-900 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="goLive()">
-                        <span class="text-2xl text-white">●</span>
+                    <button class="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-3" onclick="goLive()">
+                        <span class="text-2xl">🔴</span>
                         <div class="text-left">
                             <p class="font-bold">Go Live</p>
                             <p class="text-sm text-orange-200">Stream your art session</p>
@@ -1748,7 +1748,7 @@
             // Update view counts
             const viewCounts = document.querySelectorAll('span');
             viewCounts.forEach(span => {
-                if (span.textContent.includes('○') && span.textContent.includes('views')) {
+                if (span.textContent.includes('👁️') && span.textContent.includes('views')) {
                     const current = span.textContent.match(/[\d.]+K/);
                     if (current && Math.random() < 0.3) {
                         const num = parseFloat(current[0]);
@@ -1856,7 +1856,7 @@
             btn.addEventListener('click', function() {
                 if (this.textContent.includes('BOOST') && !this.textContent.includes('BOOSTED')) {
                     setTimeout(() => {
-                        this.textContent = '▲ BOOSTED';
+                        this.textContent = '🔥 BOOSTED';
                         this.classList.remove('boost-btn');
                         this.classList.add('bg-green-500');
                     }, 2000);
@@ -1954,13 +1954,13 @@
                             const tabBtn = document.getElementById(t + 'Tab');
                             const tabContent = document.getElementById(t + 'Content');
                             if (tabBtn && tabContent) {
-                                tabBtn.classList.remove('bg-gray-600');
+                                tabBtn.classList.remove('instagram-gradient');
                                 tabBtn.classList.add('bg-gray-700', 'text-gray-300');
                                 tabContent.classList.add('hidden');
                             }
                         });
                         btn.classList.remove('bg-gray-700', 'text-gray-300');
-                        btn.classList.add('bg-gray-600');
+                        btn.classList.add('instagram-gradient');
                         const content = document.getElementById(tab + 'Content');
                         if (content) {
                             content.classList.remove('hidden');
@@ -1979,18 +1979,18 @@
                 myVideosTab.addEventListener('click', () => {
                     myVideosGrid.classList.remove('hidden');
                     likedVideosGrid.classList.add('hidden');
-                    myVideosTab.classList.add('bg-gray-600');
+                    myVideosTab.classList.add('instagram-gradient');
                     myVideosTab.classList.remove('bg-gray-700', 'text-gray-300');
-                    likedVideosTab.classList.remove('bg-gray-600');
+                    likedVideosTab.classList.remove('instagram-gradient');
                     likedVideosTab.classList.add('bg-gray-700', 'text-gray-300');
                 });
 
                 likedVideosTab.addEventListener('click', () => {
                     likedVideosGrid.classList.remove('hidden');
                     myVideosGrid.classList.add('hidden');
-                    likedVideosTab.classList.add('bg-gray-600');
+                    likedVideosTab.classList.add('instagram-gradient');
                     likedVideosTab.classList.remove('bg-gray-700', 'text-gray-300');
-                    myVideosTab.classList.remove('bg-gray-600');
+                    myVideosTab.classList.remove('instagram-gradient');
                     myVideosTab.classList.add('bg-gray-700', 'text-gray-300');
                 });
             }
