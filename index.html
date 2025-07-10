@@ -1771,99 +1771,67 @@
             });
         }, 3000);
         
-        // Profile video tabs
-        const myVideosTab = document.getElementById('myVideosTab');
-        const likedVideosTab = document.getElementById('likedVideosTab');
-        const myVideosGrid = document.getElementById('myVideosGrid');
-        const likedVideosGrid = document.getElementById('likedVideosGrid');
-        
-        if (myVideosTab && likedVideosTab) {
-            myVideosTab.addEventListener('click', () => {
-                myVideosTab.classList.add('instagram-gradient');
-                myVideosTab.classList.remove('bg-gray-700', 'text-gray-300');
-                likedVideosTab.classList.add('bg-gray-700', 'text-gray-300');
-                likedVideosTab.classList.remove('instagram-gradient');
-                myVideosGrid.classList.remove('hidden');
-                likedVideosGrid.classList.add('hidden');
-            });
-            
-            likedVideosTab.addEventListener('click', () => {
-                likedVideosTab.classList.add('instagram-gradient');
-                likedVideosTab.classList.remove('bg-gray-700', 'text-gray-300');
-                myVideosTab.classList.add('bg-gray-700', 'text-gray-300');
-                myVideosTab.classList.remove('instagram-gradient');
-                likedVideosGrid.classList.remove('hidden');
-                myVideosGrid.classList.add('hidden');
-            });
+        // Add missing functions for UI interactions
+        function selectModalSearch(query) {
+            alert(`Searching for: ${query}`);
+            hideSearchModal();
         }
         
-        // Shop tabs
-        const marketplaceTab = document.getElementById('marketplaceTab');
-        const myShopTab = document.getElementById('myShopTab');
-        const servicesTab = document.getElementById('servicesTab');
-        const walletTab = document.getElementById('walletTab');
-        const chatTab = document.getElementById('chatTab');
-        const marketplaceContent = document.getElementById('marketplaceContent');
-        const myShopContent = document.getElementById('myShopContent');
-        const servicesContent = document.getElementById('servicesContent');
-        const walletContent = document.getElementById('walletContent');
-        const chatContent = document.getElementById('chatContent');
-        
-        function resetShopTabs() {
-            [marketplaceTab, myShopTab, servicesTab, walletTab, chatTab].forEach(tab => {
-                if (tab) {
-                    tab.classList.add('bg-gray-700', 'text-gray-300');
-                    tab.classList.remove('instagram-gradient');
-                }
-            });
-            [marketplaceContent, myShopContent, servicesContent, walletContent, chatContent].forEach(content => {
-                if (content) content.classList.add('hidden');
-            });
+        function handleModalSearch() {
+            const input = document.getElementById('searchModalInput');
+            const query = input.value.trim();
+            if (query.length > 0) {
+                console.log('Searching for:', query);
+                // Here you would typically filter the suggestions or make an API call
+            }
         }
         
-        if (marketplaceTab) {
-            marketplaceTab.addEventListener('click', () => {
-                resetShopTabs();
-                marketplaceTab.classList.add('instagram-gradient');
-                marketplaceTab.classList.remove('bg-gray-700', 'text-gray-300');
-                marketplaceContent.classList.remove('hidden');
-            });
+        function createVideo() {
+            alert("Video creation feature will be available soon!");
+            hideCreateModal();
         }
         
-        if (myShopTab) {
-            myShopTab.addEventListener('click', () => {
-                resetShopTabs();
-                myShopTab.classList.add('instagram-gradient');
-                myShopTab.classList.remove('bg-gray-700', 'text-gray-300');
-                myShopContent.classList.remove('hidden');
-            });
+        function showServicesModal() {
+            alert("Service creation modal will be available soon!");
         }
         
-        if (servicesTab) {
-            servicesTab.addEventListener('click', () => {
-                resetShopTabs();
-                servicesTab.classList.add('instagram-gradient');
-                servicesTab.classList.remove('bg-gray-700', 'text-gray-300');
-                servicesContent.classList.remove('hidden');
-            });
+        function goLive() {
+            alert("Live streaming feature will be available soon!");
+            hideCreateModal();
         }
         
-        if (walletTab) {
-            walletTab.addEventListener('click', () => {
-                resetShopTabs();
-                walletTab.classList.add('instagram-gradient');
-                walletTab.classList.remove('bg-gray-700', 'text-gray-300');
-                walletContent.classList.remove('hidden');
-            });
+        function hideChatModal() {
+            const modal = document.getElementById('chatModal');
+            if (modal) modal.style.display = 'none';
         }
         
-        if (chatTab) {
-            chatTab.addEventListener('click', () => {
-                resetShopTabs();
-                chatTab.classList.add('instagram-gradient');
-                chatTab.classList.remove('bg-gray-700', 'text-gray-300');
-                chatContent.classList.remove('hidden');
-            });
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (message) {
+                alert(`Message sent: ${message}`);
+                input.value = '';
+            }
+        }
+        
+        function hideChatSupportModal() {
+            const modal = document.getElementById('chatSupportModal');
+            if (modal) modal.style.display = 'none';
+        }
+        
+        function showAddServiceModal() {
+            const modal = document.getElementById('addServiceModal');
+            if (modal) modal.style.display = 'block';
+        }
+        
+        function hideAddServiceModal() {
+            const modal = document.getElementById('addServiceModal');
+            if (modal) modal.style.display = 'none';
+        }
+        
+        function confirmAddService() {
+            alert("Service created successfully!");
+            hideAddServiceModal();
         }
         
         // Add touch interactions
@@ -1916,14 +1884,6 @@
         function confirmAddArtwork() {
             alert("Artwork listed successfully!");
             hideAddArtworkModal();
-        }
-        
-        function showPaymentMethods() {
-            document.getElementById('paymentMethodsModal').style.display = 'block';
-        }
-        
-        function hidePaymentMethodsModal() {
-            document.getElementById('paymentMethodsModal').style.display = 'none';
         }
         
         function openChat(username) {
@@ -2020,15 +1980,46 @@
                     myVideosGrid.classList.remove('hidden');
                     likedVideosGrid.classList.add('hidden');
                     myVideosTab.classList.add('instagram-gradient');
+                    myVideosTab.classList.remove('bg-gray-700', 'text-gray-300');
                     likedVideosTab.classList.remove('instagram-gradient');
+                    likedVideosTab.classList.add('bg-gray-700', 'text-gray-300');
                 });
 
                 likedVideosTab.addEventListener('click', () => {
                     likedVideosGrid.classList.remove('hidden');
                     myVideosGrid.classList.add('hidden');
                     likedVideosTab.classList.add('instagram-gradient');
+                    likedVideosTab.classList.remove('bg-gray-700', 'text-gray-300');
                     myVideosTab.classList.remove('instagram-gradient');
+                    myVideosTab.classList.add('bg-gray-700', 'text-gray-300');
                 });
             }
+            
+            // Initialize install prompt handlers
+            const installBtn = document.getElementById('installBtn');
+            const dismissInstall = document.getElementById('dismissInstall');
+            const installPrompt = document.getElementById('installPrompt');
+            
+            if (installBtn) {
+                installBtn.addEventListener('click', () => {
+                    alert('App installation started! Check your browser or device settings.');
+                    if (installPrompt) installPrompt.style.display = 'none';
+                });
+            }
+            
+            if (dismissInstall) {
+                dismissInstall.addEventListener('click', () => {
+                    if (installPrompt) installPrompt.style.display = 'none';
+                });
+            }
+            
+            // Show install prompt after a delay (simulating PWA prompt)
+            setTimeout(() => {
+                if (installPrompt && !localStorage.getItem('installDismissed')) {
+                    installPrompt.style.display = 'block';
+                }
+            }, 5000);
         });
     </script>
+</body>
+</html>
