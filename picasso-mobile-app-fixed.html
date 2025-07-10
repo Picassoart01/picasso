@@ -1792,7 +1792,7 @@
         }
         
         function showServicesModal() {
-            alert("Service creation modal will be available soon!");
+            showAddServiceModal();
         }
         
         function goLive() {
@@ -1925,7 +1925,8 @@
         }
 
         function showChatSupport() {
-            alert("Live support chat not implemented yet.");
+            const modal = document.getElementById('chatSupportModal');
+            if (modal) modal.style.display = 'block';
         }
 
                  // === FEED TAB SWITCHING ===
