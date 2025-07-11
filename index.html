@@ -3,1285 +3,949 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Picasso - Art Marketplace</title>
+    <title>Picasso - Create & Sell Art</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #000;
             color: #fff;
-            overflow-x: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
+        
+        .gradient-logo {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        .header-nav {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .header-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .header-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .header-btn.active {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-
-        .header-icon {
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .header-icon:hover {
-            transform: scale(1.1);
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-top: 70px;
-            padding-bottom: 80px;
-        }
-
-        /* Home Feed */
-        .home-feed {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .video-card {
-            height: calc(100vh - 150px);
-            position: relative;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            border-radius: 12px;
-            margin: 8px 16px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-content {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .video-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            padding: 20px;
-        }
-
-        .video-info h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .video-info p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-        }
-
-        .video-actions {
-            position: absolute;
-            right: 16px;
-            bottom: 100px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-        }
-
+        
         .action-btn {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .action-btn:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
-
-        .action-btn.liked {
+        
+        .brush-icon {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .action-count {
-            color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 4px;
+        
+        .live-badge {
+            background: linear-gradient(45deg, #ff0050, #ff4081);
+            animation: pulse 2s infinite;
         }
-
-        /* Shop Grid */
-        .shop-content {
-            padding: 20px;
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
-
-        .shop-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .shop-categories {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-        }
-
-        .category-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-        }
-
-        .category-btn.active {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .product-card:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 48px;
-            position: relative;
-        }
-
-        .product-info {
-            padding: 16px;
-        }
-
-        .product-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .product-price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #4ade80;
-            margin-bottom: 8px;
-        }
-
-        .product-badges {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .badge.auction {
-            background: #ef4444;
-            color: #fff;
-        }
-
-        .badge.nft {
-            background: #8b5cf6;
-            color: #fff;
-        }
-
-        .badge.service {
-            background: #06b6d4;
-            color: #fff;
-        }
-
-        .chat-btn {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .chat-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Profile */
-        .profile-content {
-            padding: 20px;
-        }
-
-        .profile-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            margin: 0 auto 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            color: #fff;
-        }
-
-        .profile-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 20px 0;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .profile-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 30px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .profile-tab {
-            padding: 12px 0;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .profile-tab.active {
-            border-bottom-color: #fff;
-        }
-
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-        }
-
-        .video-thumbnail {
-            aspect-ratio: 9/16;
-            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-            border-radius: 4px;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .video-thumbnail::after {
-            content: '▶';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #fff;
-            font-size: 20px;
-        }
-
-        .video-views {
-            position: absolute;
-            bottom: 4px;
-            left: 4px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 10px;
-        }
-
-        /* Wallet & Boost Section */
-        .wallet-section, .boost-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .wallet-balance {
-            font-size: 24px;
-            font-weight: bold;
-            color: #4ade80;
-            margin-bottom: 8px;
-        }
-
-        .boost-price {
-            font-size: 18px;
-            color: #fbbf24;
-            font-weight: 600;
-        }
-
+        
         .boost-btn {
-            background: linear-gradient(45deg, #f59e0b 0%, #d97706 100%);
-            border: none;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 12px;
-            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
         }
-
+        
         .boost-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+            background: linear-gradient(45deg, #764ba2 0%, #667eea 100%);
         }
-
-        .chat-support-btn {
-            background: rgba(34, 197, 94, 0.2);
-            border: 1px solid #22c55e;
-            color: #22c55e;
-            padding: 12px 24px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 12px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+        
+        .buy-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
         }
-
-        .chat-support-btn:hover {
-            background: rgba(34, 197, 94, 0.3);
+        
+        .buy-btn:hover {
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+            transform: translateY(-1px);
         }
-
-        /* Bottom Navigation */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0;
-            z-index: 1000;
+        
+        .follow-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
         }
-
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 8px;
+        
+        .follow-btn:hover {
+            background: linear-gradient(45deg, #764ba2, #667eea);
         }
-
-        .nav-item.active {
-            color: #fff;
+        
+        .product-tag {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
-        .nav-item:not(.active) {
-            color: rgba(255, 255, 255, 0.6);
+        
+        .tab-active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
         }
-
-        .nav-icon {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 4px;
+        
+        .tab-inactive {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ccc;
         }
-
-        .nav-label {
-            font-size: 10px;
-            font-weight: 500;
-        }
-
-        .create-btn {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            border-radius: 8px;
-            padding: 8px 16px;
-        }
-
-        /* Chat Modal */
-        .chat-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .chat-container {
-            background: #1a1a1a;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 400px;
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
+        
+        .top-nav-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .chat-header {
-            padding: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 16px;
-            overflow-y: auto;
-        }
-
-        .message {
-            margin-bottom: 12px;
-            padding: 8px 12px;
-            border-radius: 12px;
-            max-width: 80%;
-        }
-
-        .message.sent {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            margin-left: auto;
-        }
-
-        .message.received {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .chat-input {
-            padding: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            gap: 12px;
-        }
-
-        .chat-input input {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 8px 16px;
-            color: #fff;
-        }
-
-        .chat-input button {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-nav {
-                display: none;
-            }
-            
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .profile-stats {
-                gap: 20px;
-            }
-        }
-
-        /* Hide inactive tabs */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
+        
+        .top-nav-item:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
-<body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">Picasso</div>
-        <div class="header-nav">
-            <button class="header-btn active">Friends</button>
-            <button class="header-btn">Artists</button>
-            <button class="header-btn">Live</button>
-        </div>
-        <div class="header-icons">
-            <svg class="header-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-        </div>
-    </div>
+<body class="bg-black text-white">
+    <div id="app" class="min-h-screen">
+        <!-- Header -->
+        <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+            <div class="flex items-center justify-between px-4 py-3">
+                <div class="flex items-center space-x-6">
+                    <h1 class="text-2xl font-bold gradient-logo">Picasso</h1>
+                    <div class="hidden md:flex space-x-4">
+                        <button class="px-4 py-2 rounded-full action-btn text-sm font-medium hover:scale-105 transition-all">
+                            <i class="fas fa-users mr-2"></i>Friends
+                        </button>
+                        <button class="px-4 py-2 rounded-full action-btn text-sm font-medium hover:scale-105 transition-all">
+                            <i class="fas fa-palette mr-2"></i>Artists
+                        </button>
+                        <button class="px-4 py-2 rounded-full action-btn text-sm font-medium hover:scale-105 transition-all">
+                            <i class="fas fa-video mr-2"></i>Live
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full action-btn hover:scale-105 transition-all">
+                        <i class="fas fa-search text-lg"></i>
+                    </button>
+                    <button class="p-2 rounded-full action-btn hover:scale-105 transition-all">
+                        <i class="fas fa-bell text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Home Tab -->
-        <div id="home-tab" class="tab-content active">
-            <div class="home-feed">
-                <div class="video-card">
-                    <div class="video-content">
-                        <div class="video-overlay">
-                            <div class="video-info">
-                                <h3>@artist_maya</h3>
-                                <p>Digital painting process 🎨 #art #digitalart</p>
+        <!-- Main Content -->
+        <main class="pt-20 pb-20">
+            <!-- Home Tab Content -->
+            <div id="home-content" class="tab-content">
+                <div class="max-w-md mx-auto space-y-4">
+                    <!-- Video Card 1 -->
+                    <div class="relative bg-gray-900 rounded-2xl overflow-hidden">
+                        <div class="aspect-[9/16] bg-gradient-to-br from-purple-900 to-blue-900 flex items-center justify-center relative">
+                            <i class="fas fa-play text-6xl text-white/50"></i>
+                            
+                            <!-- Product Tag -->
+                            <div class="absolute bottom-20 left-4 product-tag rounded-full px-3 py-1 text-xs">
+                                <i class="fas fa-shopping-bag mr-1"></i>
+                                Oil Painting - ₱8,500
+                            </div>
+                            
+                            <!-- Follow Button -->
+                            <button class="absolute top-4 right-4 follow-btn px-4 py-1 rounded-full text-sm font-medium">
+                                <i class="fas fa-plus mr-1"></i>Follow
+                            </button>
+                        </div>
+                        
+                        <div class="absolute right-4 bottom-24 flex flex-col space-y-4">
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-paint-brush text-xl brush-icon"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">2.1K</div>
+                            
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-comment text-xl"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">89</div>
+                            
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-gavel text-xl text-yellow-400"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">Bid</div>
+                            
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-share text-xl"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">Share</div>
+                        </div>
+                        
+                        <div class="absolute bottom-4 left-4 right-20">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
+                                     alt="Artist" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <div class="font-semibold">@artista_maya</div>
+                                    <div class="text-sm text-gray-400">Digital Artist</div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300">Creating magic with colors ✨ #art #painting #creative</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="relative bg-gray-900 rounded-2xl overflow-hidden">
+                        <div class="aspect-[9/16] bg-gradient-to-br from-green-900 to-teal-900 flex items-center justify-center relative">
+                            <i class="fas fa-play text-6xl text-white/50"></i>
+                            
+                            <!-- Live Badge -->
+                            <div class="absolute top-4 left-4 live-badge px-3 py-1 rounded-full text-xs font-bold">
+                                <i class="fas fa-circle text-xs mr-1"></i>LIVE
+                            </div>
+                            
+                            <!-- Product Tag -->
+                            <div class="absolute bottom-20 left-4 product-tag rounded-full px-3 py-1 text-xs">
+                                <i class="fas fa-music mr-1"></i>
+                                Guitar Session - ₱50/song
+                            </div>
+                            
+                            <!-- Follow Button -->
+                            <button class="absolute top-4 right-4 follow-btn px-4 py-1 rounded-full text-sm font-medium">
+                                <i class="fas fa-plus mr-1"></i>Follow
+                            </button>
+                        </div>
+                        
+                        <div class="absolute right-4 bottom-24 flex flex-col space-y-4">
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-paint-brush text-xl brush-icon"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">5.7K</div>
+                            
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-comment text-xl"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">234</div>
+                            
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-gavel text-xl text-yellow-400"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">Bid</div>
+                            
+                            <button class="action-btn p-3 rounded-full hover:scale-105 transition-all">
+                                <i class="fas fa-share text-xl"></i>
+                            </button>
+                            <div class="text-center text-xs text-gray-400">Share</div>
+                        </div>
+                        
+                        <div class="absolute bottom-4 left-4 right-20">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
+                                     alt="Musician" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <div class="font-semibold">@guitar_master</div>
+                                    <div class="text-sm text-gray-400">Street Musician</div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300">Live guitar session! Request your favorite songs 🎸 #music #live #guitar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop Tab Content -->
+            <div id="shop-content" class="tab-content hidden">
+                <!-- Top Navigation -->
+                <div class="flex justify-center space-x-4 px-4 mb-6">
+                    <button class="top-nav-item px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all">
+                        <i class="fas fa-ticket-alt mr-2"></i>Voucher
+                    </button>
+                    <button class="top-nav-item px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all">
+                        <i class="fas fa-box mr-2"></i>Orders
+                    </button>
+                    <button class="top-nav-item px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all">
+                        <i class="fas fa-credit-card mr-2"></i>Payment
+                    </button>
+                </div>
+
+                <!-- Shop Tabs -->
+                <div class="flex justify-center mb-6">
+                    <div class="flex bg-gray-800 rounded-full p-1">
+                        <button id="marketplace-tab" class="tab-active px-6 py-2 rounded-full text-sm font-medium transition-all">
+                            Marketplace
+                        </button>
+                        <button id="myshop-tab" class="tab-inactive px-6 py-2 rounded-full text-sm font-medium transition-all">
+                            My Shop
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="px-4 mb-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Search products..." 
+                               class="w-full bg-gray-800 border border-gray-700 rounded-full px-4 py-3 pl-12 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500">
+                        <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <!-- Marketplace Content -->
+                <div id="marketplace-content" class="shop-tab-content">
+                    <!-- Categories -->
+                    <div class="px-4 mb-6">
+                        <div class="flex space-x-2 overflow-x-auto pb-2">
+                            <button class="category-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">All</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Digital Art</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Painting</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Sculptures</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Art Materials</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Services</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Musical Instruments</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">NFTs</button>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="px-4 grid grid-cols-2 gap-4">
+                        <!-- Product Card 1 -->
+                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                            <div class="aspect-square bg-gradient-to-br from-purple-600 to-pink-600 relative">
+                                <img src="https://images.pexels.com/photos/1266808/pexels-photo-1266808.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
+                                     alt="Digital Art" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs">
+                                    <i class="fas fa-gavel mr-1"></i>Auction
+                                </div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-semibold text-sm mb-1">Digital Portrait NFT</h3>
+                                <p class="text-gray-400 text-xs mb-2">by @artista_maya</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-purple-400 font-bold">₱12,500.00</span>
+                                    <span class="text-xs text-gray-500">23 bids</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="buy-btn flex-1 py-2 rounded-lg text-sm font-medium">
+                                        <i class="fas fa-shopping-cart mr-1"></i>Buy Now
+                                    </button>
+                                    <button class="bg-gray-700 px-3 py-2 rounded-lg">
+                                        <i class="fas fa-comment text-sm"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="video-actions">
-                            <div style="text-align: center;">
-                                <div class="action-btn liked" onclick="toggleLike(this)">
-                                    <!-- Enhanced Brush Icon -->
-                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2L8 6v4l4 4 4-4V6l-4-4z"/>
-                                        <path d="M8 10v8c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-8"/>
-                                        <circle cx="12" cy="18" r="2"/>
-                                    </svg>
+
+                        <!-- Product Card 2 -->
+                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                            <div class="aspect-square bg-gradient-to-br from-blue-600 to-teal-600 relative">
+                                <img src="https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
+                                     alt="Oil Painting" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">
+                                    Fixed Price
                                 </div>
-                                <div class="action-count">2.1k</div>
                             </div>
-                            <div style="text-align: center;">
-                                <div class="action-btn" onclick="openChat()">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                    </svg>
+                            <div class="p-3">
+                                <h3 class="font-semibold text-sm mb-1">Oil Painting - Sunset</h3>
+                                <p class="text-gray-400 text-xs mb-2">by @painter_pro</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-purple-400 font-bold">₱8,500.00</span>
+                                    <span class="text-xs text-green-500">In Stock</span>
                                 </div>
-                                <div class="action-count">156</div>
+                                <div class="flex space-x-2">
+                                    <button class="buy-btn flex-1 py-2 rounded-lg text-sm font-medium">
+                                        <i class="fas fa-shopping-cart mr-1"></i>Buy Now
+                                    </button>
+                                    <button class="bg-gray-700 px-3 py-2 rounded-lg">
+                                        <i class="fas fa-comment text-sm"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div style="text-align: center;">
-                                <div class="action-btn">
-                                    <!-- Hammer Icon for Bidding -->
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .708A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10l3-3 3 3-3 3-3-3z"/>
-                                    </svg>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                            <div class="aspect-square bg-gradient-to-br from-yellow-600 to-orange-600 relative">
+                                <img src="https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
+                                     alt="Guitar Lesson" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 live-badge px-2 py-1 rounded-full text-xs">
+                                    <i class="fas fa-circle text-xs mr-1"></i>LIVE
                                 </div>
-                                <div class="action-count">Bid</div>
                             </div>
-                            <div style="text-align: center;">
-                                <div class="action-btn">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
-                                    </svg>
+                            <div class="p-3">
+                                <h3 class="font-semibold text-sm mb-1">Guitar Lesson</h3>
+                                <p class="text-gray-400 text-xs mb-2">by @guitar_master</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-purple-400 font-bold">₱500/hr</span>
+                                    <span class="text-xs text-yellow-500">Busking</span>
                                 </div>
-                                <div class="action-count">89</div>
+                                <div class="flex space-x-2">
+                                    <button class="buy-btn flex-1 py-2 rounded-lg text-sm font-medium">
+                                        <i class="fas fa-video mr-1"></i>Join Live
+                                    </button>
+                                    <button class="bg-gray-700 px-3 py-2 rounded-lg">
+                                        <i class="fas fa-comment text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 4 -->
+                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                            <div class="aspect-square bg-gradient-to-br from-red-600 to-pink-600 relative">
+                                <img src="https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
+                                     alt="Bronze Sculpture" class="w-full h-full object-cover">
+                                <div class="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs">
+                                    Fixed Price
+                                </div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-semibold text-sm mb-1">Bronze Sculpture</h3>
+                                <p class="text-gray-400 text-xs mb-2">by @sculptor_art</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-purple-400 font-bold">₱25,000.00</span>
+                                    <span class="text-xs text-green-500">In Stock</span>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="buy-btn flex-1 py-2 rounded-lg text-sm font-medium">
+                                        <i class="fas fa-shopping-cart mr-1"></i>Buy Now
+                                    </button>
+                                    <button class="bg-gray-700 px-3 py-2 rounded-lg">
+                                        <i class="fas fa-comment text-sm"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="video-card">
-                    <div class="video-content" style="background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);">
-                        <div class="video-overlay">
-                            <div class="video-info">
-                                <h3>@creative_soul</h3>
-                                <p>Watercolor techniques tutorial 💧 #watercolor #tutorial</p>
+                <!-- My Shop Content -->
+                <div id="myshop-content" class="shop-tab-content hidden">
+                    <!-- Shop Stats -->
+                    <div class="px-4 mb-6">
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-lg font-bold">My Shop Dashboard</h2>
+                                <div class="text-right">
+                                    <div class="text-2xl font-bold text-green-400">₱8,750.50</div>
+                                    <div class="text-xs text-gray-400">Available Balance</div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <div class="text-xl font-bold text-purple-400">47</div>
+                                    <div class="text-xs text-gray-400">Products</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-blue-400">156</div>
+                                    <div class="text-xs text-gray-400">Orders</div>
+                                </div>
+                                <div>
+                                    <div class="text-xl font-bold text-green-400">₱12,450</div>
+                                    <div class="text-xs text-gray-400">Total Sales</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="video-actions">
-                            <div style="text-align: center;">
-                                <div class="action-btn" onclick="toggleLike(this)">
-                                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2L8 6v4l4 4 4-4V6l-4-4z"/>
-                                        <path d="M8 10v8c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-8"/>
-                                        <circle cx="12" cy="18" r="2"/>
-                                    </svg>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="px-4 mb-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <button class="bg-gradient-to-r from-purple-600 to-blue-600 p-4 rounded-xl text-center">
+                                <i class="fas fa-plus text-2xl mb-2"></i>
+                                <div class="font-semibold">Add Product</div>
+                            </button>
+                            <button class="bg-gray-800 p-4 rounded-xl text-center">
+                                <i class="fas fa-chart-line text-2xl mb-2"></i>
+                                <div class="font-semibold">Analytics</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Wallet & Payments -->
+                    <div class="px-4 mb-6">
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <h3 class="font-bold mb-4">Payment Methods</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fab fa-paypal text-blue-500 text-xl"></i>
+                                        <span>PayPal</span>
+                                    </div>
+                                    <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-xs">Connected</span>
                                 </div>
-                                <div class="action-count">1.8k</div>
+                                <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fas fa-mobile-alt text-blue-500 text-xl"></i>
+                                        <span>GCash</span>
+                                    </div>
+                                    <button class="bg-gray-600 text-white px-3 py-1 rounded-full text-xs">Setup</button>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                    <div class="flex items-center space-x-3">
+                                        <i class="fab fa-bitcoin text-green-500 text-xl"></i>
+                                        <span>USDT</span>
+                                    </div>
+                                    <button class="bg-gray-600 text-white px-3 py-1 rounded-full text-xs">Setup</button>
+                                </div>
                             </div>
-                            <div style="text-align: center;">
-                                <div class="action-btn" onclick="openChat()">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                    </svg>
+                        </div>
+                    </div>
+
+                    <!-- Logistics -->
+                    <div class="px-4 mb-6">
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <h3 class="font-bold mb-4">Shipping Partners</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                    <div>
+                                        <div class="font-semibold">LBC Express</div>
+                                        <div class="text-xs text-gray-400">₱85 - ₱150</div>
+                                    </div>
+                                    <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">Active</span>
                                 </div>
-                                <div class="action-count">234</div>
-                            </div>
-                            <div style="text-align: center;">
-                                <div class="action-btn">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.25 4.533A9.707 9.707 0 006 3a9.735 9.735 0 00-3.25.555.75.75 0 00-.5.707v14.25a.75.75 0 001 .708A8.237 8.237 0 016 18.75c1.995 0 3.823.707 5.25 1.886V4.533zM12.75 20.636A8.214 8.214 0 0118 18.75c.966 0 1.89.166 2.75.47a.75.75 0 001-.708V4.262a.75.75 0 00-.5-.707A9.735 9.735 0 0018 3a9.707 9.707 0 00-5.25 1.533v16.103z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10l3-3 3 3-3 3-3-3z"/>
-                                    </svg>
+                                <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                    <div>
+                                        <div class="font-semibold">J&T Express</div>
+                                        <div class="text-xs text-gray-400">₱65 - ₱120</div>
+                                    </div>
+                                    <button class="bg-gray-600 text-white px-3 py-1 rounded-full text-xs">Setup</button>
                                 </div>
-                                <div class="action-count">Bid</div>
-                            </div>
-                            <div style="text-align: center;">
-                                <div class="action-btn">
-                                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
-                                    </svg>
-                                </div>
-                                <div class="action-count">67</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Shop Tab -->
-        <div id="shop-tab" class="tab-content">
-            <div class="shop-content">
-                <div class="shop-header">
-                    <h2>Marketplace</h2>
-                    <div class="wallet-section">
-                        <div class="wallet-balance">₱2,847.50</div>
-                        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7);">Available Balance</div>
-                    </div>
-                </div>
+            <!-- Create Tab Content -->
+            <div id="create-content" class="tab-content hidden">
+                <div class="max-w-md mx-auto px-4">
+                    <div class="bg-gray-900 rounded-2xl p-6 text-center">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-plus text-3xl"></i>
+                        </div>
+                        <h2 class="text-xl font-bold mb-2">Create Content</h2>
+                        <p class="text-gray-400 mb-6">Share your art with the world</p>
+                        
+                        <div class="space-y-4">
+                            <button class="w-full bg-gradient-to-r from-purple-600 to-pink-600 py-3 rounded-xl font-semibold">
+                                <i class="fas fa-video mr-2"></i>Record Video
+                            </button>
+                            <button class="w-full bg-gray-800 py-3 rounded-xl font-semibold">
+                                <i class="fas fa-image mr-2"></i>Upload Photo
+                            </button>
+                            <button class="w-full bg-gray-800 py-3 rounded-xl font-semibold">
+                                <i class="fas fa-broadcast-tower mr-2"></i>Go Live
+                            </button>
+                        </div>
 
-                <div class="shop-categories">
-                    <button class="category-btn active" onclick="filterCategory('all')">All</button>
-                    <button class="category-btn" onclick="filterCategory('digital-art')">Digital Art</button>
-                    <button class="category-btn" onclick="filterCategory('painting')">Painting</button>
-                    <button class="category-btn" onclick="filterCategory('sculptures')">Sculptures</button>
-                    <button class="category-btn" onclick="filterCategory('photography')">Photography</button>
-                    <button class="category-btn" onclick="filterCategory('prints')">Prints</button>
-                    <button class="category-btn" onclick="filterCategory('nfts')">NFTs</button>
-                    <button class="category-btn" onclick="filterCategory('services')">Services</button>
-                    <button class="category-btn" onclick="filterCategory('instruments')">Musical Instruments</button>
-                    <button class="category-btn" onclick="filterCategory('art-materials')">Art Materials</button>
-                </div>
-
-                <div class="product-grid">
-                    <div class="product-card" data-category="digital-art">
-                        <div class="product-image">🎨</div>
-                        <div class="product-info">
-                            <div class="product-title">Abstract Digital Art</div>
-                            <div class="product-price">₱1,250.00</div>
-                            <div class="product-badges">
-                                <span class="badge auction">Auction</span>
+                        <!-- Product Linking Section -->
+                        <div class="mt-6 p-4 bg-gray-800 rounded-xl">
+                            <h3 class="font-semibold mb-3">Tag Products</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between p-2 bg-gray-700 rounded-lg">
+                                    <div class="flex items-center space-x-2">
+                                        <img src="https://images.pexels.com/photos/1266808/pexels-photo-1266808.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" 
+                                             alt="Product" class="w-8 h-8 rounded">
+                                        <div>
+                                            <div class="text-sm font-medium">Digital Portrait NFT</div>
+                                            <div class="text-xs text-gray-400">₱12,500.00</div>
+                                        </div>
+                                    </div>
+                                    <button class="bg-purple-600 px-3 py-1 rounded-full text-xs">Tag</button>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-gray-700 rounded-lg">
+                                    <div class="flex items-center space-x-2">
+                                        <img src="https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" 
+                                             alt="Product" class="w-8 h-8 rounded">
+                                        <div>
+                                            <div class="text-sm font-medium">Oil Painting - Sunset</div>
+                                            <div class="text-xs text-gray-400">₱8,500.00</div>
+                                        </div>
+                                    </div>
+                                    <button class="bg-gray-600 px-3 py-1 rounded-full text-xs">Tag</button>
+                                </div>
                             </div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="nfts">
-                        <div class="product-image">🖼️</div>
-                        <div class="product-info">
-                            <div class="product-title">Crypto Art Collection</div>
-                            <div class="product-price">0.5 ETH</div>
-                            <div class="product-badges">
-                                <span class="badge nft">NFT</span>
-                            </div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="painting">
-                        <div class="product-image">🖼️</div>
-                        <div class="product-info">
-                            <div class="product-title">Oil Painting - Sunset</div>
-                            <div class="product-price">₱8,500.00</div>
-                            <div class="product-badges">
-                                <span class="badge auction">Auction</span>
-                            </div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="sculptures">
-                        <div class="product-image">🗿</div>
-                        <div class="product-info">
-                            <div class="product-title">Bronze Sculpture</div>
-                            <div class="product-price">₱25,000.00</div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="art-materials">
-                        <div class="product-image">🎨</div>
-                        <div class="product-info">
-                            <div class="product-title">Professional Paint Set</div>
-                            <div class="product-price">₱3,200.00</div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="painting">
-                        <div class="product-image">🎭</div>
-                        <div class="product-info">
-                            <div class="product-title">Watercolor Portrait</div>
-                            <div class="product-price">₱4,750.00</div>
-                            <div class="product-badges">
-                                <span class="badge auction">Auction</span>
-                            </div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="art-materials">
-                        <div class="product-image">✏️</div>
-                        <div class="product-info">
-                            <div class="product-title">Drawing Pencil Set</div>
-                            <div class="product-price">₱850.00</div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="services">
-                        <div class="product-image">🎓</div>
-                        <div class="product-info">
-                            <div class="product-title">Art Lessons (1-on-1)</div>
-                            <div class="product-price">₱800.00/hr</div>
-                            <div class="product-badges">
-                                <span class="badge service">Service</span>
-                            </div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="instruments">
-                        <div class="product-image">🎸</div>
-                        <div class="product-info">
-                            <div class="product-title">Acoustic Guitar</div>
-                            <div class="product-price">₱15,000.00</div>
-                            <div class="product-badges">
-                                <span class="badge auction">Auction</span>
-                            </div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="services">
-                        <div class="product-image">🎤</div>
-                        <div class="product-info">
-                            <div class="product-title">Voice Coaching</div>
-                            <div class="product-price">₱1,200.00/hr</div>
-                            <div class="product-badges">
-                                <span class="badge service">Service</span>
-                            </div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="instruments">
-                        <div class="product-image">🎹</div>
-                        <div class="product-info">
-                            <div class="product-title">Digital Piano</div>
-                            <div class="product-price">₱25,000.00</div>
-                            <button class="chat-btn" onclick="openChat()">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                                </svg>
-                                Chat with Seller
-                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Create Tab -->
-        <div id="create-tab" class="tab-content">
-            <div class="shop-content">
-                <h2>Create Content</h2>
-                <p style="color: rgba(255, 255, 255, 0.7); margin-top: 20px;">Upload your artwork, create listings, or start a live stream.</p>
-            </div>
-        </div>
-
-        <!-- Notifications Tab -->
-        <div id="notifications-tab" class="tab-content">
-            <div class="shop-content">
-                <h2>Notifications</h2>
-                <div style="margin-top: 20px;">
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 16px; border-radius: 8px; margin-bottom: 12px;">
-                        <div style="font-weight: 600;">New bid on your artwork</div>
-                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">Someone bid ₱1,500 on "Abstract Digital Art"</div>
-                        <div style="color: rgba(255, 255, 255, 0.5); font-size: 12px; margin-top: 4px;">2 minutes ago</div>
-                    </div>
-                    <div style="background: rgba(255, 255, 255, 0.05); padding: 16px; border-radius: 8px; margin-bottom: 12px;">
-                        <div style="font-weight: 600;">Affiliate commission earned</div>
-                        <div style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">You earned ₱125 from promoting @artist_maya's work</div>
-                        <div style="color: rgba(255, 255, 255, 0.5); font-size: 12px; margin-top: 4px;">1 hour ago</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Profile Tab -->
-        <div id="profile-tab" class="tab-content">
-            <div class="profile-content">
-                <div class="profile-header">
-                    <div class="profile-avatar">JD</div>
-                    <h2>John Doe</h2>
-                    <p style="color: rgba(255, 255, 255, 0.7);">@johndoe_art</p>
+            <!-- Notifications Tab Content -->
+            <div id="notifications-content" class="tab-content hidden">
+                <div class="max-w-md mx-auto px-4">
+                    <h2 class="text-xl font-bold mb-6">Notifications</h2>
                     
-                    <div class="profile-stats">
-                        <div class="stat">
-                            <div class="stat-number">127</div>
-                            <div class="stat-label">Posts</div>
+                    <div class="space-y-4">
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-paint-brush text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm"><span class="font-semibold">@artlover23</span> liked your painting</p>
+                                    <p class="text-xs text-gray-400">2 minutes ago</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">2.1k</div>
-                            <div class="stat-label">Followers</div>
+                        
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-teal-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-gavel text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm">New bid on your <span class="font-semibold">Digital Portrait NFT</span></p>
+                                    <p class="text-xs text-gray-400">5 minutes ago</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">892</div>
-                            <div class="stat-label">Following</div>
+                        
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-user-plus text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm"><span class="font-semibold">@newartist</span> started following you</p>
+                                    <p class="text-xs text-gray-400">1 hour ago</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-xl p-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-10 h-10 bg-gradient-to-br from-yellow-600 to-orange-600 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-dollar-sign text-sm"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm">Affiliate commission earned: <span class="font-semibold text-green-400">₱125.00</span></p>
+                                    <p class="text-xs text-gray-400">3 hours ago</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Wallet Section -->
-                <div class="wallet-section">
-                    <h3>Wallet</h3>
-                    <div class="wallet-balance">₱2,847.50</div>
-                    <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin-bottom: 12px;">
-                        Platform Revenue (10%): ₱284.75<br>
-                        Affiliate Earnings: ₱456.20
+            <!-- Profile Tab Content -->
+            <div id="profile-content" class="tab-content hidden">
+                <div class="max-w-md mx-auto px-4">
+                    <!-- Profile Header -->
+                    <div class="text-center mb-6">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" 
+                             alt="Profile" class="w-20 h-20 rounded-full mx-auto mb-4">
+                        <h2 class="text-xl font-bold">@artista_maya</h2>
+                        <p class="text-gray-400">Digital Artist & Creator</p>
+                        
+                        <div class="flex justify-center space-x-8 mt-4">
+                            <div class="text-center">
+                                <div class="font-bold">47</div>
+                                <div class="text-xs text-gray-400">Posts</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-bold">2.1K</div>
+                                <div class="text-xs text-gray-400">Followers</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="font-bold">892</div>
+                                <div class="text-xs text-gray-400">Following</div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                        <span style="background: #1877f2; color: white; padding: 4px 8px; border-radius: 12px; font-size: 10px;">PayPal</span>
-                        <span style="background: #007cff; color: white; padding: 4px 8px; border-radius: 12px; font-size: 10px;">GCash</span>
-                        <span style="background: #26a17b; color: white; padding: 4px 8px; border-radius: 12px; font-size: 10px;">USDT</span>
-                        <span style="background: #627eea; color: white; padding: 4px 8px; border-radius: 12px; font-size: 10px;">ETH</span>
+
+                    <!-- Profile Tabs -->
+                    <div class="flex justify-center mb-6">
+                        <div class="flex bg-gray-800 rounded-full p-1">
+                            <button id="videos-tab" class="tab-active px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-video mr-1"></i>Videos
+                            </button>
+                            <button id="liked-tab" class="tab-inactive px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-heart mr-1"></i>Liked
+                            </button>
+                            <button id="bookmarks-tab" class="tab-inactive px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-bookmark mr-1"></i>Saved
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Videos Grid -->
+                    <div id="videos-grid" class="grid grid-cols-3 gap-1 mb-6">
+                        <div class="aspect-[9/16] bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg relative">
+                            <i class="fas fa-play absolute inset-0 flex items-center justify-center text-2xl text-white/70"></i>
+                            <div class="absolute bottom-1 left-1 text-xs">2.1K</div>
+                        </div>
+                        <div class="aspect-[9/16] bg-gradient-to-br from-blue-600 to-teal-600 rounded-lg relative">
+                            <i class="fas fa-play absolute inset-0 flex items-center justify-center text-2xl text-white/70"></i>
+                            <div class="absolute bottom-1 left-1 text-xs">5.7K</div>
+                        </div>
+                        <div class="aspect-[9/16] bg-gradient-to-br from-green-600 to-yellow-600 rounded-lg relative">
+                            <i class="fas fa-play absolute inset-0 flex items-center justify-center text-2xl text-white/70"></i>
+                            <div class="absolute bottom-1 left-1 text-xs">892</div>
+                        </div>
+                        <div class="aspect-[9/16] bg-gradient-to-br from-red-600 to-pink-600 rounded-lg relative">
+                            <i class="fas fa-play absolute inset-0 flex items-center justify-center text-2xl text-white/70"></i>
+                            <div class="absolute bottom-1 left-1 text-xs">1.3K</div>
+                        </div>
+                        <div class="aspect-[9/16] bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg relative">
+                            <i class="fas fa-play absolute inset-0 flex items-center justify-center text-2xl text-white/70"></i>
+                            <div class="absolute bottom-1 left-1 text-xs">3.2K</div>
+                        </div>
+                        <div class="aspect-[9/16] bg-gradient-to-br from-pink-600 to-red-600 rounded-lg relative">
+                            <i class="fas fa-play absolute inset-0 flex items-center justify-center text-2xl text-white/70"></i>
+                            <div class="absolute bottom-1 left-1 text-xs">756</div>
+                        </div>
+                    </div>
+
+                    <!-- Boost Section -->
+                    <div class="bg-gray-900 rounded-xl p-4 mb-4">
+                        <h3 class="font-bold mb-2">Boost Your Content</h3>
+                        <p class="text-gray-400 text-sm mb-4">Increase your reach and get more views</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm">Starting at <span class="font-bold text-green-400">₱49</span></span>
+                            <button class="boost-btn px-4 py-2 rounded-lg text-sm font-medium">
+                                <i class="fas fa-rocket mr-1"></i>Boost Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Support -->
+                    <div class="bg-gray-900 rounded-xl p-4">
+                        <button class="w-full flex items-center justify-center space-x-2 py-3 bg-gray-800 rounded-lg">
+                            <i class="fas fa-headset"></i>
+                            <span>Chat Support</span>
+                        </button>
                     </div>
                 </div>
+            </div>
+        </main>
 
-                <!-- Boost Section -->
-                <div class="boost-section">
-                    <h3>Boost Your Content</h3>
-                    <div class="boost-price">Starting at ₱49</div>
-                    <div style="font-size: 14px; color: rgba(255, 255, 255, 0.7); margin: 8px 0;">
-                        Increase visibility and reach more potential buyers
-                    </div>
-                    <button class="boost-btn">Boost Now</button>
-                </div>
-
-                <!-- Chat Support -->
-                <button class="chat-support-btn" onclick="openSupportChat()">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                    </svg>
-                    Chat Support
+        <!-- Bottom Navigation -->
+        <nav class="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-md border-t border-gray-800">
+            <div class="flex items-center justify-around py-2">
+                <button class="nav-btn flex flex-col items-center py-2 px-4 text-white" data-tab="home">
+                    <i class="fas fa-home text-xl mb-1"></i>
+                    <span class="text-xs">Home</span>
                 </button>
-
-                <div class="profile-tabs">
-                    <div class="profile-tab active" onclick="switchProfileTab('videos')">Videos</div>
-                    <div class="profile-tab" onclick="switchProfileTab('liked')">Liked</div>
-                    <div class="profile-tab" onclick="switchProfileTab('bookmarks')">Bookmarks</div>
-                </div>
-
-                <div id="profile-videos" class="profile-tab-content">
-                    <div class="video-grid">
-                        <div class="video-thumbnail">
-                            <div class="video-views">1.2k</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">856</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">2.1k</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">743</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">1.5k</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">967</div>
-                        </div>
+                <button class="nav-btn flex flex-col items-center py-2 px-4 text-gray-400" data-tab="shop">
+                    <i class="fas fa-store text-xl mb-1"></i>
+                    <span class="text-xs">Shop</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center py-2 px-4 text-gray-400" data-tab="create">
+                    <div class="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mb-1">
+                        <i class="fas fa-plus text-sm"></i>
                     </div>
-                </div>
-
-                <div id="profile-liked" class="profile-tab-content" style="display: none;">
-                    <div class="video-grid">
-                        <div class="video-thumbnail">
-                            <div class="video-views">3.2k</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">1.8k</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">2.5k</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="profile-bookmarks" class="profile-tab-content" style="display: none;">
-                    <div class="video-grid">
-                        <div class="video-thumbnail">
-                            <div class="video-views">4.1k</div>
-                        </div>
-                        <div class="video-thumbnail">
-                            <div class="video-views">2.9k</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chat Modal -->
-    <div id="chat-modal" class="chat-modal">
-        <div class="chat-container">
-            <div class="chat-header">
-                <h3>Chat with Seller</h3>
-                <button onclick="closeChat()" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;">&times;</button>
-            </div>
-            <div class="chat-messages">
-                <div class="message received">
-                    <div>Hi! I'm interested in your artwork. Is it still available?</div>
-                </div>
-                <div class="message sent">
-                    <div>Yes, it's still available! Would you like to know more details?</div>
-                </div>
-                <div class="message received">
-                    <div>What's the size and medium used?</div>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Type a message..." id="chat-input-field">
-                <button onclick="sendMessage()">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                    </svg>
+                    <span class="text-xs">Create</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center py-2 px-4 text-gray-400" data-tab="notifications">
+                    <i class="fas fa-bell text-xl mb-1"></i>
+                    <span class="text-xs">Notifications</span>
+                </button>
+                <button class="nav-btn flex flex-col items-center py-2 px-4 text-gray-400" data-tab="profile">
+                    <i class="fas fa-user text-xl mb-1"></i>
+                    <span class="text-xs">Profile</span>
                 </button>
             </div>
-        </div>
-    </div>
+        </nav>
 
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <div class="nav-item active" onclick="switchTab('home')">
-            <svg class="nav-icon" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-            </svg>
-            <div class="nav-label">Home</div>
-        </div>
-        <div class="nav-item" onclick="switchTab('shop')">
-            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-            </svg>
-            <div class="nav-label">Shop</div>
-        </div>
-        <div class="nav-item create-btn" onclick="switchTab('create')">
-            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-            </svg>
-            <div class="nav-label">Create</div>
-        </div>
-        <div class="nav-item" onclick="switchTab('notifications')">
-            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5v-5zM4.868 19.504L8.5 12.5l-3.632-7.004a.75.75 0 01.362-1.091L16.5 1.5l.5.5-3 7 3.5 3.5-7 3-.5-.5 2.996-7.004z"/>
-            </svg>
-            <div class="nav-label">Notifications</div>
-        </div>
-        <div class="nav-item" onclick="switchTab('profile')">
-            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-            </svg>
-            <div class="nav-label">Profile</div>
+        <!-- Chat Modal -->
+        <div id="chat-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden">
+            <div class="absolute bottom-0 left-0 right-0 bg-gray-900 rounded-t-2xl max-h-[80vh] overflow-hidden">
+                <div class="flex items-center justify-between p-4 border-b border-gray-700">
+                    <div class="flex items-center space-x-3">
+                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" 
+                             alt="Seller" class="w-8 h-8 rounded-full">
+                        <div>
+                            <div class="font-semibold text-sm">@guitar_master</div>
+                            <div class="text-xs text-gray-400">Online</div>
+                        </div>
+                    </div>
+                    <button id="close-chat" class="text-gray-400 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="p-4 h-64 overflow-y-auto space-y-3">
+                    <div class="flex justify-start">
+                        <div class="bg-gray-800 rounded-2xl rounded-bl-md px-4 py-2 max-w-xs">
+                            <p class="text-sm">Hi! Interested in the guitar lesson?</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <div class="bg-purple-600 rounded-2xl rounded-br-md px-4 py-2 max-w-xs">
+                            <p class="text-sm">Yes! What's included in the session?</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-start">
+                        <div class="bg-gray-800 rounded-2xl rounded-bl-md px-4 py-2 max-w-xs">
+                            <p class="text-sm">I teach basic chords, strumming patterns, and can help with specific songs. ₱500 per hour!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4 border-t border-gray-700">
+                    <div class="flex space-x-2">
+                        <input type="text" placeholder="Type a message..." 
+                               class="flex-1 bg-gray-800 border border-gray-700 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-purple-500">
+                        <button class="bg-purple-600 p-2 rounded-full">
+                            <i class="fas fa-paper-plane text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Tab switching
-        function switchTab(tabName) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Remove active class from all nav items
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabName + '-tab').classList.add('active');
-            
-            // Add active class to clicked nav item
-            event.currentTarget.classList.add('active');
-        }
+        // Tab Navigation
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-        // Profile tab switching
-        function switchProfileTab(tabName) {
-            // Remove active class from all profile tabs
-            document.querySelectorAll('.profile-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Hide all profile tab contents
-            document.querySelectorAll('.profile-tab-content').forEach(content => {
-                content.style.display = 'none';
-            });
-            
-            // Add active class to clicked tab
-            event.currentTarget.classList.add('active');
-            
-            // Show selected content
-            document.getElementById('profile-' + tabName).style.display = 'block';
-        }
-
-        // Like functionality
-        function toggleLike(button) {
-            button.classList.toggle('liked');
-            const countElement = button.parentElement.querySelector('.action-count');
-            let count = parseInt(countElement.textContent.replace('k', '000').replace('.', ''));
-            
-            if (button.classList.contains('liked')) {
-                count += 1;
-            } else {
-                count -= 1;
-            }
-            
-            if (count >= 1000) {
-                countElement.textContent = (count / 1000).toFixed(1) + 'k';
-            } else {
-                countElement.textContent = count;
-            }
-        }
-
-        // Category filtering
-        function filterCategory(category) {
-            // Remove active class from all category buttons
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Add active class to clicked button
-            event.currentTarget.classList.add('active');
-            
-            // Show/hide products based on category
-            document.querySelectorAll('.product-card').forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        // Chat functionality
-        function openChat() {
-            document.getElementById('chat-modal').style.display = 'flex';
-        }
-
-        function closeChat() {
-            document.getElementById('chat-modal').style.display = 'none';
-        }
-
-        function openSupportChat() {
-            // Open support chat (could integrate with customer service system)
-            alert('Opening chat support...');
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input-field');
-            const message = input.value.trim();
-            
-            if (message) {
-                const messagesContainer = document.querySelector('.chat-messages');
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'message sent';
-                messageDiv.innerHTML = `<div>${message}</div>`;
-                messagesContainer.appendChild(messageDiv);
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
                 
-                input.value = '';
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            }
-        }
+                // Update nav button states
+                navButtons.forEach(btn => {
+                    if (btn.getAttribute('data-tab') === targetTab) {
+                        btn.classList.remove('text-gray-400');
+                        btn.classList.add('text-white');
+                    } else {
+                        btn.classList.remove('text-white');
+                        btn.classList.add('text-gray-400');
+                    }
+                });
+                
+                // Show/hide tab content
+                tabContents.forEach(content => {
+                    if (content.id === targetTab + '-content') {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
 
-        // Enter key to send message
-        document.getElementById('chat-input-field').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
+        // Shop Tabs
+        const marketplaceTab = document.getElementById('marketplace-tab');
+        const myshopTab = document.getElementById('myshop-tab');
+        const marketplaceContent = document.getElementById('marketplace-content');
+        const myshopContent = document.getElementById('myshop-content');
+
+        marketplaceTab.addEventListener('click', () => {
+            marketplaceTab.classList.remove('tab-inactive');
+            marketplaceTab.classList.add('tab-active');
+            myshopTab.classList.remove('tab-active');
+            myshopTab.classList.add('tab-inactive');
+            
+            marketplaceContent.classList.remove('hidden');
+            myshopContent.classList.add('hidden');
+        });
+
+        myshopTab.addEventListener('click', () => {
+            myshopTab.classList.remove('tab-inactive');
+            myshopTab.classList.add('tab-active');
+            marketplaceTab.classList.remove('tab-active');
+            marketplaceTab.classList.add('tab-inactive');
+            
+            myshopContent.classList.remove('hidden');
+            marketplaceContent.classList.add('hidden');
+        });
+
+        // Profile Tabs
+        const videosTab = document.getElementById('videos-tab');
+        const likedTab = document.getElementById('liked-tab');
+        const bookmarksTab = document.getElementById('bookmarks-tab');
+
+        [videosTab, likedTab, bookmarksTab].forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Reset all tabs
+                [videosTab, likedTab, bookmarksTab].forEach(t => {
+                    t.classList.remove('tab-active');
+                    t.classList.add('tab-inactive');
+                });
+                
+                // Activate clicked tab
+                tab.classList.remove('tab-inactive');
+                tab.classList.add('tab-active');
+            });
+        });
+
+        // Category Filter
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('bg-purple-600', 'text-white');
+                    btn.classList.add('bg-gray-700', 'text-gray-300');
+                });
+                
+                button.classList.remove('bg-gray-700', 'text-gray-300');
+                button.classList.add('bg-purple-600', 'text-white');
+            });
+        });
+
+        // Chat Modal
+        const chatModal = document.getElementById('chat-modal');
+        const closeChatBtn = document.getElementById('close-chat');
+        const chatButtons = document.querySelectorAll('.fa-comment').forEach(btn => {
+            btn.parentElement.addEventListener('click', (e) => {
+                e.stopPropagation();
+                chatModal.classList.remove('hidden');
+            });
+        });
+
+        closeChatBtn.addEventListener('click', () => {
+            chatModal.classList.add('hidden');
+        });
+
+        chatModal.addEventListener('click', (e) => {
+            if (e.target === chatModal) {
+                chatModal.classList.add('hidden');
             }
         });
 
-        // Auto-detect user's country and set currency
-        function detectCurrency() {
-            // This would typically use geolocation or user preferences
-            // For demo purposes, we'll use Philippines Peso
-            const currency = '₱';
-            return currency;
-        }
+        // Buy Button Actions
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                // Create a simple notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-24 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-full z-50 transition-all';
+                notification.innerHTML = '<i class="fas fa-check mr-2"></i>Added to cart!';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 2000);
+            });
+        });
 
-        // Initialize currency on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const currency = detectCurrency();
-            // Currency is already set to ₱ in the HTML for demo
+        // Follow Button Actions
+        document.querySelectorAll('.follow-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                if (btn.innerHTML.includes('Follow')) {
+                    btn.innerHTML = '<i class="fas fa-check mr-1"></i>Following';
+                    btn.classList.add('bg-gray-600');
+                    btn.classList.remove('follow-btn');
+                } else {
+                    btn.innerHTML = '<i class="fas fa-plus mr-1"></i>Follow';
+                    btn.classList.remove('bg-gray-600');
+                    btn.classList.add('follow-btn');
+                }
+            });
+        });
+
+        // Product Tag Actions
+        document.querySelectorAll('.product-tag').forEach(tag => {
+            tag.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                // Simple product view modal simulation
+                const notification = document.createElement('div');
+                notification.className = 'fixed top-24 left-1/2 transform -translate-x-1/2 bg-purple-600 text-white px-6 py-3 rounded-full z-50 transition-all';
+                notification.innerHTML = '<i class="fas fa-eye mr-2"></i>View Product';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 2000);
+            });
         });
     </script>
 </body>
