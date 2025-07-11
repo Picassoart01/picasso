@@ -13,44 +13,106 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #000;
             min-height: 100vh;
-            color: #333;
+            color: #fff;
         }
 
         .container {
             max-width: 414px;
             margin: 0 auto;
-            background: white;
+            background: #000;
             min-height: 100vh;
             position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
         }
 
         /* Header */
         .header {
-            background: white;
+            background: #000;
             padding: 15px 20px;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #333;
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
         .header h1 {
             font-size: 24px;
             font-weight: 700;
-            color: #333;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-align: center;
+            flex: 1;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-icon {
+            width: 24px;
+            height: 24px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .header-icon:hover {
+            stroke: #f09433;
+            transform: scale(1.1);
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .top-nav-item {
+            color: #888;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .top-nav-item.active {
+            color: #fff;
+        }
+
+        .top-nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 2px;
+            background: #fff;
+            border-radius: 1px;
         }
 
         /* Navigation */
         .nav-tabs {
             display: flex;
-            background: white;
-            border-bottom: 1px solid #f0f0f0;
+            background: #000;
+            border-bottom: 1px solid #333;
             position: sticky;
-            top: 70px;
+            top: 85px;
             z-index: 99;
         }
 
@@ -62,14 +124,14 @@
             border: none;
             font-size: 14px;
             font-weight: 500;
-            color: #666;
+            color: #888;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
         }
 
         .nav-tab.active {
-            color: #667eea;
+            color: #fff;
         }
 
         .nav-tab.active::after {
@@ -79,7 +141,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: #667eea;
+            background: #fff;
         }
 
         /* Content */
@@ -98,12 +160,13 @@
 
         /* Home Feed */
         .art-card {
-            background: white;
+            background: #111;
             border-radius: 16px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             overflow: hidden;
             position: relative;
+            border: 1px solid #333;
         }
 
         .art-image {
@@ -125,7 +188,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
             padding: 20px;
             color: white;
         }
@@ -147,17 +210,17 @@
             bottom: 20px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
         }
 
         .action-btn {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -166,16 +229,16 @@
         }
 
         .action-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(1.1);
         }
 
         .action-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             stroke: white;
             fill: none;
-            stroke-width: 2;
+            stroke-width: 1.5;
         }
 
         .action-count {
@@ -183,9 +246,47 @@
             font-size: 12px;
             font-weight: 500;
             margin-top: 4px;
+            text-align: center;
         }
 
         /* Shop */
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .wallet-info {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .wallet-balance {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4ade80;
+            margin-bottom: 5px;
+        }
+
+        .wallet-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .revenue-info {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #888;
+        }
+
         .shop-categories {
             display: flex;
             gap: 10px;
@@ -196,19 +297,20 @@
 
         .category-btn {
             padding: 8px 16px;
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
+            background: #111;
+            border: 1px solid #333;
             border-radius: 20px;
             font-size: 14px;
             white-space: nowrap;
             cursor: pointer;
             transition: all 0.3s ease;
+            color: #fff;
         }
 
         .category-btn.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
+            background: #fff;
+            color: #000;
+            border-color: #fff;
         }
 
         .product-grid {
@@ -218,15 +320,17 @@
         }
 
         .product-card {
-            background: white;
+            background: #111;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             transition: transform 0.3s ease;
+            border: 1px solid #333;
         }
 
         .product-card:hover {
             transform: translateY(-2px);
+            border-color: #555;
         }
 
         .product-image {
@@ -243,38 +347,49 @@
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 4px;
+            color: #fff;
         }
 
         .product-price {
             font-size: 16px;
             font-weight: 700;
-            color: #667eea;
+            color: #4ade80;
             margin-bottom: 8px;
         }
 
         .product-type {
             font-size: 12px;
-            color: #666;
-            background: #f8f9fa;
+            color: #888;
+            background: #1a1a1a;
             padding: 4px 8px;
             border-radius: 12px;
             display: inline-block;
         }
 
+        .affiliate-badge {
+            background: linear-gradient(45deg, #f09433, #e6683c);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            margin-left: 5px;
+        }
+
         /* Create */
         .upload-area {
-            border: 2px dashed #ddd;
+            border: 2px dashed #333;
             border-radius: 12px;
             padding: 40px 20px;
             text-align: center;
             margin-bottom: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            background: #111;
         }
 
         .upload-area:hover {
-            border-color: #667eea;
-            background: #f8f9ff;
+            border-color: #fff;
+            background: #1a1a1a;
         }
 
         .form-group {
@@ -285,21 +400,23 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: #333;
+            color: #fff;
         }
 
         .form-input {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid #333;
             border-radius: 8px;
             font-size: 16px;
             transition: border-color 0.3s ease;
+            background: #111;
+            color: #fff;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #fff;
         }
 
         .form-textarea {
@@ -316,33 +433,35 @@
         .pricing-option {
             flex: 1;
             padding: 12px;
-            border: 2px solid #e9ecef;
+            border: 2px solid #333;
             border-radius: 8px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            background: #111;
         }
 
         .pricing-option.active {
-            border-color: #667eea;
-            background: #f8f9ff;
+            border-color: #fff;
+            background: #1a1a1a;
         }
 
         .pricing-option h4 {
             font-size: 14px;
             margin-bottom: 4px;
+            color: #fff;
         }
 
         .pricing-option p {
             font-size: 12px;
-            color: #666;
+            color: #888;
         }
 
         .btn-primary {
             width: 100%;
             padding: 15px;
-            background: #667eea;
-            color: white;
+            background: #fff;
+            color: #000;
             border: none;
             border-radius: 8px;
             font-size: 16px;
@@ -352,23 +471,68 @@
         }
 
         .btn-primary:hover {
-            background: #5a67d8;
+            background: #f0f0f0;
+        }
+
+        /* Notifications */
+        .notification-item {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f09433, #e6683c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        .notification-text {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .notification-time {
+            font-size: 11px;
+            color: #666;
         }
 
         /* Profile */
         .profile-header {
             text-align: center;
             padding: 30px 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #111, #1a1a1a);
             color: white;
             margin: -20px -20px 20px -20px;
+            border-bottom: 1px solid #333;
         }
 
         .profile-avatar {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: white;
+            background: linear-gradient(45deg, #f09433, #e6683c);
             margin: 0 auto 15px;
             display: flex;
             align-items: center;
@@ -409,13 +573,14 @@
 
         .profile-menu li {
             padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid #333;
             cursor: pointer;
             transition: background 0.3s ease;
+            color: #fff;
         }
 
         .profile-menu li:hover {
-            background: #f8f9fa;
+            background: #111;
         }
 
         /* Bottom Navigation */
@@ -426,8 +591,8 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 414px;
-            background: white;
-            border-top: 1px solid #f0f0f0;
+            background: #000;
+            border-top: 1px solid #333;
             display: flex;
             padding: 10px 0;
             z-index: 1000;
@@ -439,10 +604,11 @@
             padding: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            color: #888;
         }
 
         .nav-item.active {
-            color: #667eea;
+            color: #fff;
         }
 
         .nav-icon {
@@ -459,6 +625,13 @@
             font-weight: 500;
         }
 
+        .create-btn {
+            background: #fff;
+            color: #000;
+            border-radius: 8px;
+            margin: 0 5px;
+        }
+
         /* Responsive */
         @media (max-width: 480px) {
             .container {
@@ -468,8 +641,8 @@
 
         /* Auction specific styles */
         .auction-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
+            background: #1a1a1a;
+            border: 1px solid #333;
             border-radius: 8px;
             padding: 12px;
             margin-top: 8px;
@@ -477,20 +650,57 @@
 
         .auction-timer {
             font-weight: 600;
-            color: #d63031;
+            color: #ef4444;
             font-size: 14px;
         }
 
         .current-bid {
             font-size: 18px;
             font-weight: 700;
-            color: #00b894;
+            color: #4ade80;
             margin: 4px 0;
         }
 
         .bid-count {
             font-size: 12px;
-            color: #636e72;
+            color: #888;
+        }
+
+        .service-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .service-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        .commission-info {
+            background: linear-gradient(45deg, #f09433, #e6683c);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 12px;
+            text-align: center;
         }
     </style>
 </head>
@@ -498,7 +708,21 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>Picasso</h1>
+            <div class="header-top">
+                <svg class="header-icon" viewBox="0 0 24 24">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                <h1>Picasso</h1>
+                <svg class="header-icon" viewBox="0 0 24 24">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+            </div>
+            <div class="top-nav">
+                <div class="top-nav-item">Friends</div>
+                <div class="top-nav-item active">Artists</div>
+                <div class="top-nav-item">Live</div>
+            </div>
         </div>
 
         <!-- Navigation Tabs -->
@@ -506,6 +730,7 @@
             <button class="nav-tab active" onclick="showTab('home')">Home</button>
             <button class="nav-tab" onclick="showTab('shop')">Shop</button>
             <button class="nav-tab" onclick="showTab('create')">Create</button>
+            <button class="nav-tab" onclick="showTab('notifications')">Notifications</button>
             <button class="nav-tab" onclick="showTab('profile')">Profile</button>
         </div>
 
@@ -534,11 +759,7 @@
                             </div>
                             <div class="action-btn">
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M9 12l2 2 4-4"/>
-                                    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-                                    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-                                    <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
-                                    <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+                                    <path d="M20 6L9 17l-5-5"/>
                                 </svg>
                                 <div class="action-count">45</div>
                             </div>
@@ -577,11 +798,7 @@
                             </div>
                             <div class="action-btn">
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M9 12l2 2 4-4"/>
-                                    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-                                    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-                                    <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
-                                    <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+                                    <path d="M20 6L9 17l-5-5"/>
                                 </svg>
                                 <div class="action-count">12</div>
                             </div>
@@ -602,12 +819,22 @@
 
             <!-- Shop Tab -->
             <div id="shop" class="tab-content">
+                <div class="wallet-info">
+                    <div class="wallet-balance">$2,847.50</div>
+                    <div class="wallet-label">Your Wallet Balance</div>
+                    <div class="revenue-info">
+                        Platform takes 10% commission • Affiliate earnings: $247.50
+                    </div>
+                </div>
+
                 <div class="shop-categories">
                     <button class="category-btn active" onclick="filterCategory('all')">All</button>
                     <button class="category-btn" onclick="filterCategory('digital')">Digital Art</button>
                     <button class="category-btn" onclick="filterCategory('photography')">Photography</button>
                     <button class="category-btn" onclick="filterCategory('nft')">NFTs</button>
                     <button class="category-btn" onclick="filterCategory('prints')">Prints</button>
+                    <button class="category-btn" onclick="filterCategory('services')">Services</button>
+                    <button class="category-btn" onclick="filterCategory('instruments')">Instruments</button>
                 </div>
 
                 <div class="product-grid">
@@ -626,6 +853,7 @@
                             <div class="product-title">Crypto Punk #001</div>
                             <div class="product-price">2.5 ETH</div>
                             <span class="product-type">NFT</span>
+                            <span class="affiliate-badge">10% Commission</span>
                             <div class="auction-info">
                                 <div class="auction-timer">⏰ 2d 14h left</div>
                                 <div class="current-bid">Current: 2.1 ETH</div>
@@ -634,51 +862,50 @@
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="photography">
+                    <div class="product-card" data-category="services">
+                        <div class="product-image" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
+                        <div class="product-info">
+                            <div class="product-title">Digital Art Lessons</div>
+                            <div class="product-price">$75/hr</div>
+                            <span class="product-type">Service</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="services">
                         <div class="product-image" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);"></div>
                         <div class="product-info">
-                            <div class="product-title">Golden Hour</div>
-                            <div class="product-price">$150</div>
+                            <div class="product-title">Voice Coaching</div>
+                            <div class="product-price">$60/hr</div>
+                            <span class="product-type">Service</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="instruments">
+                        <div class="product-image" style="background: linear-gradient(45deg, #a8edea, #fed6e3);"></div>
+                        <div class="product-info">
+                            <div class="product-title">Vintage Guitar</div>
+                            <div class="product-price">$1,200</div>
                             <span class="product-type">Auction</span>
                             <div class="auction-info">
                                 <div class="auction-timer">⏰ 5h 23m left</div>
-                                <div class="current-bid">Current: $125</div>
+                                <div class="current-bid">Current: $950</div>
                                 <div class="bid-count">8 bids</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="prints">
-                        <div class="product-image" style="background: linear-gradient(45deg, #a8edea, #fed6e3);"></div>
+                    <div class="product-card" data-category="instruments">
+                        <div class="product-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);"></div>
                         <div class="product-info">
-                            <div class="product-title">Minimalist Print</div>
-                            <div class="product-price">$89</div>
+                            <div class="product-title">Digital Piano</div>
+                            <div class="product-price">$899</div>
                             <span class="product-type">Fixed Price</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="product-card" data-category="nft">
-                        <div class="product-image" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
-                        <div class="product-info">
-                            <div class="product-title">Digital Genesis</div>
-                            <div class="product-price">1.8 ETH</div>
-                            <span class="product-type">NFT</span>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="digital">
-                        <div class="product-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);"></div>
-                        <div class="product-info">
-                            <div class="product-title">Cyber Dreams</div>
-                            <div class="product-price">$199</div>
-                            <span class="product-type">Auction</span>
-                            <div class="auction-info">
-                                <div class="auction-timer">⏰ 1d 8h left</div>
-                                <div class="current-bid">Current: $175</div>
-                                <div class="bid-count">15 bids</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="commission-info">
+                    💰 Earn 10% commission by promoting artists' work through affiliate marketing!
                 </div>
             </div>
 
@@ -686,20 +913,20 @@
             <div id="create" class="tab-content">
                 <div class="upload-area" onclick="document.getElementById('fileInput').click()">
                     <div style="font-size: 48px; margin-bottom: 10px;">📁</div>
-                    <div style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Upload Your Artwork</div>
-                    <div style="font-size: 14px; color: #666;">Tap to select files</div>
+                    <div style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Upload Your Content</div>
+                    <div style="font-size: 14px; color: #888;">Tap to select files</div>
                     <input type="file" id="fileInput" style="display: none;" accept="image/*,video/*">
                 </div>
 
                 <form>
                     <div class="form-group">
                         <label class="form-label">Title</label>
-                        <input type="text" class="form-input" placeholder="Enter artwork title">
+                        <input type="text" class="form-input" placeholder="Enter title">
                     </div>
 
                     <div class="form-group">
                         <label class="form-label">Description</label>
-                        <textarea class="form-input form-textarea" placeholder="Describe your artwork"></textarea>
+                        <textarea class="form-input form-textarea" placeholder="Describe your content"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -709,6 +936,8 @@
                             <option>Photography</option>
                             <option>NFT</option>
                             <option>Prints</option>
+                            <option>Services</option>
+                            <option>Musical Instruments</option>
                             <option>Mixed Media</option>
                         </select>
                     </div>
@@ -745,8 +974,71 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn-primary">List Artwork</button>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <input type="checkbox" style="margin-right: 8px;">
+                            Enable Affiliate Marketing (10% commission to promoters)
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">List Content</button>
                 </form>
+            </div>
+
+            <!-- Notifications Tab -->
+            <div id="notifications" class="tab-content">
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">New Like</div>
+                        <div class="notification-text">@artist_name liked your "Digital Dreams" artwork</div>
+                        <div class="notification-time">2 minutes ago</div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Auction Ending Soon</div>
+                        <div class="notification-text">Your "Crypto Punk #001" auction ends in 2 hours</div>
+                        <div class="notification-time">1 hour ago</div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">Affiliate Commission</div>
+                        <div class="notification-text">You earned $24.50 from promoting @creator's artwork</div>
+                        <div class="notification-time">3 hours ago</div>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div class="notification-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="notification-content">
+                        <div class="notification-title">New Comment</div>
+                        <div class="notification-text">@user123 commented on your "Neon Nights" post</div>
+                        <div class="notification-time">5 hours ago</div>
+                    </div>
+                </div>
             </div>
 
             <!-- Profile Tab -->
@@ -764,7 +1056,7 @@
                             <div class="stat-label">Followers</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">$2.4k</div>
+                            <div class="stat-number">$2.8k</div>
                             <div class="stat-label">Earned</div>
                         </div>
                     </div>
@@ -773,6 +1065,8 @@
                 <ul class="profile-menu">
                     <li>🎨 My Artworks</li>
                     <li>💰 Sales History</li>
+                    <li>🤝 Affiliate Dashboard</li>
+                    <li>💳 Wallet & Earnings</li>
                     <li>❤️ Favorites</li>
                     <li>⚙️ Settings</li>
                     <li>📞 Support</li>
@@ -798,12 +1092,19 @@
                 </svg>
                 <div class="nav-label">Shop</div>
             </div>
-            <div class="nav-item" onclick="showTab('create')">
+            <div class="nav-item create-btn" onclick="showTab('create')">
                 <svg class="nav-icon" viewBox="0 0 24 24">
                     <line x1="12" y1="5" x2="12" y2="19"/>
                     <line x1="5" y1="12" x2="19" y2="12"/>
                 </svg>
                 <div class="nav-label">Create</div>
+            </div>
+            <div class="nav-item" onclick="showTab('notifications')">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <div class="nav-label">Notifications</div>
             </div>
             <div class="nav-item" onclick="showTab('profile')">
                 <svg class="nav-icon" viewBox="0 0 24 24">
@@ -904,7 +1205,7 @@
                 uploadArea.innerHTML = `
                     <div style="font-size: 48px; margin-bottom: 10px;">✅</div>
                     <div style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">${file.name}</div>
-                    <div style="font-size: 14px; color: #666;">File uploaded successfully</div>
+                    <div style="font-size: 14px; color: #888;">File uploaded successfully</div>
                 `;
             }
         });
