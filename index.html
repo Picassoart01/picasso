@@ -31,7 +31,7 @@
         .header {
             background: #000;
             padding: 15px 20px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #1a1a1a;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -106,44 +106,6 @@
             border-radius: 1px;
         }
 
-        /* Navigation */
-        .nav-tabs {
-            display: flex;
-            background: #000;
-            border-bottom: 1px solid #333;
-            position: sticky;
-            top: 85px;
-            z-index: 99;
-        }
-
-        .nav-tab {
-            flex: 1;
-            padding: 15px;
-            text-align: center;
-            background: none;
-            border: none;
-            font-size: 14px;
-            font-weight: 500;
-            color: #888;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-tab.active {
-            color: #fff;
-        }
-
-        .nav-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #fff;
-        }
-
         /* Content */
         .content {
             padding-bottom: 80px;
@@ -151,7 +113,6 @@
 
         .tab-content {
             display: none;
-            padding: 20px;
         }
 
         .tab-content.active {
@@ -160,18 +121,16 @@
 
         /* Home Feed */
         .art-card {
-            background: #111;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            overflow: hidden;
+            background: #000;
+            margin-bottom: 5px;
             position: relative;
-            border: 1px solid #333;
+            height: calc(100vh - 160px);
+            overflow: hidden;
         }
 
         .art-image {
             width: 100%;
-            height: 300px;
+            height: 100%;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             position: relative;
             overflow: hidden;
@@ -188,13 +147,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
             padding: 20px;
             color: white;
         }
 
         .art-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             margin-bottom: 5px;
         }
@@ -207,7 +166,7 @@
         .art-actions {
             position: absolute;
             right: 15px;
-            bottom: 20px;
+            bottom: 80px;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -220,7 +179,7 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -250,11 +209,8 @@
         }
 
         /* Shop */
-        .shop-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+        .shop-content {
+            padding: 20px;
         }
 
         .wallet-info {
@@ -286,6 +242,27 @@
             font-size: 12px;
             color: #888;
         }
+
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .payment-badge {
+            background: #333;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .payment-badge.paypal { background: #0070ba; }
+        .payment-badge.gcash { background: #007dfe; }
+        .payment-badge.usdt { background: #26a17b; }
+        .payment-badge.eth { background: #627eea; }
 
         .shop-categories {
             display: flex;
@@ -375,7 +352,37 @@
             margin-left: 5px;
         }
 
+        .auction-info {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 8px;
+            margin-top: 8px;
+        }
+
+        .auction-timer {
+            font-weight: 600;
+            color: #ef4444;
+            font-size: 12px;
+        }
+
+        .current-bid {
+            font-size: 14px;
+            font-weight: 700;
+            color: #4ade80;
+            margin: 4px 0;
+        }
+
+        .bid-count {
+            font-size: 10px;
+            color: #888;
+        }
+
         /* Create */
+        .create-content {
+            padding: 20px;
+        }
+
         .upload-area {
             border: 2px dashed #333;
             border-radius: 12px;
@@ -475,6 +482,10 @@
         }
 
         /* Notifications */
+        .notifications-content {
+            padding: 20px;
+        }
+
         .notification-item {
             background: #111;
             border: 1px solid #333;
@@ -519,12 +530,15 @@
         }
 
         /* Profile */
+        .profile-content {
+            padding: 0;
+        }
+
         .profile-header {
             text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, #111, #1a1a1a);
+            padding: 30px 20px 20px;
+            background: #000;
             color: white;
-            margin: -20px -20px 20px -20px;
             border-bottom: 1px solid #333;
         }
 
@@ -541,16 +555,22 @@
         }
 
         .profile-name {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             margin-bottom: 5px;
+        }
+
+        .profile-handle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
         }
 
         .profile-stats {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .stat {
@@ -558,7 +578,7 @@
         }
 
         .stat-number {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
         }
 
@@ -567,20 +587,84 @@
             opacity: 0.9;
         }
 
-        .profile-menu {
-            list-style: none;
+        .profile-tabs {
+            display: flex;
+            background: #000;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 85px;
+            z-index: 99;
         }
 
-        .profile-menu li {
-            padding: 15px 0;
-            border-bottom: 1px solid #333;
+        .profile-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #888;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .profile-tab.active {
             color: #fff;
         }
 
-        .profile-menu li:hover {
-            background: #111;
+        .profile-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #fff;
+        }
+
+        .profile-videos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            padding: 2px;
+        }
+
+        .video-thumbnail {
+            aspect-ratio: 9/16;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .video-thumbnail:nth-child(2n) {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        }
+
+        .video-thumbnail:nth-child(3n) {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .video-overlay svg {
+            width: 10px;
+            height: 10px;
+            fill: white;
         }
 
         /* Bottom Navigation */
@@ -592,7 +676,7 @@
             width: 100%;
             max-width: 414px;
             background: #000;
-            border-top: 1px solid #333;
+            border-top: 1px solid #1a1a1a;
             display: flex;
             padding: 10px 0;
             z-index: 1000;
@@ -632,67 +716,6 @@
             margin: 0 5px;
         }
 
-        /* Responsive */
-        @media (max-width: 480px) {
-            .container {
-                max-width: 100%;
-            }
-        }
-
-        /* Auction specific styles */
-        .auction-info {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 8px;
-        }
-
-        .auction-timer {
-            font-weight: 600;
-            color: #ef4444;
-            font-size: 14px;
-        }
-
-        .current-bid {
-            font-size: 18px;
-            font-weight: 700;
-            color: #4ade80;
-            margin: 4px 0;
-        }
-
-        .bid-count {
-            font-size: 12px;
-            color: #888;
-        }
-
-        .service-card {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-
-        .service-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .service-description {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 10px;
-        }
-
-        .service-price {
-            font-size: 18px;
-            font-weight: 700;
-            color: #4ade80;
-        }
-
         .commission-info {
             background: linear-gradient(45deg, #f09433, #e6683c);
             color: white;
@@ -701,6 +724,18 @@
             margin-top: 10px;
             font-size: 12px;
             text-align: center;
+        }
+
+        /* Currency Display */
+        .currency {
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -725,15 +760,6 @@
             </div>
         </div>
 
-        <!-- Navigation Tabs -->
-        <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showTab('home')">Home</button>
-            <button class="nav-tab" onclick="showTab('shop')">Shop</button>
-            <button class="nav-tab" onclick="showTab('create')">Create</button>
-            <button class="nav-tab" onclick="showTab('notifications')">Notifications</button>
-            <button class="nav-tab" onclick="showTab('profile')">Profile</button>
-        </div>
-
         <!-- Content -->
         <div class="content">
             <!-- Home Tab -->
@@ -747,7 +773,7 @@
                         <div class="art-actions">
                             <div class="action-btn" onclick="toggleLike(this)">
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                    <path d="M12 2l.09 .02l.126 .017l.111 .025l.111 .035l.105 .046l.098 .057l.09 .067l.082 .075l.052 .059l.082 .116l.052 .096c.047 .1 .077 .206 .09 .316l.005 .106v6.718l6.282 -6.282a3 3 0 0 1 4.243 4.243l-8.525 8.525a1 1 0 0 1 -1.414 0l-8.525 -8.525a3 3 0 0 1 4.243 -4.243l6.282 6.282v-6.718a1 1 0 0 1 1 -1z"/>
                                 </svg>
                                 <div class="action-count">1.2k</div>
                             </div>
@@ -786,7 +812,7 @@
                         <div class="art-actions">
                             <div class="action-btn" onclick="toggleLike(this)">
                                 <svg viewBox="0 0 24 24">
-                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                    <path d="M12 2l.09 .02l.126 .017l.111 .025l.111 .035l.105 .046l.098 .057l.09 .067l.082 .075l.052 .059l.082 .116l.052 .096c.047 .1 .077 .206 .09 .316l.005 .106v6.718l6.282 -6.282a3 3 0 0 1 4.243 4.243l-8.525 8.525a1 1 0 0 1 -1.414 0l-8.525 -8.525a3 3 0 0 1 4.243 -4.243l6.282 6.282v-6.718a1 1 0 0 1 1 -1z"/>
                                 </svg>
                                 <div class="action-count">856</div>
                             </div>
@@ -819,259 +845,364 @@
 
             <!-- Shop Tab -->
             <div id="shop" class="tab-content">
-                <div class="wallet-info">
-                    <div class="wallet-balance">$2,847.50</div>
-                    <div class="wallet-label">Your Wallet Balance</div>
-                    <div class="revenue-info">
-                        Platform takes 10% commission • Affiliate earnings: $247.50
-                    </div>
-                </div>
-
-                <div class="shop-categories">
-                    <button class="category-btn active" onclick="filterCategory('all')">All</button>
-                    <button class="category-btn" onclick="filterCategory('digital')">Digital Art</button>
-                    <button class="category-btn" onclick="filterCategory('photography')">Photography</button>
-                    <button class="category-btn" onclick="filterCategory('nft')">NFTs</button>
-                    <button class="category-btn" onclick="filterCategory('prints')">Prints</button>
-                    <button class="category-btn" onclick="filterCategory('services')">Services</button>
-                    <button class="category-btn" onclick="filterCategory('instruments')">Instruments</button>
-                </div>
-
-                <div class="product-grid">
-                    <div class="product-card" data-category="digital">
-                        <div class="product-image"></div>
-                        <div class="product-info">
-                            <div class="product-title">Abstract Flow</div>
-                            <div class="product-price">$299</div>
-                            <span class="product-type">Fixed Price</span>
+                <div class="shop-content">
+                    <div class="wallet-info">
+                        <div class="wallet-balance"><span class="currency">₱</span>142,375.00</div>
+                        <div class="wallet-label">Your Wallet Balance</div>
+                        <div class="payment-methods">
+                            <span class="payment-badge paypal">PayPal</span>
+                            <span class="payment-badge gcash">GCash</span>
+                            <span class="payment-badge usdt">USDT</span>
+                            <span class="payment-badge eth">ETH</span>
+                        </div>
+                        <div class="revenue-info">
+                            Platform takes 10% commission • Affiliate earnings: <span class="currency">₱</span>12,375.00
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="nft">
-                        <div class="product-image" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4);"></div>
-                        <div class="product-info">
-                            <div class="product-title">Crypto Punk #001</div>
-                            <div class="product-price">2.5 ETH</div>
-                            <span class="product-type">NFT</span>
-                            <span class="affiliate-badge">10% Commission</span>
-                            <div class="auction-info">
-                                <div class="auction-timer">⏰ 2d 14h left</div>
-                                <div class="current-bid">Current: 2.1 ETH</div>
-                                <div class="bid-count">12 bids</div>
+                    <div class="shop-categories">
+                        <button class="category-btn active" onclick="filterCategory('all')">All</button>
+                        <button class="category-btn" onclick="filterCategory('digital')">Digital Art</button>
+                        <button class="category-btn" onclick="filterCategory('photography')">Photography</button>
+                        <button class="category-btn" onclick="filterCategory('nft')">NFTs</button>
+                        <button class="category-btn" onclick="filterCategory('prints')">Prints</button>
+                        <button class="category-btn" onclick="filterCategory('services')">Services</button>
+                        <button class="category-btn" onclick="filterCategory('instruments')">Instruments</button>
+                    </div>
+
+                    <div class="product-grid">
+                        <div class="product-card" data-category="digital">
+                            <div class="product-image"></div>
+                            <div class="product-info">
+                                <div class="product-title">Abstract Flow</div>
+                                <div class="product-price"><span class="currency">₱</span>14,950</div>
+                                <span class="product-type">Fixed Price</span>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="nft">
+                            <div class="product-image" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4);"></div>
+                            <div class="product-info">
+                                <div class="product-title">Crypto Punk #001</div>
+                                <div class="product-price">2.5 ETH</div>
+                                <span class="product-type">NFT</span>
+                                <span class="affiliate-badge">10% Commission</span>
+                                <div class="auction-info">
+                                    <div class="auction-timer">⏰ 2d 14h left</div>
+                                    <div class="current-bid">Current: 2.1 ETH</div>
+                                    <div class="bid-count">12 bids</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="services">
+                            <div class="product-image" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
+                            <div class="product-info">
+                                <div class="product-title">Digital Art Lessons</div>
+                                <div class="product-price"><span class="currency">₱</span>3,750/hr</div>
+                                <span class="product-type">Service</span>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="services">
+                            <div class="product-image" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);"></div>
+                            <div class="product-info">
+                                <div class="product-title">Voice Coaching</div>
+                                <div class="product-price"><span class="currency">₱</span>3,000/hr</div>
+                                <span class="product-type">Service</span>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="instruments">
+                            <div class="product-image" style="background: linear-gradient(45deg, #a8edea, #fed6e3);"></div>
+                            <div class="product-info">
+                                <div class="product-title">Vintage Guitar</div>
+                                <div class="product-price"><span class="currency">₱</span>60,000</div>
+                                <span class="product-type">Auction</span>
+                                <div class="auction-info">
+                                    <div class="auction-timer">⏰ 5h 23m left</div>
+                                    <div class="current-bid">Current: <span class="currency">₱</span>47,500</div>
+                                    <div class="bid-count">8 bids</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-category="instruments">
+                            <div class="product-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);"></div>
+                            <div class="product-info">
+                                <div class="product-title">Digital Piano</div>
+                                <div class="product-price"><span class="currency">₱</span>44,950</div>
+                                <span class="product-type">Fixed Price</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="product-card" data-category="services">
-                        <div class="product-image" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
-                        <div class="product-info">
-                            <div class="product-title">Digital Art Lessons</div>
-                            <div class="product-price">$75/hr</div>
-                            <span class="product-type">Service</span>
-                        </div>
+                    <div class="commission-info">
+                        💰 Earn 10% commission by promoting artists' work through affiliate marketing!
                     </div>
-
-                    <div class="product-card" data-category="services">
-                        <div class="product-image" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);"></div>
-                        <div class="product-info">
-                            <div class="product-title">Voice Coaching</div>
-                            <div class="product-price">$60/hr</div>
-                            <span class="product-type">Service</span>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="instruments">
-                        <div class="product-image" style="background: linear-gradient(45deg, #a8edea, #fed6e3);"></div>
-                        <div class="product-info">
-                            <div class="product-title">Vintage Guitar</div>
-                            <div class="product-price">$1,200</div>
-                            <span class="product-type">Auction</span>
-                            <div class="auction-info">
-                                <div class="auction-timer">⏰ 5h 23m left</div>
-                                <div class="current-bid">Current: $950</div>
-                                <div class="bid-count">8 bids</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="instruments">
-                        <div class="product-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);"></div>
-                        <div class="product-info">
-                            <div class="product-title">Digital Piano</div>
-                            <div class="product-price">$899</div>
-                            <span class="product-type">Fixed Price</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="commission-info">
-                    💰 Earn 10% commission by promoting artists' work through affiliate marketing!
                 </div>
             </div>
 
             <!-- Create Tab -->
             <div id="create" class="tab-content">
-                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-                    <div style="font-size: 48px; margin-bottom: 10px;">📁</div>
-                    <div style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Upload Your Content</div>
-                    <div style="font-size: 14px; color: #888;">Tap to select files</div>
-                    <input type="file" id="fileInput" style="display: none;" accept="image/*,video/*">
-                </div>
-
-                <form>
-                    <div class="form-group">
-                        <label class="form-label">Title</label>
-                        <input type="text" class="form-input" placeholder="Enter title">
+                <div class="create-content">
+                    <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                        <div style="font-size: 48px; margin-bottom: 10px;">📁</div>
+                        <div style="font-size: 16px; font-weight: 600; margin-bottom: 5px;">Upload Your Content</div>
+                        <div style="font-size: 14px; color: #888;">Tap to select files</div>
+                        <input type="file" id="fileInput" style="display: none;" accept="image/*,video/*">
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Description</label>
-                        <textarea class="form-input form-textarea" placeholder="Describe your content"></textarea>
-                    </div>
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-input" placeholder="Enter title">
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Category</label>
-                        <select class="form-input">
-                            <option>Digital Art</option>
-                            <option>Photography</option>
-                            <option>NFT</option>
-                            <option>Prints</option>
-                            <option>Services</option>
-                            <option>Musical Instruments</option>
-                            <option>Mixed Media</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-input form-textarea" placeholder="Describe your content"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Pricing Type</label>
-                        <div class="pricing-options">
-                            <div class="pricing-option active" onclick="selectPricing('fixed')">
-                                <h4>Fixed Price</h4>
-                                <p>Set a fixed price</p>
-                            </div>
-                            <div class="pricing-option" onclick="selectPricing('auction')">
-                                <h4>Auction</h4>
-                                <p>Let buyers bid</p>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
+                            <select class="form-input">
+                                <option>Digital Art</option>
+                                <option>Photography</option>
+                                <option>NFT</option>
+                                <option>Prints</option>
+                                <option>Services</option>
+                                <option>Musical Instruments</option>
+                                <option>Mixed Media</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Pricing Type</label>
+                            <div class="pricing-options">
+                                <div class="pricing-option active" onclick="selectPricing('fixed')">
+                                    <h4>Fixed Price</h4>
+                                    <p>Set a fixed price</p>
+                                </div>
+                                <div class="pricing-option" onclick="selectPricing('auction')">
+                                    <h4>Auction</h4>
+                                    <p>Let buyers bid</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" id="fixedPriceGroup">
-                        <label class="form-label">Price ($)</label>
-                        <input type="number" class="form-input" placeholder="Enter price">
-                    </div>
+                        <div class="form-group" id="fixedPriceGroup">
+                            <label class="form-label">Price</label>
+                            <input type="number" class="form-input" placeholder="Enter price">
+                        </div>
 
-                    <div class="form-group" id="auctionGroup" style="display: none;">
-                        <label class="form-label">Starting Bid ($)</label>
-                        <input type="number" class="form-input" placeholder="Enter starting bid">
-                        
-                        <label class="form-label" style="margin-top: 15px;">Auction Duration</label>
-                        <select class="form-input">
-                            <option>1 Day</option>
-                            <option>3 Days</option>
-                            <option>7 Days</option>
-                            <option>14 Days</option>
-                        </select>
-                    </div>
+                        <div class="form-group" id="auctionGroup" style="display: none;">
+                            <label class="form-label">Starting Bid</label>
+                            <input type="number" class="form-input" placeholder="Enter starting bid">
+                            
+                            <label class="form-label" style="margin-top: 15px;">Auction Duration</label>
+                            <select class="form-input">
+                                <option>1 Day</option>
+                                <option>3 Days</option>
+                                <option>7 Days</option>
+                                <option>14 Days</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">
-                            <input type="checkbox" style="margin-right: 8px;">
-                            Enable Affiliate Marketing (10% commission to promoters)
-                        </label>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                Enable Affiliate Marketing (10% commission to promoters)
+                            </label>
+                        </div>
 
-                    <button type="submit" class="btn-primary">List Content</button>
-                </form>
+                        <button type="submit" class="btn-primary">List Content</button>
+                    </form>
+                </div>
             </div>
 
             <!-- Notifications Tab -->
             <div id="notifications" class="tab-content">
-                <div class="notification-item">
-                    <div class="notification-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                        </svg>
+                <div class="notifications-content">
+                    <div class="notification-item">
+                        <div class="notification-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 2l.09 .02l.126 .017l.111 .025l.111 .035l.105 .046l.098 .057l.09 .067l.082 .075l.052 .059l.082 .116l.052 .096c.047 .1 .077 .206 .09 .316l.005 .106v6.718l6.282 -6.282a3 3 0 0 1 4.243 4.243l-8.525 8.525a1 1 0 0 1 -1.414 0l-8.525 -8.525a3 3 0 0 1 4.243 -4.243l6.282 6.282v-6.718a1 1 0 0 1 1 -1z"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">New Like</div>
+                            <div class="notification-text">@artist_name liked your "Digital Dreams" artwork</div>
+                            <div class="notification-time">2 minutes ago</div>
+                        </div>
                     </div>
-                    <div class="notification-content">
-                        <div class="notification-title">New Like</div>
-                        <div class="notification-text">@artist_name liked your "Digital Dreams" artwork</div>
-                        <div class="notification-time">2 minutes ago</div>
-                    </div>
-                </div>
 
-                <div class="notification-item">
-                    <div class="notification-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
+                    <div class="notification-item">
+                        <div class="notification-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">Auction Ending Soon</div>
+                            <div class="notification-text">Your "Crypto Punk #001" auction ends in 2 hours</div>
+                            <div class="notification-time">1 hour ago</div>
+                        </div>
                     </div>
-                    <div class="notification-content">
-                        <div class="notification-title">Auction Ending Soon</div>
-                        <div class="notification-text">Your "Crypto Punk #001" auction ends in 2 hours</div>
-                        <div class="notification-time">1 hour ago</div>
-                    </div>
-                </div>
 
-                <div class="notification-item">
-                    <div class="notification-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
+                    <div class="notification-item">
+                        <div class="notification-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">Affiliate Commission</div>
+                            <div class="notification-text">You earned ₱1,225.00 from promoting @creator's artwork</div>
+                            <div class="notification-time">3 hours ago</div>
+                        </div>
                     </div>
-                    <div class="notification-content">
-                        <div class="notification-title">Affiliate Commission</div>
-                        <div class="notification-text">You earned $24.50 from promoting @creator's artwork</div>
-                        <div class="notification-time">3 hours ago</div>
-                    </div>
-                </div>
 
-                <div class="notification-item">
-                    <div class="notification-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                    </div>
-                    <div class="notification-content">
-                        <div class="notification-title">New Comment</div>
-                        <div class="notification-text">@user123 commented on your "Neon Nights" post</div>
-                        <div class="notification-time">5 hours ago</div>
+                    <div class="notification-item">
+                        <div class="notification-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-title">New Comment</div>
+                            <div class="notification-text">@user123 commented on your "Neon Nights" post</div>
+                            <div class="notification-time">5 hours ago</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Profile Tab -->
             <div id="profile" class="tab-content">
-                <div class="profile-header">
-                    <div class="profile-avatar">👤</div>
-                    <div class="profile-name">Your Name</div>
-                    <div class="profile-stats">
-                        <div class="stat">
-                            <div class="stat-number">24</div>
-                            <div class="stat-label">Artworks</div>
+                <div class="profile-content">
+                    <div class="profile-header">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-name">Your Name</div>
+                        <div class="profile-handle">@yourname</div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <div class="stat-number">24</div>
+                                <div class="stat-label">Posts</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">1.2k</div>
+                                <div class="stat-label">Followers</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">892</div>
+                                <div class="stat-label">Following</div>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">1.2k</div>
-                            <div class="stat-label">Followers</div>
+                    </div>
+
+                    <div class="profile-tabs">
+                        <button class="profile-tab active" onclick="showProfileTab('videos')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </button>
+                        <button class="profile-tab" onclick="showProfileTab('liked')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l.09 .02l.126 .017l.111 .025l.111 .035l.105 .046l.098 .057l.09 .067l.082 .075l.052 .059l.082 .116l.052 .096c.047 .1 .077 .206 .09 .316l.005 .106v6.718l6.282 -6.282a3 3 0 0 1 4.243 4.243l-8.525 8.525a1 1 0 0 1 -1.414 0l-8.525 -8.525a3 3 0 0 1 4.243 -4.243l6.282 6.282v-6.718a1 1 0 0 1 1 -1z"/>
+                            </svg>
+                        </button>
+                        <button class="profile-tab" onclick="showProfileTab('bookmarks')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="profile-videos" class="profile-videos">
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                1.2k
+                            </div>
                         </div>
-                        <div class="stat">
-                            <div class="stat-number">$2.8k</div>
-                            <div class="stat-label">Earned</div>
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                856
+                            </div>
+                        </div>
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                2.1k
+                            </div>
+                        </div>
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                743
+                            </div>
+                        </div>
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                1.8k
+                            </div>
+                        </div>
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                967
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="profile-liked" class="profile-videos" style="display: none;">
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                3.2k
+                            </div>
+                        </div>
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                1.5k
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="profile-bookmarks" class="profile-videos" style="display: none;">
+                        <div class="video-thumbnail">
+                            <div class="video-overlay">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                892
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <ul class="profile-menu">
-                    <li>🎨 My Artworks</li>
-                    <li>💰 Sales History</li>
-                    <li>🤝 Affiliate Dashboard</li>
-                    <li>💳 Wallet & Earnings</li>
-                    <li>❤️ Favorites</li>
-                    <li>⚙️ Settings</li>
-                    <li>📞 Support</li>
-                    <li>🚪 Logout</li>
-                </ul>
             </div>
         </div>
 
@@ -1117,14 +1248,34 @@
     </div>
 
     <script>
+        // Detect user's country and set currency
+        function detectCurrency() {
+            const userLang = navigator.language || navigator.userLanguage;
+            const currencyElements = document.querySelectorAll('.currency');
+            
+            let currency = '$'; // Default USD
+            
+            if (userLang.includes('ph') || userLang.includes('PH')) {
+                currency = '₱';
+            } else if (userLang.includes('gb') || userLang.includes('GB')) {
+                currency = '£';
+            } else if (userLang.includes('eu') || userLang.includes('de') || userLang.includes('fr')) {
+                currency = '€';
+            } else if (userLang.includes('jp') || userLang.includes('JP')) {
+                currency = '¥';
+            }
+            
+            currencyElements.forEach(el => {
+                if (!el.textContent.includes('ETH')) {
+                    el.textContent = currency;
+                }
+            });
+        }
+
         function showTab(tabName) {
             // Hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(tab => tab.classList.remove('active'));
-            
-            // Remove active class from all nav tabs
-            const navTabs = document.querySelectorAll('.nav-tab');
-            navTabs.forEach(tab => tab.classList.remove('active'));
             
             // Remove active class from all bottom nav items
             const navItems = document.querySelectorAll('.nav-item');
@@ -1133,14 +1284,6 @@
             // Show selected tab content
             document.getElementById(tabName).classList.add('active');
             
-            // Add active class to corresponding nav tab
-            const activeNavTab = Array.from(navTabs).find(tab => 
-                tab.textContent.toLowerCase() === tabName.toLowerCase()
-            );
-            if (activeNavTab) {
-                activeNavTab.classList.add('active');
-            }
-            
             // Add active class to corresponding bottom nav item
             const activeNavItem = Array.from(navItems).find(item => 
                 item.querySelector('.nav-label').textContent.toLowerCase() === tabName.toLowerCase()
@@ -1148,6 +1291,22 @@
             if (activeNavItem) {
                 activeNavItem.classList.add('active');
             }
+        }
+
+        function showProfileTab(tabName) {
+            // Hide all profile tab contents
+            const profileContents = document.querySelectorAll('[id^="profile-"]');
+            profileContents.forEach(tab => tab.style.display = 'none');
+            
+            // Remove active class from all profile tabs
+            const profileTabs = document.querySelectorAll('.profile-tab');
+            profileTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected profile tab content
+            document.getElementById(`profile-${tabName}`).style.display = 'grid';
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
         }
 
         function filterCategory(category) {
@@ -1185,15 +1344,17 @@
         }
 
         function toggleLike(element) {
-            const heart = element.querySelector('svg path');
+            const brush = element.querySelector('svg path');
             const isLiked = element.classList.contains('liked');
             
             if (isLiked) {
                 element.classList.remove('liked');
-                heart.style.fill = 'none';
+                brush.style.fill = 'none';
+                element.style.background = 'rgba(255, 255, 255, 0.1)';
             } else {
                 element.classList.add('liked');
-                heart.style.fill = 'white';
+                brush.style.fill = 'white';
+                element.style.background = 'rgba(240, 148, 51, 0.3)';
             }
         }
 
@@ -1208,6 +1369,11 @@
                     <div style="font-size: 14px; color: #888;">File uploaded successfully</div>
                 `;
             }
+        });
+
+        // Initialize currency detection on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            detectCurrency();
         });
     </script>
 </body>
