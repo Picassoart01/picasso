@@ -461,13 +461,13 @@
                     <!-- Categories -->
                     <div class="px-4 mb-6">
                         <div class="flex space-x-2 overflow-x-auto pb-2">
-                            <button class="category-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap">All</button>
-                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Digital Art</button>
-                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Painting</button>
-                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Sculptures</button>
-                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Art Materials</button>
-                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Services</button>
-                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">Musical Instruments</button>
+                            <button class="category-btn bg-purple-600 text-white px-4 py-2 rounded-full text-sm whitespace-nowrap" onclick="filterProducts('all')">All</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap" onclick="filterProducts('digital-art')">Digital Art</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap" onclick="filterProducts('painting')">Painting</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap" onclick="filterProducts('sculptures')">Sculptures</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap" onclick="filterProducts('art-materials')">Art Materials</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap" onclick="filterProducts('services')">Services</button>
+                            <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap" onclick="filterProducts('instruments')">Musical Instruments</button>
                             <button class="category-btn bg-gray-700 text-gray-300 px-4 py-2 rounded-full text-sm whitespace-nowrap">NFTs</button>
                         </div>
                     </div>
@@ -475,7 +475,7 @@
                     <!-- Products Grid -->
                     <div class="px-4 grid grid-cols-2 gap-4">
                         <!-- Product Card 1 -->
-                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <div class="bg-gray-900 rounded-xl overflow-hidden product-card" data-category="digital-art">
                             <div class="aspect-square bg-gradient-to-br from-purple-600 to-pink-600 relative">
                                 <img src="https://images.pexels.com/photos/1266808/pexels-photo-1266808.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
                                      alt="Digital Art" class="w-full h-full object-cover">
@@ -502,7 +502,7 @@
                         </div>
 
                         <!-- Product Card 2 -->
-                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <div class="bg-gray-900 rounded-xl overflow-hidden product-card" data-category="painting">
                             <div class="aspect-square bg-gradient-to-br from-blue-600 to-teal-600 relative">
                                 <img src="https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
                                      alt="Oil Painting" class="w-full h-full object-cover">
@@ -529,7 +529,7 @@
                         </div>
 
                         <!-- Product Card 3 -->
-                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <div class="bg-gray-900 rounded-xl overflow-hidden product-card" data-category="services">
                             <div class="aspect-square bg-gradient-to-br from-yellow-600 to-orange-600 relative">
                                 <img src="https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
                                      alt="Guitar Lesson" class="w-full h-full object-cover">
@@ -556,7 +556,7 @@
                         </div>
 
                         <!-- Product Card 4 -->
-                        <div class="bg-gray-900 rounded-xl overflow-hidden">
+                        <div class="bg-gray-900 rounded-xl overflow-hidden product-card" data-category="sculptures">
                             <div class="aspect-square bg-gradient-to-br from-red-600 to-pink-600 relative">
                                 <img src="https://images.pexels.com/photos/1183992/pexels-photo-1183992.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
                                      alt="Bronze Sculpture" class="w-full h-full object-cover">
@@ -598,7 +598,7 @@
                             </div>
                             <div class="grid grid-cols-3 gap-4 text-center">
                                 <div>
-                                    <div class="text-xl font-bold text-purple-400">47</div>
+                                    <div class="text-xl font-bold text-purple-400 stat-number">47</div>
                                     <div class="text-xs text-gray-400">Products</div>
                                 </div>
                                 <div>
@@ -616,7 +616,7 @@
                     <!-- Quick Actions -->
                     <div class="px-4 mb-6">
                         <div class="grid grid-cols-2 gap-4">
-                            <button class="bg-gradient-to-r from-purple-600 to-blue-600 p-4 rounded-xl text-center">
+                            <button onclick="openAddProductModal()" class="bg-gradient-to-r from-purple-600 to-blue-600 p-4 rounded-xl text-center">
                                 <i class="fas fa-plus text-2xl mb-2"></i>
                                 <div class="font-semibold">Add Product</div>
                             </button>
@@ -624,6 +624,30 @@
                                 <i class="fas fa-chart-line text-2xl mb-2"></i>
                                 <div class="font-semibold">Analytics</div>
                             </button>
+                        </div>
+                    </div>
+
+                    <!-- My Products Grid -->
+                    <div class="px-4 mb-6">
+                        <div class="products-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; min-height: 200px;">
+                            <!-- Sample user products -->
+                            <div class="product-card" style="background: #1a1a1a; border-radius: 12px; overflow: hidden; border: 1px solid #333;">
+                                <div style="position: relative;">
+                                    <img src="https://images.pexels.com/photos/1266808/pexels-photo-1266808.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop" 
+                                         alt="My Digital Art" style="width: 100%; height: 120px; object-fit: cover;">
+                                    <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.7); border-radius: 12px; padding: 4px 8px;">
+                                        <span style="color: white; font-size: 10px; font-weight: bold;">SOLD</span>
+                                    </div>
+                                </div>
+                                <div style="padding: 12px;">
+                                    <h4 style="color: white; font-size: 14px; margin: 0 0 8px 0; font-weight: 600;">My Digital Portrait</h4>
+                                    <p style="color: #ff6b6b; font-size: 16px; font-weight: bold; margin: 0 0 8px 0;">₱15,000</p>
+                                    <div style="display: flex; gap: 6px;">
+                                        <button style="flex: 1; padding: 8px; border: none; border-radius: 6px; background: #333; color: white; font-size: 11px; cursor: pointer;">Edit</button>
+                                        <button style="padding: 8px; border: 1px solid #333; border-radius: 6px; background: transparent; color: white; font-size: 11px; cursor: pointer;">📊</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -679,6 +703,57 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Add Product Modal -->
+            <div id="addProductModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center;">
+                <div style="background: #1a1a1a; border-radius: 12px; padding: 24px; width: 90%; max-width: 400px; border: 1px solid #333;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="color: white; margin: 0;">Add New Product</h3>
+                        <button onclick="closeAddProductModal()" style="background: none; border: none; color: #888; font-size: 24px; cursor: pointer;">&times;</button>
+                    </div>
+                    
+                    <form id="addProductForm" style="display: flex; flex-direction: column; gap: 16px;">
+                        <div>
+                            <label style="color: #888; font-size: 12px; display: block; margin-bottom: 4px;">Product Title *</label>
+                            <input type="text" id="productTitle" required style="width: 100%; padding: 12px; border: 1px solid #333; border-radius: 6px; background: #2a2a2a; color: white; font-size: 14px;">
+                        </div>
+                        
+                        <div>
+                            <label style="color: #888; font-size: 12px; display: block; margin-bottom: 4px;">Price (₱) *</label>
+                            <input type="number" id="productPrice" required min="0" step="0.01" style="width: 100%; padding: 12px; border: 1px solid #333; border-radius: 6px; background: #2a2a2a; color: white; font-size: 14px;">
+                        </div>
+                        
+                        <div>
+                            <label style="color: #888; font-size: 12px; display: block; margin-bottom: 4px;">Category *</label>
+                            <select id="productCategory" required style="width: 100%; padding: 12px; border: 1px solid #333; border-radius: 6px; background: #2a2a2a; color: white; font-size: 14px;">
+                                <option value="">Select Category</option>
+                                <option value="digital-art">Digital Art</option>
+                                <option value="music">Music</option>
+                                <option value="services">Services</option>
+                                <option value="instruments">Instruments</option>
+                                <option value="painting">Painting</option>
+                                <option value="sculptures">Sculptures</option>
+                                <option value="art-materials">Art Materials</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label style="color: #888; font-size: 12px; display: block; margin-bottom: 4px;">Product Image</label>
+                            <input type="file" id="productImage" accept="image/*" style="width: 100%; padding: 12px; border: 1px solid #333; border-radius: 6px; background: #2a2a2a; color: white; font-size: 14px;">
+                        </div>
+                        
+                        <div>
+                            <label style="color: #888; font-size: 12px; display: block; margin-bottom: 4px;">Description</label>
+                            <textarea id="productDescription" rows="3" style="width: 100%; padding: 12px; border: 1px solid #333; border-radius: 6px; background: #2a2a2a; color: white; font-size: 14px; resize: vertical;"></textarea>
+                        </div>
+                        
+                        <div style="display: flex; gap: 12px; margin-top: 8px;">
+                            <button type="button" onclick="closeAddProductModal()" style="flex: 1; padding: 12px; border: 1px solid #333; border-radius: 6px; background: transparent; color: white; cursor: pointer;">Cancel</button>
+                            <button type="button" onclick="addProduct()" style="flex: 1; padding: 12px; border: none; border-radius: 6px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; font-weight: bold; cursor: pointer;">Add Product</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -1093,6 +1168,25 @@
             });
         });
 
+        // Category filtering functionality
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            // Update active button
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            products.forEach(product => {
+                const productCategory = product.dataset.category;
+                if (category === 'all' || productCategory === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
         // Category Filter
         const categoryButtons = document.querySelectorAll('.category-btn');
         categoryButtons.forEach(button => {
@@ -1177,6 +1271,76 @@
                 }, 2000);
             });
         });
+
+        // Add Product Modal Functions
+        function openAddProductModal() {
+            document.getElementById('addProductModal').style.display = 'flex';
+        }
+        
+        function closeAddProductModal() {
+            document.getElementById('addProductModal').style.display = 'none';
+        }
+        
+        function addProduct() {
+            const title = document.getElementById('productTitle').value;
+            const price = document.getElementById('productPrice').value;
+            const category = document.getElementById('productCategory').value;
+            const description = document.getElementById('productDescription').value;
+            const imageFile = document.getElementById('productImage').files[0];
+            
+            if (!title || !price || !category) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Create new product card
+            const productsGrid = document.querySelector('#myshop-content .products-grid');
+            const newProduct = document.createElement('div');
+            newProduct.className = 'product-card';
+            newProduct.setAttribute('data-category', category);
+            newProduct.style.cssText = 'background: #1a1a1a; border-radius: 12px; overflow: hidden; border: 1px solid #333;';
+            
+            // Handle image preview
+            let imageHTML = '<div style="width: 100%; height: 120px; background: linear-gradient(45deg, #333, #555); display: flex; align-items: center; justify-content: center; color: #888;"><span>📷</span></div>';
+            
+            if (imageFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    newProduct.querySelector('.product-image').innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 120px; object-fit: cover;">`;
+                };
+                reader.readAsDataURL(imageFile);
+            }
+            
+            newProduct.innerHTML = `
+                <div style="position: relative;" class="product-image">
+                    ${imageHTML}
+                    <div style="position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.7); border-radius: 12px; padding: 4px 8px;">
+                        <span style="color: white; font-size: 10px; font-weight: bold;">NEW</span>
+                    </div>
+                </div>
+                <div style="padding: 12px;">
+                    <h4 style="color: white; font-size: 14px; margin: 0 0 8px 0; font-weight: 600;">${title}</h4>
+                    <p style="color: #ff6b6b; font-size: 16px; font-weight: bold; margin: 0 0 8px 0;">₱${parseFloat(price).toLocaleString()}</p>
+                    ${description ? `<p style="color: #888; font-size: 11px; margin: 0 0 8px 0;">${description}</p>` : ''}
+                    <div style="display: flex; gap: 6px;">
+                        <button onclick="buyProduct()" style="flex: 1; padding: 8px; border: none; border-radius: 6px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; font-size: 11px; font-weight: bold; cursor: pointer;">Buy Now</button>
+                        <button onclick="openChat()" style="padding: 8px; border: 1px solid #333; border-radius: 6px; background: transparent; color: white; font-size: 11px; cursor: pointer;">💬</button>
+                    </div>
+                </div>
+            `;
+            
+            productsGrid.appendChild(newProduct);
+            
+            // Update stats
+            const totalProducts = document.querySelectorAll('#myshop-content .product-card').length;
+            document.querySelector('#myshop-content .stat-number').textContent = totalProducts;
+            
+            // Clear form and close modal
+            document.getElementById('addProductForm').reset();
+            closeAddProductModal();
+            
+            alert('Product added successfully!');
+        }
 
         // Camera and Video Recording Functions
         let currentUser = 'user123';
