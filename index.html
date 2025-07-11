@@ -761,11 +761,14 @@
                 <div class="shop-categories">
                     <button class="category-btn active" onclick="filterCategory('all')">All</button>
                     <button class="category-btn" onclick="filterCategory('digital-art')">Digital Art</button>
+                    <button class="category-btn" onclick="filterCategory('painting')">Painting</button>
+                    <button class="category-btn" onclick="filterCategory('sculptures')">Sculptures</button>
                     <button class="category-btn" onclick="filterCategory('photography')">Photography</button>
                     <button class="category-btn" onclick="filterCategory('prints')">Prints</button>
                     <button class="category-btn" onclick="filterCategory('nfts')">NFTs</button>
                     <button class="category-btn" onclick="filterCategory('services')">Services</button>
                     <button class="category-btn" onclick="filterCategory('instruments')">Musical Instruments</button>
+                    <button class="category-btn" onclick="filterCategory('art-materials')">Art Materials</button>
                 </div>
 
                 <div class="product-grid">
@@ -794,6 +797,82 @@
                             <div class="product-badges">
                                 <span class="badge nft">NFT</span>
                             </div>
+                            <button class="chat-btn" onclick="openChat()">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                                Chat with Seller
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="painting">
+                        <div class="product-image">🖼️</div>
+                        <div class="product-info">
+                            <div class="product-title">Oil Painting - Sunset</div>
+                            <div class="product-price">₱8,500.00</div>
+                            <div class="product-badges">
+                                <span class="badge auction">Auction</span>
+                            </div>
+                            <button class="chat-btn" onclick="openChat()">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                                Chat with Seller
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="sculptures">
+                        <div class="product-image">🗿</div>
+                        <div class="product-info">
+                            <div class="product-title">Bronze Sculpture</div>
+                            <div class="product-price">₱25,000.00</div>
+                            <button class="chat-btn" onclick="openChat()">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                                Chat with Seller
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="art-materials">
+                        <div class="product-image">🎨</div>
+                        <div class="product-info">
+                            <div class="product-title">Professional Paint Set</div>
+                            <div class="product-price">₱3,200.00</div>
+                            <button class="chat-btn" onclick="openChat()">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                                Chat with Seller
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="painting">
+                        <div class="product-image">🎭</div>
+                        <div class="product-info">
+                            <div class="product-title">Watercolor Portrait</div>
+                            <div class="product-price">₱4,750.00</div>
+                            <div class="product-badges">
+                                <span class="badge auction">Auction</span>
+                            </div>
+                            <button class="chat-btn" onclick="openChat()">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                                Chat with Seller
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="art-materials">
+                        <div class="product-image">✏️</div>
+                        <div class="product-info">
+                            <div class="product-title">Drawing Pencil Set</div>
+                            <div class="product-price">₱850.00</div>
                             <button class="chat-btn" onclick="openChat()">
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
