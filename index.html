@@ -335,24 +335,31 @@
                         
                         <div class="absolute right-4 bottom-24 flex flex-col space-y-4">
                             <div class="text-center">
-                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all brush-btn" onclick="toggleBrush(this)">
-                                    <i class="fas fa-paint-brush text-xl brush-icon"></i>
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all brush-btn" onclick="toggleBrush(this)" data-count="2100">
+                                    <i class="fas fa-paint-brush text-xl text-gray-400"></i>
                                 </button>
                                 <div class="text-xs text-gray-400 brush-count">2.1K</div>
                             </div>
                             
                             <div class="text-center">
-                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all comment-btn" onclick="toggleComments(this)">
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all comment-btn" onclick="toggleComments(this)" data-count="89">
                                     <i class="fas fa-comment text-xl"></i>
                                 </button>
                                 <div class="text-xs text-gray-400 comment-count">89</div>
                             </div>
                             
                             <div class="text-center">
-                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all share-btn" onclick="shareVideo(this)">
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all bid-btn" onclick="showBidModal(this)" data-auction="true">
+                                    <i class="fas fa-gavel text-xl text-yellow-400"></i>
+                                </button>
+                                <div class="text-xs text-gray-400">Bid</div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all share-btn" onclick="shareVideo(this)" data-count="34">
                                     <i class="fas fa-share text-xl"></i>
                                 </button>
-                                <div class="text-xs text-gray-400">Share</div>
+                                <div class="text-xs text-gray-400 share-count">34</div>
                             </div>
 
                             <!-- Shopping Cart Icon for Product-linked Videos -->
@@ -365,24 +372,32 @@
                         </div>
                         
                         <div class="absolute bottom-4 left-4 right-20">
+                            <!-- Shopping Cart Icon for Product-linked Videos -->
+                            <div class="flex items-center space-x-2 mb-2">
+                                <i class="fas fa-shopping-cart text-yellow-400 text-lg"></i>
+                                <span class="text-xs text-gray-300">2 products linked</span>
+                            </div>
+                            
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center space-x-3">
                                     <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
                                          alt="Artist" class="w-10 h-10 rounded-full">
                                     <div>
-                                        <div class="font-semibold">@artista_maya</div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="font-semibold">@artista_maya</span>
+                                            <button class="follow-btn bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium hover:from-pink-600 hover:to-purple-700 transition-all" onclick="toggleFollow(this)">
+                                                Follow
+                                            </button>
+                                        </div>
                                         <div class="text-sm text-gray-400">Digital Artist</div>
                                     </div>
                                 </div>
-                                <button class="follow-btn px-4 py-2 rounded-full text-sm font-medium">
-                                    Follow
-                                </button>
                             </div>
                             <p class="text-sm text-gray-300">Creating magic with colors ✨ #art #painting #creative</p>
                             
                             <!-- Comments Section (Hidden by default) -->
-                            <div class="comments-section hidden mt-4 rounded-lg p-4">
-                                <div class="max-h-40 overflow-y-auto space-y-2 mb-3">
+                            <div class="comments-section hidden mt-4 bg-gray-800 rounded-lg p-4">
+                                <div class="max-h-32 overflow-y-auto space-y-2 mb-3">
                                     <div class="flex items-start space-x-2">
                                         <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=30&h=30&fit=crop" alt="User" class="w-6 h-6 rounded-full">
                                         <div>
@@ -399,8 +414,8 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-2">
-                                    <input type="text" placeholder="Add a comment..." class="flex-1 bg-gray-700 text-white px-3 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-pink-500">
-                                    <button class="bg-pink-500 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-600 transition-colors">Post</button>
+                                    <input type="text" placeholder="Add a comment..." class="flex-1 bg-gray-700 text-white px-3 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 comment-input">
+                                    <button class="bg-pink-500 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-600 transition-colors" onclick="addComment(this)">Post</button>
                                 </div>
                             </div>
                         </div>
@@ -425,24 +440,31 @@
                         
                         <div class="absolute right-4 bottom-24 flex flex-col space-y-4">
                             <div class="text-center">
-                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all brush-btn" onclick="toggleBrush(this)">
-                                    <i class="fas fa-paint-brush text-xl brush-icon"></i>
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all brush-btn" onclick="toggleBrush(this)" data-count="5700">
+                                    <i class="fas fa-paint-brush text-xl text-gray-400"></i>
                                 </button>
                                 <div class="text-xs text-gray-400 brush-count">5.7K</div>
                             </div>
                             
                             <div class="text-center">
-                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all comment-btn" onclick="toggleComments(this)">
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all comment-btn" onclick="toggleComments(this)" data-count="234">
                                     <i class="fas fa-comment text-xl"></i>
                                 </button>
                                 <div class="text-xs text-gray-400 comment-count">234</div>
                             </div>
                             
                             <div class="text-center">
-                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all share-btn" onclick="shareVideo(this)">
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all tip-btn" onclick="showTipModal(this)" data-auction="false">
+                                    <i class="fas fa-coins text-xl text-white"></i>
+                                </button>
+                                <div class="text-xs text-gray-400">Tip</div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button class="action-btn p-3 rounded-full hover:scale-105 transition-all share-btn" onclick="shareVideo(this)" data-count="156">
                                     <i class="fas fa-share text-xl"></i>
                                 </button>
-                                <div class="text-xs text-gray-400">Share</div>
+                                <div class="text-xs text-gray-400 share-count">156</div>
                             </div>
 
                             <!-- Tip Button for Busking -->
@@ -460,21 +482,23 @@
                                     <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" 
                                          alt="Musician" class="w-10 h-10 rounded-full">
                                     <div>
-                                        <div class="font-semibold">@guitar_master</div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="font-semibold">@guitar_master</span>
+                                            <button class="follow-btn bg-gradient-to-r from-pink-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-medium hover:from-pink-600 hover:to-purple-700 transition-all" onclick="toggleFollow(this)">
+                                                Follow
+                                            </button>
+                                        </div>
                                         <div class="text-sm text-gray-400">Street Musician</div>
                                     </div>
                                 </div>
-                                <button class="follow-btn px-4 py-2 rounded-full text-sm font-medium">
-                                    Follow
-                                </button>
                             </div>
                             <p class="text-sm text-gray-300">Live guitar session! Request your favorite songs 🎸 #music #live #guitar</p>
                             
                             <!-- Comments Section (Hidden by default) -->
-                            <div class="comments-section hidden mt-4 rounded-lg p-4">
-                                <div class="max-h-40 overflow-y-auto space-y-2 mb-3">
+                            <div class="comments-section hidden mt-4 bg-gray-800 rounded-lg p-4">
+                                <div class="max-h-32 overflow-y-auto space-y-2 mb-3">
                                     <div class="flex items-start space-x-2">
-                                        <img src="https://images.pexels.com/photos/1040881/pexels-photo-1040881.jpeg?auto=compress&cs=tinysrgb&w=30&h=30&fit=crop" alt="User" class="w-6 h-6 rounded-full">
+                                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=30&h=30&fit=crop" alt="User" class="w-6 h-6 rounded-full">
                                         <div>
                                             <span class="text-white text-sm font-medium">@fan1</span>
                                             <p class="text-gray-300 text-sm">Great performance! 🎸</p>
@@ -482,8 +506,8 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-2">
-                                    <input type="text" placeholder="Add a comment..." class="flex-1 bg-gray-700 text-white px-3 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-pink-500">
-                                    <button class="bg-pink-500 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-600 transition-colors">Post</button>
+                                    <input type="text" placeholder="Add a comment..." class="flex-1 bg-gray-700 text-white px-3 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-pink-500 comment-input">
+                                    <button class="bg-pink-500 text-white px-4 py-2 rounded-full text-sm hover:bg-pink-600 transition-colors" onclick="addComment(this)">Post</button>
                                 </div>
                             </div>
                         </div>
@@ -1235,13 +1259,35 @@
                 </div>
                 <div class="space-y-4">
                     <div class="grid grid-cols-3 gap-2">
-                        <button class="tip-amount bg-gray-700 text-white py-2 rounded-lg hover:bg-pink-500 transition-colors" data-amount="50">₱50</button>
-                        <button class="tip-amount bg-gray-700 text-white py-2 rounded-lg hover:bg-pink-500 transition-colors" data-amount="100">₱100</button>
-                        <button class="tip-amount bg-gray-700 text-white py-2 rounded-lg hover:bg-pink-500 transition-colors" data-amount="200">₱200</button>
+                        <button class="tip-amount bg-gray-700 text-white py-2 rounded-lg hover:bg-pink-500 transition-colors" onclick="selectTipAmount(50)">₱50</button>
+                        <button class="tip-amount bg-gray-700 text-white py-2 rounded-lg hover:bg-pink-500 transition-colors" onclick="selectTipAmount(100)">₱100</button>
+                        <button class="tip-amount bg-gray-700 text-white py-2 rounded-lg hover:bg-pink-500 transition-colors" onclick="selectTipAmount(200)">₱200</button>
                     </div>
-                    <input type="number" placeholder="Custom amount" class="w-full bg-gray-700 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
-                    <button class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 rounded-lg font-medium hover:from-pink-600 hover:to-purple-700 transition-all">
+                    <input type="number" id="customTipAmount" placeholder="Custom amount" class="w-full bg-gray-700 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500">
+                    <button class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 rounded-lg font-medium hover:from-pink-600 hover:to-purple-700 transition-all" onclick="sendTip()">
                         Send Tip
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bid Modal -->
+        <div id="bidModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+            <div class="bg-gray-800 rounded-lg p-6 w-80">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-white text-lg font-medium">Place Bid</h3>
+                    <button onclick="closeBidModal()" class="text-gray-400 hover:text-white">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-center">
+                        <p class="text-gray-400 text-sm">Current Bid</p>
+                        <p class="text-white text-2xl font-bold" id="currentBidAmount">₱8,500</p>
+                    </div>
+                    <input type="number" id="bidAmount" placeholder="Your bid amount" class="w-full bg-gray-700 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500" min="8501">
+                    <button class="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white py-2 rounded-lg font-medium hover:from-orange-600 hover:to-red-700 transition-all" onclick="placeBid()">
+                        Place Bid
                     </button>
                 </div>
             </div>
@@ -1257,21 +1303,21 @@
                     </button>
                 </div>
                 <div class="grid grid-cols-3 gap-4">
-                    <button class="flex flex-col items-center space-y-2 p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                    <button class="flex flex-col items-center space-y-2 p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors" onclick="shareToSocial('facebook')">
                         <i class="fab fa-facebook text-blue-500 text-2xl"></i>
                         <span class="text-white text-sm">Facebook</span>
                     </button>
-                    <button class="flex flex-col items-center space-y-2 p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                    <button class="flex flex-col items-center space-y-2 p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors" onclick="shareToSocial('twitter')">
                         <i class="fab fa-twitter text-blue-400 text-2xl"></i>
                         <span class="text-white text-sm">Twitter</span>
                     </button>
-                    <button class="flex flex-col items-center space-y-2 p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                    <button class="flex flex-col items-center space-y-2 p-3 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors" onclick="shareToSocial('instagram')">
                         <i class="fab fa-instagram text-pink-500 text-2xl"></i>
                         <span class="text-white text-sm">Instagram</span>
                     </button>
                 </div>
                 <div class="mt-4">
-                    <input type="text" value="https://picasso.app/video/123" class="w-full bg-gray-700 text-white px-3 py-2 rounded-lg text-sm" readonly>
+                    <input type="text" id="shareLink" value="https://picasso.app/video/123" class="w-full bg-gray-700 text-white px-3 py-2 rounded-lg text-sm" readonly>
                     <button class="w-full mt-2 bg-green-500 text-white py-2 rounded-lg text-sm hover:bg-green-600 transition-colors" onclick="copyLink()">
                         Copy Link
                     </button>
@@ -1423,61 +1469,124 @@
             });
         });
 
-        // Interactive button functions
+        // Real-time interactive functions
         function toggleBrush(element) {
-            const countElement = element.closest('.text-center').querySelector('.brush-count');
             const icon = element.querySelector('i');
-            let count = parseInt(countElement.textContent.replace('K', '').replace('.', ''));
+            const countElement = element.parentElement.querySelector('.brush-count');
+            let count = parseInt(element.dataset.count);
             
             if (icon.classList.contains('text-pink-500')) {
-                // Already liked, unlike
+                // Unlike
                 count--;
                 icon.classList.remove('text-pink-500');
                 icon.classList.add('text-gray-400');
+                element.dataset.liked = 'false';
             } else {
-                // Not liked, like
+                // Like
                 count++;
                 icon.classList.remove('text-gray-400');
                 icon.classList.add('text-pink-500');
-                // Add animation
-                icon.style.transform = 'scale(1.2)';
+                element.dataset.liked = 'true';
+                
+                // Animation effect
+                icon.style.transform = 'scale(1.3)';
                 setTimeout(() => {
                     icon.style.transform = 'scale(1)';
                 }, 200);
             }
             
-            // Update count display
-            if (count >= 1000) {
-                countElement.textContent = (count / 1000).toFixed(1) + 'K';
-            } else {
-                countElement.textContent = count;
-            }
+            element.dataset.count = count;
+            countElement.textContent = formatCount(count);
         }
 
         function toggleComments(element) {
-            const videoCard = element.closest('.bg-gray-900');
+            const videoCard = element.closest('.relative');
             const commentsSection = videoCard.querySelector('.comments-section');
             
             if (commentsSection.classList.contains('hidden')) {
                 commentsSection.classList.remove('hidden');
+                commentsSection.style.animation = 'slideUp 0.3s ease-out';
             } else {
                 commentsSection.classList.add('hidden');
             }
         }
 
+        function addComment(button) {
+            const input = button.previousElementSibling;
+            const commentText = input.value.trim();
+            
+            if (commentText) {
+                const commentsContainer = button.closest('.comments-section').querySelector('.overflow-y-auto');
+                const newComment = document.createElement('div');
+                newComment.className = 'flex items-start space-x-2';
+                newComment.innerHTML = `
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=30&h=30&fit=crop" alt="User" class="w-6 h-6 rounded-full">
+                    <div>
+                        <span class="text-white text-sm font-medium">@you</span>
+                        <p class="text-gray-300 text-sm">${commentText}</p>
+                    </div>
+                `;
+                
+                commentsContainer.appendChild(newComment);
+                input.value = '';
+                
+                // Update comment count
+                const commentBtn = button.closest('.relative').querySelector('.comment-btn');
+                const countElement = commentBtn.parentElement.querySelector('.comment-count');
+                let count = parseInt(commentBtn.dataset.count);
+                count++;
+                commentBtn.dataset.count = count;
+                countElement.textContent = formatCount(count);
+                
+                // Scroll to bottom
+                commentsContainer.scrollTop = commentsContainer.scrollHeight;
+            }
+        }
+
         function shareVideo(element) {
             document.getElementById('shareModal').classList.remove('hidden');
+            
+            // Update share count
+            const countElement = element.parentElement.querySelector('.share-count');
+            let count = parseInt(element.dataset.count);
+            count++;
+            element.dataset.count = count;
+            countElement.textContent = formatCount(count);
         }
 
         function closeShareModal() {
             document.getElementById('shareModal').classList.add('hidden');
         }
 
+        function shareToSocial(platform) {
+            const link = document.getElementById('shareLink').value;
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(link)}&text=Check out this amazing art!`;
+                    break;
+                case 'instagram':
+                    // Instagram doesn't support direct URL sharing, so copy to clipboard
+                    copyLink();
+                    showNotification('Link copied! Paste it in Instagram');
+                    return;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+            closeShareModal();
+        }
+
         function copyLink() {
-            const input = document.querySelector('#shareModal input');
+            const input = document.getElementById('shareLink');
             input.select();
             document.execCommand('copy');
-            alert('Link copied to clipboard!');
+            showNotification('Link copied to clipboard!');
         }
 
         function showTipModal(element) {
@@ -1487,6 +1596,121 @@
         function closeTipModal() {
             document.getElementById('tipModal').classList.add('hidden');
         }
+
+        function selectTipAmount(amount) {
+            document.getElementById('customTipAmount').value = amount;
+            
+            // Visual feedback
+            document.querySelectorAll('.tip-amount').forEach(btn => {
+                btn.classList.remove('bg-pink-500');
+                btn.classList.add('bg-gray-700');
+            });
+            event.target.classList.remove('bg-gray-700');
+            event.target.classList.add('bg-pink-500');
+        }
+
+        function sendTip() {
+            const amount = document.getElementById('customTipAmount').value;
+            if (amount && amount > 0) {
+                showNotification(`Tip of ₱${amount} sent successfully!`);
+                closeTipModal();
+            } else {
+                alert('Please enter a valid tip amount');
+            }
+        }
+
+        function showBidModal(element) {
+            const isAuction = element.dataset.auction === 'true';
+            if (isAuction) {
+                document.getElementById('bidModal').classList.remove('hidden');
+            } else {
+                showTipModal(element);
+            }
+        }
+
+        function closeBidModal() {
+            document.getElementById('bidModal').classList.add('hidden');
+        }
+
+        function placeBid() {
+            const bidAmount = document.getElementById('bidAmount').value;
+            const currentBid = parseInt(document.getElementById('currentBidAmount').textContent.replace(/[₱,]/g, ''));
+            
+            if (bidAmount && parseInt(bidAmount) > currentBid) {
+                document.getElementById('currentBidAmount').textContent = `₱${parseInt(bidAmount).toLocaleString()}`;
+                showNotification(`Bid of ₱${parseInt(bidAmount).toLocaleString()} placed successfully!`);
+                closeBidModal();
+            } else {
+                alert(`Please enter a bid higher than ₱${currentBid.toLocaleString()}`);
+            }
+        }
+
+        function toggleFollow(button) {
+            if (button.textContent.trim() === 'Follow') {
+                button.textContent = 'Following';
+                button.classList.remove('from-pink-500', 'to-purple-600');
+                button.classList.add('bg-gray-600');
+                showNotification('Now following this user!');
+            } else {
+                button.textContent = 'Follow';
+                button.classList.remove('bg-gray-600');
+                button.classList.add('from-pink-500', 'to-purple-600');
+            }
+        }
+
+        function formatCount(count) {
+            if (count >= 1000000) {
+                return (count / 1000000).toFixed(1) + 'M';
+            } else if (count >= 1000) {
+                return (count / 1000).toFixed(1) + 'K';
+            }
+            return count.toString();
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-24 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-6 py-3 rounded-full z-50 transition-all border border-gray-600';
+            notification.innerHTML = `<i class="fas fa-check mr-2 text-green-400"></i>${message}`;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translate(-50%, 0)';
+            }, 100);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translate(-50%, -100px)';
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .brush-btn i {
+                transition: all 0.2s ease;
+            }
+            
+            .brush-btn:hover i {
+                transform: scale(1.1);
+            }
+        `;
+        document.head.appendChild(style);
 
         function viewLinkedProducts(element) {
             document.getElementById('linkedProductsModal').classList.remove('hidden');
